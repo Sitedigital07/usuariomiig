@@ -1,0 +1,13 @@
+{
+    "name": "digitalmiig/usuariomiig",
+    "description": "Gestion y administracion de usuarios para la plataforma MIIG de Libros y LIbros",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Site Digital",
+            "email": "info@sitedigital.com.co"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
