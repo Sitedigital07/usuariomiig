@@ -88,7 +88,7 @@ Route::get('/crear-representante', function () {
 Route::post('/crearrepresentante', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@create');
 
 Route::get('/editar-representante/{id}', function ($id) {
-    $categories = App\Region::all();
+    $categories = Digitalmiig\Usuariomiig\Region::all();
     $represen = DB::table('representantes')->where('id', $id)->get();
     $representantes = DB::table('representantes')
     ->join('regiones', 'regiones.id', '=', 'representantes.region_id')
@@ -134,11 +134,11 @@ Route::get('/colegios-asignados/{id}', 'Digitalmiig\Usuariomiig\Controllers\Repr
 
 Route::get('proyeccionventas/{id}', function ($id) {
     $asignaturas = DB::table('datos')->where('colegio_id', '=', $id)->get();
-    $categories = App\Grado::all();
+    $categories = Digitalmiig\Titulomiig\Grado::all();
     $grados = DB::table('grados')->get();
-    $region = App\Colegio::find($id);
+    $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $data = DB::table('campos')->where('colegio_id', $id)->whereIn('grado_id', [1, 2, 3])->exists();
-    $visuales = App\Colegio::find($id);
+    $visuales = Digitalmiig\Colegiomiig\Colegio::find($id);
     $titulo = DB::table('titulo')->get();
     $colegios = DB::table('colegios')->where('id','=',$id)->get();
     $editorial = DB::table('editoriales')->get();
