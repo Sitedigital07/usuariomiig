@@ -35,7 +35,7 @@ class RepresentantesController extends Controller
     public function representantes()
     {
 
-        $representantes = DB::table('representantes')->where('region_id','=', Auth::user()->region)->get();
+        $representantes = DB::table('representantes')->where('region_id','=', Auth::user()->regionid)->get();
         return view('usuariomiig::representantes-region')->with('representantes', $representantes);
     }
 

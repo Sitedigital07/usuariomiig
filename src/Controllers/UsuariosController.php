@@ -107,7 +107,8 @@ public function index()
         ->join('users','rols.id','=','users.rol_id')
         ->where('users.id', '=', $id)->get();
         $usuarios = User::find($id);
-        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols);
+        $regiones = DB::table('regiones')->get();
+        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones);
     }
 
     /**
