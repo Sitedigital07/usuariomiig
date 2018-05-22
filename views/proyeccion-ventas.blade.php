@@ -1110,67 +1110,67 @@ function mostrar(id) {
     <select id="status" class="form-control input-md" name="status" onChange="mostrar(this.value);">
        <option value="" selected>Seleccione grado</option>
 
-       @if (DB::table('campos')->where('grado_id', '=', 1)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 1)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="primero" disabled>Primero</option>
        @else
        <option value="primero">Primero</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 2)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 2)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
         <option value="segundo" disabled>Segundo</option>
        @else
        <option value="segundo">Segundo</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 3)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 3)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="tercero" disabled>Tercero</option>
        @else
        <option value="tercero">Tercero</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 4)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 4)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="cuarto" disabled>Cuarto</option>
        @else
        <option value="cuarto">Cuarto</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 5)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 5)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="quinto" disabled>Quinto</option>
        @else
        <option value="quinto">Quinto</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 6)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 6)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="sexto" disabled>Sexto</option>
        @else
        <option value="sexto">Sexto</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 7)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 7)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="septimo" disabled>Séptimo</option>
        @else
        <option value="septimo">Séptimo</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 8)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 8)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="octavo" disabled>Octavo</option>
        @else
        <option value="octavo">Octavo</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 9)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 9)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="noveno" disabled>Noveno</option>
        @else
        <option value="noveno">Noveno</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 10)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 10)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="decimo" disabled>Décimo</option>
        @else
        <option value="decimo">Décimo</option>
        @endif
 
-       @if (DB::table('campos')->where('grado_id', '=', 11)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       @if (DB::table('proventas')->where('grado_id', '=', 11)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="once" disabled>Once</option>
        @else
        <option value="once">Once</option>
