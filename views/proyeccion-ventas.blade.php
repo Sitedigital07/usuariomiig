@@ -1208,7 +1208,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulo as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 1)
@@ -1289,7 +1289,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 3)
@@ -1328,7 +1328,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 4)
@@ -1369,7 +1369,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 5)
@@ -1409,7 +1409,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 6)
@@ -1449,7 +1449,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
       @if($titulo->asignatura == 7)
@@ -1504,7 +1504,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 1)
@@ -1544,7 +1544,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 2)
@@ -1584,7 +1584,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 3)
@@ -1625,7 +1625,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 4)
@@ -1667,7 +1667,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 5)
@@ -1708,7 +1708,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 6)
@@ -1750,7 +1750,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
       @if($titulo->asignatura == 7)
@@ -1804,7 +1804,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 1)
@@ -1843,7 +1843,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 2)
@@ -1883,7 +1883,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 3)
@@ -1924,7 +1924,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 4)
@@ -1965,7 +1965,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 5)
@@ -2006,7 +2006,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 6)
@@ -2046,7 +2046,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
       @if($titulo->asignatura == 7)
@@ -2101,7 +2101,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 1)
@@ -2140,7 +2140,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 2)
@@ -2180,7 +2180,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 3)
@@ -2221,7 +2221,7 @@ function mostrar(id) {
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 4)
@@ -2263,7 +2263,7 @@ function mostrar(id) {
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 5)
@@ -2304,7 +2304,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 6)
@@ -2345,7 +2345,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
       @if($titulo->asignatura == 7)
@@ -2400,7 +2400,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 1)
@@ -2439,7 +2439,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 2)
@@ -2478,7 +2478,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 3)
@@ -2518,7 +2518,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 4)
@@ -2559,7 +2559,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 5)
@@ -2599,7 +2599,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 6)
@@ -2638,7 +2638,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
       @if($titulo->asignatura == 7)
@@ -2693,7 +2693,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 1)
@@ -2733,7 +2733,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 2)
@@ -2773,7 +2773,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 3)
@@ -2814,7 +2814,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 4)
@@ -2856,7 +2856,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 5)
@@ -2897,7 +2897,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 6)
@@ -2937,7 +2937,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
       @if($titulo->asignatura == 7)
@@ -2992,7 +2992,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 1)
@@ -3031,7 +3031,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 2)
@@ -3070,7 +3070,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 3)
@@ -3109,7 +3109,7 @@ function mostrar(id) {
 
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 4)
@@ -3149,7 +3149,7 @@ function mostrar(id) {
     </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 5)
@@ -3189,7 +3189,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 6)
@@ -3229,7 +3229,7 @@ function mostrar(id) {
 
          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
       @if($titulo->asignatura == 7)
@@ -3284,7 +3284,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 1)
@@ -3323,7 +3323,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 2)
@@ -3361,7 +3361,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 3)
@@ -3401,7 +3401,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 4)
@@ -3442,7 +3442,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 5)
@@ -3482,7 +3482,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 6)
@@ -3522,7 +3522,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
       @if($titulo->asignatura == 7)
@@ -3576,7 +3576,7 @@ function mostrar(id) {
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9a" class="element">
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 1)
@@ -3615,7 +3615,7 @@ function mostrar(id) {
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 2)
@@ -3653,7 +3653,7 @@ function mostrar(id) {
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 3)
@@ -3692,7 +3692,7 @@ function mostrar(id) {
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 4)
@@ -3733,7 +3733,7 @@ function mostrar(id) {
     
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 5)
@@ -3774,7 +3774,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 6)
@@ -3814,7 +3814,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
       @if($titulo->asignatura == 7)
@@ -3868,7 +3868,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/> 
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 1)
@@ -3898,7 +3898,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
     <select class="form-control input-sm" name="edt[]" id="category10b" required/>
-     <option value="0" selected>Seleccione editorial</option>
+     <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
       @endforeach
@@ -3947,7 +3947,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 3)
@@ -3988,7 +3988,7 @@ function mostrar(id) {
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10d" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 4)
@@ -4030,7 +4030,7 @@ function mostrar(id) {
     
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 5)
@@ -4070,7 +4070,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 6)
@@ -4110,7 +4110,7 @@ function mostrar(id) {
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
       @if($titulo->asignatura == 7)
@@ -4165,7 +4165,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11a" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 1)
@@ -4204,7 +4204,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11b" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 2)
@@ -4243,7 +4243,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11c" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 3)
@@ -4323,7 +4323,7 @@ function mostrar(id) {
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11e" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 5)
@@ -4363,7 +4363,7 @@ function mostrar(id) {
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11f" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 6)
@@ -4403,7 +4403,7 @@ function mostrar(id) {
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11g" class="element" hidden>
     <select class="form-control input-sm" name="titulo[]" id="category" required/>
-     <option value="" selected>Seleccione editorial</option>
+     <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
       @if($titulo->asignatura == 7)
