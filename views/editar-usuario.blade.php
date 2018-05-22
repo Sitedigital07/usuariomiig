@@ -81,7 +81,9 @@ Gestión de usuarios Libros & Libros
                                             <label class="col-md-3 control-label" for="example-text-input">Región</label>
                                             <div class="col-md-9">
                                                 <select id="example-select" name="region" class="form-control">
-                                                    <option value="" disabled selected>Seleccione Región</option>
+                                                     @foreach($usuariosregion as $usuariosregion)
+                                                    <option value="{{$usuariosregion->regionid}}" selected>{{$usuariosregion->region}}</option>
+                                                     @endforeach
                                                @foreach($regiones as $regiones)
                                                       <option value="{{$regiones->id}}">{{$regiones->region}}</option>
                                                @endforeach

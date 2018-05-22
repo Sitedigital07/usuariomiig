@@ -42,7 +42,7 @@ public function index()
         $user->address = Input::get('address');
         $user->phone = Input::get('phone');;
         $user->rol_id = Input::get('level');
-        $user->region = Input::get('region');
+        $user->regionid = Input::get('region');
         $user->identidad = Input::get('identidad');
         $user->remember_token = Input::get('_token');
         $user->password = Hash::make($password);
@@ -107,8 +107,11 @@ public function index()
         ->join('users','rols.id','=','users.rol_id')
         ->where('users.id', '=', $id)->get();
         $usuarios = User::find($id);
+        $usuariosregion = DB::table('users')
+        ->join('regiones','regiones.id','=','users.regionid')
+        ->where('users.id', '=', $id)->get();
         $regiones = DB::table('regiones')->get();
-        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones);
+        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones)->with('usuariosregion', $usuariosregion);
     }
 
     /**
@@ -127,7 +130,7 @@ public function index()
     $user->email = Input::get('email');
     $user->address = Input::get('address');
     $user->phone = Input::get('phone');
-    $user->region = Input::get('region');
+    $user->regionid = Input::get('region');
     $user->save();
     return Redirect('/usuarios')->with('status', 'ok_update');
     }
