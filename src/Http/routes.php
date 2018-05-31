@@ -55,7 +55,7 @@ Route::post('login', function(){
     return Redirect::to('/');
 });
 
-
+Route::group(['middleware' => ['auditor']], function (){
 Route::get('/usuarios', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@index');
 
 Route::post('/crearusuario', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@create');
@@ -72,11 +72,11 @@ Route::post('/update-usuario/{id}', 'Digitalmiig\Usuariomiig\Controllers\Usuario
 
 Route::get('/eliminar-usuario/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@destroy');
 
+});
 
 
 
-
-
+Route::group(['middleware' => ['auditor']], function (){
 
 Route::get('/representantes', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@index');
 
@@ -106,16 +106,15 @@ Route::get('generar-usuario/{id}', function ($id) {
     return view('usuariomiig::generador')->with('representantes',$representantes);
 });
 
+});
 
 
-
-
+Route::group(['middleware' => ['auditor']], function (){
 
 Route::get('/configuracion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracion');
 
 Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracionupdate');
-
-
+});
 
 // Rol Asistente
 
@@ -124,7 +123,7 @@ Route::group(['middleware' => ['asistente']], function (){
 Route::get('/asistente-representantes', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@representantes');
 Route::get('/colegios-region', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@region');
 Route::get('/asistente-ciudades', 'Digitalmiig\Colegiomiig\Controllers\CiudadesController@index');
-});
+
 
 Route::get('/asistente', function () {
     return view('usuariomiig::asistente');
@@ -151,4 +150,12 @@ Route::get('proyeccionventas/{id}', function ($id) {
 
 Route::post('/crearproventa', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createproventaweb');
 
+});
+
+Route::get('/usuario/ajax-subcat',function(){
+
+        $cat_id = Input::get('cat_id');
+        $subcategories = Digitalmiig\Colegiomiig\Ciudad::where('region_id', '=', $cat_id)->get();
+        return Response::json($subcategories);
+});
 

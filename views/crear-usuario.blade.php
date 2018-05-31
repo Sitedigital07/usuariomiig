@@ -20,10 +20,10 @@ Gestión de usuarios Libros & Libros
 <div class="content-header">
                             <ul class="nav-horizontal text-center">
                                 <li>
-                                    <a href="/usuarios"><i class="fa fa-home"></i> Usuarios</a>
+                                    <a href="/usuarios"><i class="fa fa-user"></i> Usuarios</a>
                                 </li>
                                 <li class="active">
-                                    <a href="/crear-usuario"><i class="gi gi-charts"></i> Crear usuario</a>
+                                    <a href="/crear-usuario"><i class="fa fa-user-plus"></i> Crear usuario</a>
                                 </li>
                             </ul>
                         </div>
@@ -117,7 +117,7 @@ Gestión de usuarios Libros & Libros
                                         
                                         <div class="form-group form-actions">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Crear usuario</button>
                                                 <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
                                             </div>
                                         </div>

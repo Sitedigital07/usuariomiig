@@ -16,10 +16,10 @@ Gestión de usuarios Libros & Libros
 <div class="content-header">
                             <ul class="nav-horizontal text-center">
                                 <li class="active">
-                                    <a href="/usuarios"><i class="fa fa-home"></i> Usuarios</a>
+                                    <a href="/usuarios"><i class="fa fa-users"></i> Usuarios</a>
                                 </li>
                                 <li>
-                                    <a href="/crear-usuario"><i class="gi gi-charts"></i> Crear usuario</a>
+                                    <a href="/crear-usuario"><i class="fa fa-user-plus"></i> Crear usuario</a>
                                 </li>
                             </ul>
                         </div>

@@ -181,6 +181,52 @@ $(document).ready(function() {
                 }
             },
 
+            apellido: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo apellido es requerido'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 150,
+                        message: 'El campo nombre debe contener un minimo de 2 y un maximo de 150 Caracteres'
+                    },
+                    regexp: {
+                        regexp: /^[- a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+            identificacion: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo identificacion es requerido'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 150,
+                        message: 'El campo nombre debe contener un minimo de 2 y un maximo de 150 Caracteres'
+                    },
+                    regexp: {
+                        regexp: /^[- a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+                  subcategory: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo identificacion es requerido'
+                    },
+                   
+                }
+            },
+
 
  email: {
                 validators: {

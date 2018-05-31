@@ -12,6 +12,7 @@ use Digitalmiig\Usuariomiig\User;
 
 class UsuariosController extends Controller{
 
+
    /**
      * Display a listing of the resource.
      *
@@ -43,6 +44,7 @@ public function index()
         $user->phone = Input::get('phone');;
         $user->rol_id = Input::get('level');
         $user->regionid = Input::get('region');
+        $user->ciudadid = Input::get('agencia');
         $user->identidad = Input::get('identidad');
         $user->remember_token = Input::get('_token');
         $user->password = Hash::make($password);
@@ -131,6 +133,7 @@ public function index()
     $user->address = Input::get('address');
     $user->phone = Input::get('phone');
     $user->regionid = Input::get('region');
+    $user->ciudadid = Input::get('agencia');
     $user->save();
     return Redirect('/usuarios')->with('status', 'ok_update');
     }

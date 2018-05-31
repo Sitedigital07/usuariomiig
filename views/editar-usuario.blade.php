@@ -24,7 +24,7 @@ Gestión de usuarios Libros & Libros
                                         <div class="block-options pull-right">
                                             <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class">No Borders</a>
                                         </div>
-                                        <h2><strong>Crear</strong> usuarios</h2>
+                                        <h2><strong>Editar</strong> usuario</h2>
                                     </div>
                                     <!-- END Form Elements Title -->
 
@@ -80,17 +80,30 @@ Gestión de usuarios Libros & Libros
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">Región</label>
                                             <div class="col-md-9">
-                                                <select id="example-select" name="region" class="form-control">
+                                                <select id="region" name="region" class="form-control">
+
                                                      @foreach($usuariosregion as $usuariosregion)
                                                     <option value="{{$usuariosregion->regionid}}" selected>{{$usuariosregion->region}}</option>
                                                      @endforeach
+                                                    
                                                @foreach($regiones as $regiones)
                                                       <option value="{{$regiones->id}}">{{$regiones->region}}</option>
                                                @endforeach
                                            </select>
                                             </div>
                                         </div>
-                                       
+
+                                            <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Agencia</label>
+                                            <div class="col-md-9">
+                                              <select class="form-control selector" name="agencia" id="agencia">
+                                                <option value="0" selected>Seleccione agencia</option>
+                                             <option value="1"></option>
+                                            </select> 
+                                            </div>
+                                        </div>
+
+
                                         <div class="form-group form-actions">
                                             <div class="col-md-9 col-md-offset-3">
                                                 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
@@ -203,6 +216,20 @@ email: {
 
 </script>
 
+ <script type="text/javascript">
+     
+      $('#region').on('change',function(e){
+        console.log(e);
 
+        var cat_id = e.target.value;
+
+        $.get('/usuario/ajax-subcat?cat_id=' + cat_id, function(data){
+            $('#agencia').empty();
+            $.each(data, function(index, subcatObj){
+              $('#agencia').append('<option value="'+subcatObj.ids+'">'+subcatObj.n_ciudad+'</option>');
+            });
+        });
+      });
+   </script>   
 
 @stop

@@ -57,7 +57,7 @@ Gestión de usuarios Libros & Libros
 
 
 
-    <script type="text/javascript">
+      <script type="text/javascript">
     $( function() {
     $("#category1a").change( function() {
         if ($(this).val() === "1") {
@@ -927,6 +927,42 @@ Gestión de usuarios Libros & Libros
     });
     </script>
 
+          <script type="text/javascript">
+    $( function() {
+    $("#category12h").change( function() {
+        if ($(this).val() === "1") {
+            $("#12h").prop("hidden", false);
+        } else {
+            $("#12h").prop("hidden", true);
+        }
+    });
+    });
+    </script>
+
+          <script type="text/javascript">
+    $( function() {
+    $("#category13i").change( function() {
+        if ($(this).val() === "1") {
+            $("#13i").prop("hidden", false);
+        } else {
+            $("#13i").prop("hidden", true);
+        }
+    });
+    });
+    </script>
+
+          <script type="text/javascript">
+    $( function() {
+    $("#category14j").change( function() {
+        if ($(this).val() === "1") {
+            $("#14j").prop("hidden", false);
+        } else {
+            $("#14j").prop("hidden", true);
+        }
+    });
+    });
+    </script>
+
 
 
 <script type="text/javascript">
@@ -943,6 +979,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
   
   if (id == "segundo") {
@@ -957,6 +996,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
   
   if (id == "tercero") {
@@ -971,6 +1013,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
   
    if (id == "cuarto") {
@@ -985,6 +1030,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "quinto") {
@@ -999,6 +1047,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "sexto") {
@@ -1013,6 +1064,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "septimo") {
@@ -1027,6 +1081,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "octavo") {
@@ -1041,6 +1098,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "noveno") {
@@ -1055,6 +1115,9 @@ function mostrar(id) {
     $("#noveno").show();
     $("#decimo").hide();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
     if (id == "decimo") {
@@ -1069,6 +1132,9 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").show();
     $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
   }
 
   if (id == "once") {
@@ -1083,6 +1149,60 @@ function mostrar(id) {
     $("#noveno").hide();
     $("#decimo").hide();
     $("#once").show();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").hide();
+  }
+
+    if (id == "prejardin") {
+    $("#primero").hide();
+    $("#segundo").hide();
+    $("#tercero").hide();
+    $("#cuarto").hide();
+    $("#quinto").hide();
+    $("#sexto").hide();
+    $("#septimo").hide();
+    $("#octavo").hide();
+    $("#noveno").hide();
+    $("#decimo").hide();
+    $("#once").hide();
+    $("#prejardin").show();
+    $("#jardin").hide();
+    $("#transicion").hide();
+  }
+
+   if (id == "jardin") {
+    $("#primero").hide();
+    $("#segundo").hide();
+    $("#tercero").hide();
+    $("#cuarto").hide();
+    $("#quinto").hide();
+    $("#sexto").hide();
+    $("#septimo").hide();
+    $("#octavo").hide();
+    $("#noveno").hide();
+    $("#decimo").hide();
+    $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").show();
+    $("#transicion").hide();
+  }
+
+   if (id == "transicion") {
+    $("#primero").hide();
+    $("#segundo").hide();
+    $("#tercero").hide();
+    $("#cuarto").hide();
+    $("#quinto").hide();
+    $("#sexto").hide();
+    $("#septimo").hide();
+    $("#octavo").hide();
+    $("#noveno").hide();
+    $("#decimo").hide();
+    $("#once").hide();
+    $("#prejardin").hide();
+    $("#jardin").hide();
+    $("#transicion").show();
   }
 
 }
@@ -1109,6 +1229,24 @@ function mostrar(id) {
 
     <select id="status" class="form-control input-md" name="status" onChange="mostrar(this.value);">
        <option value="" selected>Seleccione grado</option>
+
+       @if (DB::table('proventas')->where('grado_id', '=', 12)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       <option value="prejardin" disabled>Prejardin</option>
+       @else
+       <option value="prejardin">Prejardin</option>
+       @endif
+
+       @if (DB::table('proventas')->where('grado_id', '=', 13)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       <option value="jardin" disabled>Jardin</option>
+       @else
+       <option value="jardin">Jardin</option>
+       @endif
+
+       @if (DB::table('proventas')->where('grado_id', '=', 14)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
+       <option value="transicion" disabled>Transición</option>
+       @else
+       <option value="transicion">Transición</option>
+       @endif
 
        @if (DB::table('proventas')->where('grado_id', '=', 1)->where('ano', '=', $ano->ano)->where('colegio_id', '=', Request::segment(2))->exists()) 
        <option value="primero" disabled>Primero</option>
@@ -1194,11 +1332,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number"  class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number"  class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category1a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category1a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1207,7 +1345,7 @@ function mostrar(id) {
    </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulo as $titulo)
       @if($titulo->grado == 1)
@@ -1234,11 +1372,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category1b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category1b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1247,7 +1385,7 @@ function mostrar(id) {
    </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1274,11 +1412,11 @@ function mostrar(id) {
   
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category1c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category1c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1288,7 +1426,7 @@ function mostrar(id) {
 
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1314,11 +1452,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category1d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category1d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1327,7 +1465,7 @@ function mostrar(id) {
     </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1354,11 +1492,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category1e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category1e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1368,7 +1506,7 @@ function mostrar(id) {
     </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1395,11 +1533,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category1f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category1f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1408,7 +1546,7 @@ function mostrar(id) {
    </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1435,11 +1573,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category1g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category1g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1448,7 +1586,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="1g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 1)
@@ -1490,11 +1628,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category2a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category2a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1503,7 +1641,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1530,11 +1668,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category2b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category2b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1543,7 +1681,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1570,11 +1708,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category2c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category2c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1583,7 +1721,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1611,11 +1749,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category2d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category2d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1624,7 +1762,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1652,11 +1790,11 @@ function mostrar(id) {
  
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category2e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category2e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1666,7 +1804,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1694,11 +1832,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category2f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category2f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1707,7 +1845,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1735,11 +1873,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category2g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category2g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1749,7 +1887,7 @@ function mostrar(id) {
 
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="2g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 2)
@@ -1790,11 +1928,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category3a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category3a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1803,7 +1941,7 @@ function mostrar(id) {
    </div>
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -1829,11 +1967,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category3b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category3b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1842,7 +1980,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" rrequired="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -1869,11 +2007,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category3c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category3c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1882,7 +2020,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -1910,11 +2048,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category3d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category3d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1923,7 +2061,7 @@ function mostrar(id) {
     </div>
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -1950,11 +2088,11 @@ function mostrar(id) {
   
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category3e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category3e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -1964,7 +2102,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -1992,11 +2130,11 @@ function mostrar(id) {
   
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category3f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category3f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2005,7 +2143,7 @@ function mostrar(id) {
    </div>
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -2032,11 +2170,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category3g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category3g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2045,7 +2183,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="3g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 3)
@@ -2087,11 +2225,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category4a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category4a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2100,7 +2238,7 @@ function mostrar(id) {
    </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2126,11 +2264,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category4b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category4b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2139,7 +2277,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2166,11 +2304,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category4c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category4c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2179,7 +2317,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2207,11 +2345,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category4d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category4d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2220,7 +2358,7 @@ function mostrar(id) {
     </div>
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2248,11 +2386,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category4e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category4e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2262,7 +2400,7 @@ function mostrar(id) {
     </div>
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2290,11 +2428,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category4f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category4f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2303,7 +2441,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2331,11 +2469,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category4g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category4g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2344,7 +2482,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="4g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 4)
@@ -2386,11 +2524,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category5a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category5a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2399,7 +2537,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2425,11 +2563,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category5b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category5b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2438,7 +2576,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2464,11 +2602,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category5c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category5c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2477,7 +2615,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2504,11 +2642,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category5d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category5d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2517,7 +2655,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2544,11 +2682,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category5e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category5e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2558,7 +2696,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2585,11 +2723,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category5f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category5f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2598,7 +2736,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2624,11 +2762,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category5g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category5g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2637,7 +2775,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="5g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 5)
@@ -2678,11 +2816,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category6a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category6a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2692,7 +2830,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2718,11 +2856,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category6b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category6b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2732,7 +2870,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2758,11 +2896,11 @@ function mostrar(id) {
   
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category6c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category6c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2772,7 +2910,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2799,11 +2937,11 @@ function mostrar(id) {
  
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category6d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category6d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2813,7 +2951,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2840,11 +2978,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category6e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category6e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2855,7 +2993,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2882,11 +3020,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category6f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category6f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2896,7 +3034,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2922,11 +3060,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category6g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category6g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2936,7 +3074,7 @@ function mostrar(id) {
 
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="6g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 6)
@@ -2978,11 +3116,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category7a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category7a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -2991,7 +3129,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3017,11 +3155,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category7b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category7b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3030,7 +3168,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3056,11 +3194,11 @@ function mostrar(id) {
  
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category7c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category7c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3069,7 +3207,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3095,11 +3233,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category7d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category7d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3108,7 +3246,7 @@ function mostrar(id) {
     </div>
 
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3135,11 +3273,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category7e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category7e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3148,7 +3286,7 @@ function mostrar(id) {
     
     </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3175,11 +3313,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category7f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category7f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3188,7 +3326,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3215,11 +3353,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category7g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category7g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3228,7 +3366,7 @@ function mostrar(id) {
    </div>
 
          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="7g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 7)
@@ -3270,11 +3408,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category8a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category8a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3283,7 +3421,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3309,11 +3447,11 @@ function mostrar(id) {
  
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category8b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category8b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3322,7 +3460,7 @@ function mostrar(id) {
    </div>
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3347,11 +3485,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category8c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category8c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3360,7 +3498,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3387,11 +3525,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category8d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category8d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3400,7 +3538,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3427,11 +3565,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category8e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category8e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3441,7 +3579,7 @@ function mostrar(id) {
     </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3468,11 +3606,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category8f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category8f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3481,7 +3619,7 @@ function mostrar(id) {
    </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3508,11 +3646,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category8g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category8g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3521,7 +3659,7 @@ function mostrar(id) {
    </div>
 
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="8g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 8)
@@ -3562,11 +3700,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category9a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category9a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3574,8 +3712,8 @@ function mostrar(id) {
     </select>
    </div>
 
- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9a" class="element">
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+ <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9a" class="element" hidden>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3601,11 +3739,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category9b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category9b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3614,7 +3752,7 @@ function mostrar(id) {
    </div>
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3639,11 +3777,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category9c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category9c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3652,7 +3790,7 @@ function mostrar(id) {
    </div>
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3678,11 +3816,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category9d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category9d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3691,7 +3829,7 @@ function mostrar(id) {
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3718,11 +3856,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category9e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category9e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3732,7 +3870,7 @@ function mostrar(id) {
     </div>
     
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3760,11 +3898,11 @@ function mostrar(id) {
  
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category9f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category9f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3773,7 +3911,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3800,11 +3938,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category9g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category9g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3813,7 +3951,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="9g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 9)
@@ -3854,11 +3992,11 @@ function mostrar(id) {
   
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" rrequired="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category10a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category10a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3867,7 +4005,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/> 
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required"> 
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -3893,11 +4031,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category10b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category10b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3907,7 +4045,7 @@ function mostrar(id) {
 
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -3933,11 +4071,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category10c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category10c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3946,7 +4084,7 @@ function mostrar(id) {
    </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -3974,11 +4112,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category10d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category10d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -3987,7 +4125,7 @@ function mostrar(id) {
     </div>
 
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -4015,11 +4153,11 @@ function mostrar(id) {
 
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category10e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category10e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4029,7 +4167,7 @@ function mostrar(id) {
     </div>
     
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -4056,11 +4194,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category10f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category10f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4069,7 +4207,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -4096,11 +4234,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category10g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category10g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4109,7 +4247,7 @@ function mostrar(id) {
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="10g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 10)
@@ -4151,11 +4289,11 @@ function mostrar(id) {
 
   <h4><b>MT</b> - Matematicas</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category11a" required/>
+    <select class="form-control input-sm" name="edt[]" id="category11a" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4164,7 +4302,7 @@ function mostrar(id) {
    </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11a" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4190,11 +4328,11 @@ function mostrar(id) {
 
   <h4><b>ES</b> - Español</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category11b" required/>
+    <select class="form-control input-sm" name="edt[]" id="category11b" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4203,7 +4341,7 @@ function mostrar(id) {
    </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11b" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4228,11 +4366,11 @@ function mostrar(id) {
 
   <h4><b>CS</b> - Sociales</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category11c" required/>
+    <select class="form-control input-sm" name="edt[]" id="category11c" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4242,7 +4380,7 @@ function mostrar(id) {
 
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11c" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4268,11 +4406,11 @@ function mostrar(id) {
 
   <h4><b>CL</b> - Comprensión Lectora</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category11d" required/>
+     <select class="form-control input-sm" name="edt[]" id="category11d" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4281,7 +4419,7 @@ function mostrar(id) {
     </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11d" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4308,11 +4446,11 @@ function mostrar(id) {
   
   <h4><b>IG</b> - Interes General</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-     <select class="form-control input-sm" name="edt[]" id="category11e" required/>
+     <select class="form-control input-sm" name="edt[]" id="category11e" required="required">
       <option value="" selected>Seleccione editorial</option>
        @foreach($editorialf as $editorial)
         <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4322,7 +4460,7 @@ function mostrar(id) {
     </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11e" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4349,11 +4487,11 @@ function mostrar(id) {
 
   <h4><b>ART</b> - Artistica</h4>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+     <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
     </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category11f" required/>
+    <select class="form-control input-sm" name="edt[]" id="category11f" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4362,7 +4500,7 @@ function mostrar(id) {
    </div>
 
      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11f" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4389,11 +4527,11 @@ function mostrar(id) {
 
   <h4><b>ING</b> - Ingles</h4>
    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required="required">
    </div>
 
    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-    <select class="form-control input-sm" name="edt[]" id="category11g" required/>
+    <select class="form-control input-sm" name="edt[]" id="category11g" required="required">
      <option value="" selected>Seleccione editorial</option>
       @foreach($editorialf as $editorial)
        <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
@@ -4402,7 +4540,7 @@ function mostrar(id) {
    </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="11g" class="element" hidden>
-    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+    <select class="form-control input-sm" name="titulo[]" id="category" required="required">
      <option value="0" selected>Seleccione editorial</option>
       @foreach($titulof as $titulo)
       @if($titulo->grado == 11)
@@ -4437,7 +4575,181 @@ function mostrar(id) {
 
 
 </div>
+<div class="container">
+    
 
+<div id="prejardin" class="element" style="display: none;">
+  {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearproventa'))) }}
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+  
+
+  <h4><b>PJ</b> - Prejardin</h4>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+   </div>
+
+   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+    <select class="form-control input-sm" name="edt[]" id="category12h" required/>
+     <option value="" selected>Seleccione editorial</option>
+      @foreach($editorialf as $editorial)
+       <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
+      @endforeach
+    </select>
+   </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="12h" class="element" hidden>
+    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+     <option value="0" selected>Seleccione editorial</option>
+      @foreach($titulof as $titulo)
+      @if($titulo->grado == 12)
+      @if($titulo->asignatura == 8)
+       <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @endif
+       @endif
+      @endforeach
+    </select>
+   </div>
+
+   <input type="hidden" name="materia[]" value="8" />
+   <input type="hidden" name="subcategory[]" value="12" />
+   <input type="hidden" name="region[]" value="{{$region->region_id}}" />
+   <input type="hidden" name="colegio[]" value="{{$region->id}}" />
+   <input type="hidden" name="representante[]" value="{{$region->representante_id}}" />
+   <input type="hidden" name="ano[]" value="{{$date->ano}}" />
+
+  </div>
+
+
+  <div class="modal-footer">
+    
+    {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   </div>
+{{ Form::close() }}
+
+</div>
+     
+
+</div>
+
+
+
+
+<div class="container">
+    
+
+<div id="jardin" class="element" style="display: none;">
+  {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearproventa'))) }}
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+  
+
+  <h4><b>JD</b> - Jardin</h4>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+   </div>
+
+   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+    <select class="form-control input-sm" name="edt[]" id="category13i" required/>
+     <option value="" selected>Seleccione editorial</option>
+      @foreach($editorialf as $editorial)
+       <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
+      @endforeach
+    </select>
+   </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="13i" class="element" hidden>
+    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+     <option value="0" selected>Seleccione editorial</option>
+      @foreach($titulof as $titulo)
+      @if($titulo->grado == 13)
+      @if($titulo->asignatura == 9)
+       <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @endif
+       @endif
+      @endforeach
+    </select>
+   </div>
+
+   <input type="hidden" name="materia[]" value="9" />
+   <input type="hidden" name="subcategory[]" value="13" />
+   <input type="hidden" name="region[]" value="{{$region->region_id}}" />
+   <input type="hidden" name="colegio[]" value="{{$region->id}}" />
+   <input type="hidden" name="representante[]" value="{{$region->representante_id}}" />
+   <input type="hidden" name="ano[]" value="{{$date->ano}}" />
+
+  </div>
+
+
+  <div class="modal-footer">
+    
+    {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   </div>
+{{ Form::close() }}
+
+</div>
+     
+
+</div>
+
+
+
+<div class="container">
+    
+
+<div id="transicion" class="element" style="display: none;">
+  {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearproventa'))) }}
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+  
+
+  <h4><b>TS</b> - Transición</h4>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <input type="number" class="form-control input-sm" value="0" name="cantidad[]" value="" required/>
+   </div>
+
+   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+    <select class="form-control input-sm" name="edt[]" id="category14j" required/>
+     <option value="" selected>Seleccione editorial</option>
+      @foreach($editorialf as $editorial)
+       <option value="{{$editorial->id}}">{{$editorial->editorial}}</option>
+      @endforeach
+    </select>
+   </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" id="14j" class="element" hidden>
+    <select class="form-control input-sm" name="titulo[]" id="category" required/>
+     <option value="0" selected>Seleccione editorial</option>
+      @foreach($titulof as $titulo)
+      @if($titulo->grado == 14)
+      @if($titulo->asignatura == 10)
+       <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @endif
+       @endif
+      @endforeach
+    </select>
+   </div>
+
+   <input type="hidden" name="materia[]" value="10" />
+   <input type="hidden" name="subcategory[]" value="14" />
+   <input type="hidden" name="region[]" value="{{$region->region_id}}" />
+   <input type="hidden" name="colegio[]" value="{{$region->id}}" />
+   <input type="hidden" name="representante[]" value="{{$region->representante_id}}" />
+   <input type="hidden" name="ano[]" value="{{$date->ano}}" />
+
+  </div>
+
+
+  <div class="modal-footer">
+    
+    {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   </div>
+{{ Form::close() }}
+
+</div>
+     
+
+</div>
 </body>
 </html>
 </div>

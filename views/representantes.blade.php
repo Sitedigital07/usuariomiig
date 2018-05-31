@@ -16,10 +16,10 @@ Gestión de usuarios Libros & Libros
 <div class="content-header">
                             <ul class="nav-horizontal text-center">
                             	<li class="active">
-                                    <a href="/representantes"><i class="gi gi-charts"></i> Representantes</a>
+                                    <a href="/representantes"><i class="fa fa-users"></i> Representantes</a>
                                 </li>
                                 <li>
-                                    <a href="/crear-representante"><i class="fa fa-home"></i> Crear representantes</a>
+                                    <a href="/crear-representante"><i class="fa fa-plus-circle"></i> Crear representantes</a>
                                 </li>
                             </ul>
                         </div>

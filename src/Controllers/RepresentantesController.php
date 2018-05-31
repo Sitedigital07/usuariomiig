@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RepresentantesController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +36,7 @@ class RepresentantesController extends Controller
     public function representantes()
     {
 
-        $representantes = DB::table('representantes')->where('region_id','=', Auth::user()->regionid)->get();
+        $representantes = DB::table('representantes')->where('agencia','=', Auth::user()->ciudadid)->get();
         return view('usuariomiig::representantes-region')->with('representantes', $representantes);
     }
 

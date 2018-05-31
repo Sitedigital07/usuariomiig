@@ -17,7 +17,16 @@ Gestión de usuarios Libros & Libros
 
 
 
-
+<div class="content-header">
+                            <ul class="nav-horizontal text-center">
+                                <li>
+                                    <a href="/representantes"><i class="fa fa-users"></i> Representantes</a>
+                                </li>
+                                <li class="active">
+                                    <a href="/crear-representante"><i class="fa fa-plus-circle"></i> Crear representantes</a>
+                                </li>
+                            </ul>
+                        </div>
 
 
     <div class="container">
@@ -110,7 +119,7 @@ Gestión de usuarios Libros & Libros
                                        <br><br>
                                         <div class="form-group form-actions">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Crear Representante</button>
                                                 <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
                                             </div>
                                         </div>
@@ -146,6 +155,52 @@ $(document).ready(function() {
                         regexp: /^[- a-zA-Z0-9_\.]+$/,
                         message: 'The username can only consist of alphabetical, number, dot and underscore'
                     }
+                }
+            },
+
+            apellido: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo apellido es requerido'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 150,
+                        message: 'El campo nombre debe contener un minimo de 2 y un maximo de 150 Caracteres'
+                    },
+                    regexp: {
+                        regexp: /^[- a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+            identificacion: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo identificacion es requerido'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 150,
+                        message: 'El campo nombre debe contener un minimo de 2 y un maximo de 150 Caracteres'
+                    },
+                    regexp: {
+                        regexp: /^[- a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+                  subcategory: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'El campo identificacion es requerido'
+                    },
+                   
                 }
             },
 
