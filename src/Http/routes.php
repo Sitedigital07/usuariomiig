@@ -68,7 +68,11 @@ Route::get('/crear-usuario', function () {
 
 Route::get('/editar-usuario/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@edit');
 
+Route::get('/editar-password/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@password');
+
 Route::post('/update-usuario/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@update');
+
+Route::post('/update-usuariopass/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@updatepass');
 
 Route::get('/eliminar-usuario/{id}', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@destroy');
 
@@ -122,6 +126,7 @@ Route::group(['middleware' => ['asistente']], function (){
 
 Route::get('/asistente-representantes', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@representantes');
 Route::get('/colegios-region', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@region');
+Route::get('/colegios-regioncid/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@regionciudad');
 Route::get('/asistente-ciudades', 'Digitalmiig\Colegiomiig\Controllers\CiudadesController@index');
 
 

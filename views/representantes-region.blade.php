@@ -56,7 +56,7 @@ Gestión de usuarios Libros & Libros
                                             <td class="text-center">{{$representantes->apellido}}</td>
                                             <td>{{$representantes->email}}</td>
                                             <td class="text-center">
-                                              <a href="/colegios-asignados/{{$representantes->id}}" type="button" class="btn btn-primary">Colegios Asignados</a>
+                                              <a href="/colegios-asignados/{{encrypt($representantes->id)}}" type="button" class="btn btn-primary">Colegios Asignados</a>
                                             </td>
                                        
                                         </tr>
@@ -66,8 +66,6 @@ Gestión de usuarios Libros & Libros
                             </div>
                         </div>
   </div>
-
-
 
 
 

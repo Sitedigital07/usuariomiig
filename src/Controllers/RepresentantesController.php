@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use DB;
 use Input;
 use Hash;
+use \Crypt;
 use Illuminate\Http\Request;
 use Digitalmiig\Usuariomiig\User;
 use Digitalmiig\Usuariomiig\Representante;
@@ -36,7 +37,12 @@ class RepresentantesController extends Controller
     public function representantes()
     {
 
-        $representantes = DB::table('representantes')->where('agencia','=', Auth::user()->ciudadid)->get();
+        $roles = DB::table('ciudades')->where('asistente', '=', Auth::user()->id)->pluck('ids');
+
+          $representantes = DB::table('representantes')
+                    ->whereIn('agencia', $roles)->get();
+
+
         return view('usuariomiig::representantes-region')->with('representantes', $representantes);
     }
 
@@ -81,6 +87,7 @@ class RepresentantesController extends Controller
 
      public function colegios($id)
     {
+         $id =  Crypt::decrypt($id);
          $colegios = DB::table('colegios')
             ->join('ciudades', 'ciudades.ids', '=', 'colegios.ciudad_id')
             ->where('representante_id', '=', $id)

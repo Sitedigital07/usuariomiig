@@ -82,6 +82,7 @@ Gestión de usuarios Libros & Libros
                                             <td>{{$users->phone}}</td>
                                             <td class="text-center">
                                                <a href="editar-usuario/{{$users->id}}" class="btn btn-primary">Editar</a>
+                                               <a href="editar-password/{{$users->id}}" class="btn btn-primary">Pass</a>
                                                 <script language="JavaScript">
 						                         function confirmar ( mensaje ) {
 						                         return confirm( mensaje );}

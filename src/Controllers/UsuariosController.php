@@ -116,6 +116,19 @@ public function index()
         return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones)->with('usuariosregion', $usuariosregion);
     }
 
+        public function password($id)
+    {   
+        $rols = DB::table('rols')
+        ->join('users','rols.id','=','users.rol_id')
+        ->where('users.id', '=', $id)->get();
+        $usuarios = User::find($id);
+        $usuariosregion = DB::table('users')
+        ->join('regiones','regiones.id','=','users.regionid')
+        ->where('users.id', '=', $id)->get();
+        $regiones = DB::table('regiones')->get();
+        return view('usuariomiig::editar-password')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones)->with('usuariosregion', $usuariosregion);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -124,7 +137,7 @@ public function index()
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {      
     $input = Input::all();
     $user = User::find($id);
     $user->name = Input::get('name');
@@ -134,6 +147,26 @@ public function index()
     $user->phone = Input::get('phone');
     $user->regionid = Input::get('region');
     $user->ciudadid = Input::get('agencia');
+    $user->save();
+    return Redirect('/usuarios')->with('status', 'ok_update');
+    }
+
+    public function updatepass(Request $request, $id)
+    {
+    $password = Input::get('password');
+    $remember = Input::get('_token');        
+    $input = Input::all();
+    $user = User::find($id);
+    $user->name = Input::get('name');
+    $user->last_name = Input::get('last_name');
+    $user->email = Input::get('email');
+    $user->address = Input::get('address');
+    $user->phone = Input::get('phone');
+    $user->regionid = Input::get('region');
+    $user->ciudadid = Input::get('agencia');
+    $user->remember_token = Input::get('_token');
+    $user->password = Hash::make($password);
+    $user->remember_token = Hash::make($remember);
     $user->save();
     return Redirect('/usuarios')->with('status', 'ok_update');
     }
