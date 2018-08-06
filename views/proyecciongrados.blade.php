@@ -19,6 +19,11 @@ Usted ya realizo el cierre para este colegio
 @else
 
 <div class="container">
+  @foreach($anoe as $anoe)
+  @endforeach
+  
+   @if (DB::table('proventas')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+   
  <div class="col-sm-10">                              <!-- Widget -->
   <a href="page_widgets_stats.html" class="widget widget-hover-effect1">
    <div class="widget-simple">
@@ -40,7 +45,8 @@ Usted ya realizo el cierre para este colegio
   </a>
  </div>
 
-  <div class="col-sm-2">                              <!-- Widget -->
+  <div class="col-sm-2">         
+ 
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
@@ -53,7 +59,30 @@ Usted ya realizo el cierre para este colegio
   
    </div>
   </a>
+
  </div>
+ @else
+  <div class="col-sm-12">                              <!-- Widget -->
+  <a href="page_widgets_stats.html" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    <div class="widget-icon pull-left themed-background animation-fadeIn">
+     <i class="fa fa-calendar"></i>
+    </div>
+  
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    <h3 class="widget-content animation-pullDown visible-lg">
+     Año <strong>Auditado</strong> 
+     @foreach($ano as $ano)
+     {{$ano->ano}}
+     @endforeach
+     <small>Registro actual</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+ @endif
 
 
 @foreach($identificador as $identificador)
