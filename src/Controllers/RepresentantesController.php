@@ -88,13 +88,14 @@ class RepresentantesController extends Controller
      public function colegios($id)
     {
          $id =  Crypt::decrypt($id);
+         $ano = DB::table('configuracion')->where('id', '=', 1)->get();
          $colegios = DB::table('colegios')
             ->join('ciudades', 'ciudades.ids', '=', 'colegios.ciudad_id')
             ->where('representante_id', '=', $id)
         ->get();
    
 
-        return view('colegiomiig::colegios-region')->with('colegios', $colegios);
+        return view('colegiomiig::colegios-region')->with('colegios', $colegios)->with('ano', $ano);
     }
 
     /**

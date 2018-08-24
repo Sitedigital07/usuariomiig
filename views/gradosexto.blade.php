@@ -1,4 +1,4 @@
-@extends ('adminsite.auditor')
+@extends ('adminsite.asistente')
 <!-- Define el titulo de la Página -->    
 @section('title')
 Gestión de usuarios Libros & Libros
@@ -106,9 +106,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_matematicas" id="category1a" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -132,9 +131,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_espanol" id="category1b" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -157,9 +155,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_ciencias" id="category1c" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -182,9 +179,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_comprension" id="category1d" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -207,9 +203,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_interes" id="category1e" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -232,9 +227,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_artistica" id="category1f" required="required">
-      <option value="" selected>Seleccione editorial</option>
+    <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -257,9 +251,8 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
      <select class="form-control input-sm" name="pr_ingles" id="category1g" required="required">
-      <option value="" selected>Seleccione editorial</option>
+      <option value="0" selected>Otra</option>
       <option value="1">Libros y Libros</option>
-      <option value="0">Otra</option>
      </select>
     </div>
 
@@ -285,7 +278,7 @@ Gestión de usuarios Libros & Libros
     <input type="hidden" name="region" value="{{$region->region_id}}" />
     <input type="hidden" name="colegio" value="{{$region->id}}" />
     <input type="hidden" name="representante" value="{{$region->representante_id}}" />
-    
+    <input type="hidden" name="metadopcion" value="0" />
     @foreach($date as $date)
     <input type="hidden" name="ano" value="{{$date->ano}}" />
     @endforeach
@@ -300,7 +293,7 @@ Gestión de usuarios Libros & Libros
 
 
 
-{{ date('Y') }}
+
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 

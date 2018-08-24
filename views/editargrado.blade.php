@@ -94,20 +94,16 @@ Gestión de usuarios Libros & Libros
 
 @stop
 @section('contenido')
- 
-
+ @foreach($date as $date)
+@endforeach
 <div class="container">
 	
                                  
 @foreach($proventas as $proventas)
 
-@foreach($date as $date)
-@if($date->ano == $proventas->ano)
- {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventa',$proventas->id))) }}
-@else 
-{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/crearproventa/'))) }}
-@endif
-@endforeach
+
+{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcion',$proventas->id))) }}
+
 
 
 @if($proventas->pr_matematicas == 0)
@@ -663,10 +659,6 @@ Gestión de usuarios Libros & Libros
   @endforeach
 </div>
 
-
-
-
-{{ date('Y') }}
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 

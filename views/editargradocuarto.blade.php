@@ -100,14 +100,14 @@ Gestión de usuarios Libros & Libros
 	
                                  
 @foreach($proventas as $proventas)
- {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventa',$proventas->id))) }}
+{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcion',$proventas->id))) }}
 
 @if($proventas->pr_matematicas == 0)
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
    <h4><b>MT</b> - Matematicas </h4>
     
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-               {{ Form::select('pr_matematicas', [$proventas->matematicas => $proventas->pr_matematicas,
+               {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
                '1' => 'Libros y Libros',
                '0' => 'Otra',
                 ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
@@ -654,7 +654,7 @@ Gestión de usuarios Libros & Libros
 
 
 
-{{ date('Y') }}
+
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 

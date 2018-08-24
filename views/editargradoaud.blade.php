@@ -94,13 +94,17 @@ Gestión de usuarios Libros & Libros
 
 @stop
 @section('contenido')
- 
-
+ @foreach($date as $date)
+@endforeach
 <div class="container">
 	
                                  
 @foreach($proventas as $proventas)
-{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcion',$proventas->id))) }}
+
+
+{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcionaud',$proventas->id))) }}
+
+
 
 @if($proventas->pr_matematicas == 0)
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -117,7 +121,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulo as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 1)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -147,7 +151,7 @@ Gestión de usuarios Libros & Libros
                  @endforeach
 
                  @foreach($titulo as $titulo)
-                  @if($titulo->grado == 9)
+                  @if($titulo->grado == 1)
                    @if($titulo->asignatura == 1)
                     <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
                    @endif
@@ -162,7 +166,7 @@ Gestión de usuarios Libros & Libros
                 <select class="form-control input-sm" name="pr_titulo_mat" id="category1a" required="required">
                  <option value="{{$proventas->pr_titulo_mat}}" selected>{{$proventas->pr_titulo_mat}}</option>
                   @foreach($titulo as $titulo)
-                   @if($titulo->grado == 9)
+                   @if($titulo->grado == 1)
                     @if($titulo->asignatura == 1)
                      <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
                     @endif
@@ -192,7 +196,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 2)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -223,7 +227,7 @@ Gestión de usuarios Libros & Libros
                  @endforeach
        
                  @foreach($titulof as $titulo)
-                  @if($titulo->grado == 9)
+                  @if($titulo->grado == 1)
                    @if($titulo->asignatura == 2)
                     <option value="{{$titulo->id}}">{{$titulo->nombre}} </option>
                    @endif
@@ -238,7 +242,7 @@ Gestión de usuarios Libros & Libros
                 <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
                  <option value="" disabled>Seleccione Titulo</option>
                   @foreach($titulof as $titulo)
-                   @if($titulo->grado == 9)
+                   @if($titulo->grado == 1)
                     @if($titulo->asignatura == 2)
                      <option value="{{$titulo->id}}">{{$titulo->nombre}} b</option>
                     @endif
@@ -273,7 +277,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 3)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -304,7 +308,7 @@ Gestión de usuarios Libros & Libros
                  @endforeach
 
                  @foreach($titulof as $titulo)
-                  @if($titulo->grado == 9)
+                  @if($titulo->grado == 1)
                    @if($titulo->asignatura == 3)
                     <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
                    @endif
@@ -319,7 +323,7 @@ Gestión de usuarios Libros & Libros
                 <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
                  <option  selected>Seleccione titulo</option>
                   @foreach($titulof as $titulo)
-                   @if($titulo->grado == 9)
+                   @if($titulo->grado == 1)
                     @if($titulo->asignatura == 3)
                      <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
                     @endif
@@ -353,7 +357,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 4)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -384,7 +388,7 @@ Gestión de usuarios Libros & Libros
                  @endforeach
        
                  @foreach($titulof as $titulo)
-                  @if($titulo->grado == 9)
+                  @if($titulo->grado == 1)
                    @if($titulo->asignatura == 4)
                     <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
                    @endif
@@ -399,7 +403,7 @@ Gestión de usuarios Libros & Libros
                 <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
                  <option  selected>Seleccione titulo</option>
                   @foreach($titulof as $titulo)
-                   @if($titulo->grado == 9)
+                   @if($titulo->grado == 1)
                     @if($titulo->asignatura == 4)
                      <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
                     @endif
@@ -430,7 +434,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_int" id="category1e" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 5)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -459,7 +463,7 @@ Gestión de usuarios Libros & Libros
         @endif
         @endforeach
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 5)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -472,7 +476,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_int" id="category" required="required">
       <option  selected>Seleccione titulo</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 5)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -503,7 +507,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_art" id="category1f" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 6)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -533,7 +537,7 @@ Gestión de usuarios Libros & Libros
         @endif
         @endforeach
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 6)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -546,7 +550,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_art" id="category" required="required">
       <option  selected>Seleccione titulo</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 6)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -575,7 +579,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_ing" id="category1g" required="required">
       <option value="0" selected>Seleccione editorial</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -604,7 +608,7 @@ Gestión de usuarios Libros & Libros
         @endif
         @endforeach
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -617,7 +621,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_ing" id="category" required="required">
       <option  selected>Seleccione titulo</option>
        @foreach($titulof as $titulo)
-        @if($titulo->grado == 9)
+        @if($titulo->grado == 1)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -638,9 +642,13 @@ Gestión de usuarios Libros & Libros
     <input type="hidden" name="colegio" value="{{$proventas->colegio_id}}" />
     <input type="hidden" name="representante" value="{{$proventas->representante_id}}" />
     
- 
+   @foreach($datef as $date)
+   @if($date->ano == $proventas->ano)
     <input type="hidden" name="ano" value="{{$proventas->ano}}" />
- 
+    @else
+    <input type="hidden" name="ano" value="{{$date->ano}}" />
+    @endif
+  @endforeach
 
 
   <div class="modal-footer">
@@ -650,9 +658,6 @@ Gestión de usuarios Libros & Libros
  {{ Form::close() }}
   @endforeach
 </div>
-
-
-
 
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
