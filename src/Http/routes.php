@@ -122,7 +122,7 @@ Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\Colegio
 
 // Rol Asistente
 
-Route::group(['middleware' => ['asistente', 'audi']], function (){
+Route::group(['middleware' => ['asistente']], function (){
 
 Route::get('/asistente-representantes', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@representantes');
 Route::get('/colegios-region', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@region');
