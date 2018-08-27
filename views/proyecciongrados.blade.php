@@ -21,8 +21,8 @@ Usted ya realizo el cierre para este colegio
 <div class="container">
 
 
- <div class="col-sm-10">                              <!-- Widget -->
-  <a href="page_widgets_stats.html" class="widget widget-hover-effect1">
+ <div class="col-sm-4">                              <!-- Widget -->
+  <a href="" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
      <i class="fa fa-calendar"></i>
@@ -42,18 +42,41 @@ Usted ya realizo el cierre para este colegio
   </a>
  </div>
 
-  <div class="col-sm-2">         
+  <div class="col-sm-4">         
 
-  <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
+  <a href="/proyeccion/{{Request::segment(2)}}"  class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
-     <i class="hi hi-list-alt"></i>
+     <i class="fa fa-calendar-check-o"></i>
     </div>
   
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
+    <h3 class="widget-content animation-pullDown visible-lg">
+     Fecha de <strong>cierre</strong> 
+     <small>Registro actual</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+
+
+  <div class="col-sm-4">         
+
+  <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    <div class="widget-icon pull-left themed-background animation-fadeIn">
+     <i class="fa fa-expeditedssl"></i>
+    </div>
   
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    <h3 class="widget-content animation-pullDown visible-lg">
+     Cerrar <strong>colegio</strong> 
+     <small>Registro actual</small>
+    </h3>
    </div>
   </a>
  </div>

@@ -19,7 +19,7 @@ Gestión de usuarios Libros & Libros
 <div class="container">
 
 
- <div class="col-sm-10">                              <!-- Widget -->
+ <div class="col-sm-12">                              <!-- Widget -->
   <a href="page_widgets_stats.html" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
@@ -40,21 +40,7 @@ Gestión de usuarios Libros & Libros
   </a>
  </div>
 
-  <div class="col-sm-2">         
 
-  <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
-   <div class="widget-simple">
-    <div class="widget-icon pull-left themed-background animation-fadeIn">
-     <i class="hi hi-list-alt"></i>
-    </div>
-  
-    <div class="pull-right">
-     <span id="mini-chart-brand"></span>
-    </div>
-  
-   </div>
-  </a>
- </div>
 
  @foreach($anoe as $anoe)
    
