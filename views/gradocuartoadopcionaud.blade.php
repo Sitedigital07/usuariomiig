@@ -1,4 +1,4 @@
-extends ('adminsite.asistente')
+@extends ('adminsite.asistente')
 <!-- Define el titulo de la Página -->    
 @section('title')
 Gestión de usuarios Libros & Libros

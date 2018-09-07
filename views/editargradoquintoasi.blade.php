@@ -100,7 +100,7 @@ Gestión de usuarios Libros & Libros
 	
                                  
 @foreach($proventas as $proventas)
-{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventa',$proventas->id))) }}
+{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcionasi',$proventas->id))) }}
 
 @if($proventas->pr_matematicas == 0)
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">

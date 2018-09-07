@@ -44,7 +44,7 @@ Gestión de usuarios Libros & Libros
  @foreach($anoe as $anoe)
    
    @endforeach
-   @if (DB::table('proventas')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+   @if (DB::table('campos')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($identificador as $identificador)
 
 <div class="modal fade" id="modal-id">
@@ -109,10 +109,10 @@ Gestión de usuarios Libros & Libros
 </div>
 @endif
 
-@if (DB::table('proventas')->where('grado_id', '=', 1)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 1)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasprimero  as $proventasprimero)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb/{{$proventasprimero}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradowebasi/{{$proventasprimero}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -138,10 +138,10 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 2)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 2)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassegundo  as $proventassegundo)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-segundo/{{$proventassegundo}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-segundoasi/{{$proventassegundo}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -168,10 +168,10 @@ Gestión de usuarios Libros & Libros
 
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 3)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 3)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventastercero  as $proventastercero)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-tercero/{{$proventastercero}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-terceroasi/{{$proventastercero}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -198,10 +198,10 @@ Gestión de usuarios Libros & Libros
 
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 4)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 4)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventascuarto as $proventascuarto)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-cuarto/{{$proventascuarto}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-cuartoasi/{{$proventascuarto}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -227,10 +227,10 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 5)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 5)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasquinto as $proventasquinto)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-quinto/{{$proventasquinto}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-quintoasi/{{$proventasquinto}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -255,10 +255,10 @@ Gestión de usuarios Libros & Libros
  </div>
 @endif
 
-@if (DB::table('proventas')->where('grado_id', '=', 6)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 6)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassexto as $proventassexto)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-sexto/{{$proventassexto}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-sextoasi/{{$proventassexto}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -283,10 +283,10 @@ Gestión de usuarios Libros & Libros
  </div>
 @endif
 
-@if (DB::table('proventas')->where('grado_id', '=', 7)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 7)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasseptimo as $proventasseptimo)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-septimo/{{$proventasseptimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-septimoasi/{{$proventasseptimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -312,10 +312,10 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 8)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 8)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasoctavo as $proventasoctavo)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-octavo/{{$proventasoctavo}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-octavoasi/{{$proventasoctavo}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -341,11 +341,11 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 9)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 9)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasnoveno as $proventasnoveno)
 
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-noveno/{{$proventasnoveno}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-novenoasi/{{$proventasnoveno}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -372,10 +372,10 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 10)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 10)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasdecimo as $proventasdecimo)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-decimo/{{$proventasdecimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-decimoasi/{{$proventasdecimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
@@ -401,10 +401,10 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('proventas')->where('grado_id', '=', 11)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 11)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasonce as $proventasonce)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-once/{{$proventasonce}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <a href="/editar-gradoweb-onceasi/{{$proventasonce}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">

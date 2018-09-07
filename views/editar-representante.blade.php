@@ -98,48 +98,9 @@ Gestión de usuarios Libros & Libros
                                                 </select>
                                             </div>
                                         </div>
-                                        @if($representantes->bb == 1)
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 col-lg-offset-3">
-                                         <input type="checkbox" name="vinculo1" value="1" checked> BB<br>
-                                        </div>
-                                        @else
-                                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 col-lg-offset-3">
-                                         <input type="checkbox" name="vinculo1" value="1"> BB<br>
-                                        </div>
-                                        @endif
-
-                                        @if($representantes->pr == 1)
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo2" value="1" checked> PR<br>
-                                        </div>
-                                        @else
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo2" value="1"> PR<br>
-                                        </div>
-                                        @endif
-
-                                        @if($representantes->ig == 1)
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo3" value="1" checked> IG<br>
-                                        </div>
-                                        @else
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo3" value="1"> IG<br>
-                                        </div>
-                                        @endif
-
-                                        @if($representantes->plataforma == 1)
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo4" value="1" checked> Plataforma<br>
-                                        </div>
-                                        @else
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo4" value="1"> Plataforma<br>
-                                        </div>
-                                        @endif
-
+                                     
                                         
-                                       <br><br>
+                                       <br>
                                         <div class="form-group form-actions">
                                             <div class="col-md-9 col-md-offset-3">
                                                 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>

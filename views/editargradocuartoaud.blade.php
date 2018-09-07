@@ -109,7 +109,7 @@ Gestión de usuarios Libros & Libros
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
               </div>
 
@@ -133,7 +133,7 @@ Gestión de usuarios Libros & Libros
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
               </div>
       
@@ -184,7 +184,7 @@ Gestión de usuarios Libros & Libros
      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_espanol', [$proventas->pr_espanol => $proventas->pr_espanol,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1b')) }}
               </div>
 
@@ -209,7 +209,7 @@ Gestión de usuarios Libros & Libros
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_espanol', [$proventas->pr_espanol => $proventas->pr_espanol,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1b')) }}
               </div>
       
@@ -265,7 +265,7 @@ Gestión de usuarios Libros & Libros
    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_ciencias', [$proventas->pr_ciencias => $proventas->pr_ciencias,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1c')) }}
               </div>
 
@@ -290,7 +290,7 @@ Gestión de usuarios Libros & Libros
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_ciencias', [$proventas->pr_ciencias => $proventas->pr_ciencias,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1c')) }}
               </div>
       
@@ -345,7 +345,7 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_comprension', [$proventas->pr_comprension => $proventas->pr_comprension,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1d')) }}
               </div>
 
@@ -370,7 +370,7 @@ Gestión de usuarios Libros & Libros
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_comprension', [$proventas->pr_comprension => $proventas->pr_comprension,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                ], null, array('class' => 'form-control', 'id' => 'category1d')) }}
               </div>
       
@@ -422,7 +422,7 @@ Gestión de usuarios Libros & Libros
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                {{ Form::select('pr_interes', [$proventas->pr_interes => $proventas->pr_interes,
                '1' => 'Libros y Libros',
-               '0' => 'Otra',
+               '0' => 'No meta',
                 ], null, array('class' => 'form-control', 'id' => 'category1e')) }}
               </div>
 
@@ -446,7 +446,7 @@ Gestión de usuarios Libros & Libros
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
        {{ Form::select('pr_interes', [$proventas->pr_interes => $proventas->pr_interes,
        '1' => 'Libros y Libros',
-       '0' => 'Otra',
+       '0' => 'No meta',
        ], null, array('class' => 'form-control', 'id' => 'category1e')) }}
       </div>
       
@@ -495,7 +495,7 @@ Gestión de usuarios Libros & Libros
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
        {{ Form::select('pr_artistica', [$proventas->pr_artistica => $proventas->pr_artistica,
        '1' => 'Libros y Libros',
-       '0' => 'Otra',
+       '0' => 'No meta',
        ], null, array('class' => 'form-control', 'id' => 'category1f')) }}
       </div>
       
@@ -520,7 +520,7 @@ Gestión de usuarios Libros & Libros
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
        {{ Form::select('pr_artistica', [$proventas->pr_artistica => $proventas->pr_artistica,
        '1' => 'Libros y Libros',
-       '0' => 'Otra',
+       '0' => 'No meta',
        ], null, array('class' => 'form-control', 'id' => 'category1f')) }}
       </div>
       
@@ -566,7 +566,7 @@ Gestión de usuarios Libros & Libros
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
        {{ Form::select('pr_ingles', [$proventas->pr_ingles => $proventas->pr_ingles,
        '1' => 'Libros y Libros',
-       '0' => 'Otra',
+       '0' => 'No meta',
        ], null, array('class' => 'form-control', 'id' => 'category1g')) }}
       </div>
       
@@ -591,7 +591,7 @@ Gestión de usuarios Libros & Libros
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
        {{ Form::select('pr_ingles', [$proventas->pr_ingles => $proventas->pr_ingles,
        '1' => 'Libros y Libros',
-       '0' => 'Otra',
+       '0' => 'No meta',
        ], null, array('class' => 'form-control', 'id' => 'category1g')) }}
       </div>
       

@@ -21,7 +21,7 @@ Usted ya realizo el cierre para este colegio
 <div class="container">
 
 
- <div class="col-sm-4">                              <!-- Widget -->
+ <div class="col-sm-6">                              <!-- Widget -->
   <a href="" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
@@ -42,27 +42,9 @@ Usted ya realizo el cierre para este colegio
   </a>
  </div>
 
-  <div class="col-sm-4">         
-
-  <a href="/proyeccion/{{Request::segment(2)}}"  class="widget widget-hover-effect1">
-   <div class="widget-simple">
-    <div class="widget-icon pull-left themed-background animation-fadeIn">
-     <i class="fa fa-calendar-check-o"></i>
-    </div>
-  
-    <div class="pull-right">
-     <span id="mini-chart-brand"></span>
-    </div>
-    <h3 class="widget-content animation-pullDown visible-lg">
-     Fecha de <strong>cierre</strong> 
-     <small>Registro actual</small>
-    </h3>
-   </div>
-  </a>
- </div>
 
 
-  <div class="col-sm-4">         
+  <div class="col-sm-6">         
 
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
@@ -181,7 +163,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 1)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 1)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasprimero  as $proventasprimero)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb/{{$proventasprimero}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -210,7 +192,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 2)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 2)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassegundo  as $proventassegundo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-segundo/{{$proventassegundo}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -240,7 +222,7 @@ Usted ya realizo el cierre para este colegio
 
 
 
-@if (DB::table('campos')->where('grado_id', '=', 3)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 3)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventastercero  as $proventastercero)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-tercero/{{$proventastercero}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -270,7 +252,7 @@ Usted ya realizo el cierre para este colegio
 
 
 
-@if (DB::table('campos')->where('grado_id', '=', 4)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 4)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventascuarto as $proventascuarto)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-cuarto/{{$proventascuarto}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -299,7 +281,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 5)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 5)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasquinto as $proventasquinto)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-quinto/{{$proventasquinto}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -327,7 +309,7 @@ Usted ya realizo el cierre para este colegio
  </div>
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 6)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 6)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassexto as $proventassexto)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-sexto/{{$proventassexto}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -355,7 +337,7 @@ Usted ya realizo el cierre para este colegio
  </div>
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 7)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 7)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasseptimo as $proventasseptimo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-septimo/{{$proventasseptimo}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -384,7 +366,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 8)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 8)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasoctavo as $proventasoctavo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-octavo/{{$proventasoctavo}}" class="widget widget-hover-effect1" style="background:#a5ae27">
@@ -413,7 +395,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 9)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 9)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasnoveno as $proventasnoveno)
 @if($proventas->grado_id == 9)
 <div class="col-sm-12 col-lg-4">
@@ -444,7 +426,7 @@ Usted ya realizo el cierre para este colegio
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 10)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('proventas')->where('grado_id', '=', 10)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasdecimo as $proventasdecimo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-decimo/{{$proventasdecimo}}" class="widget widget-hover-effect1" style="background:#a5ae27">

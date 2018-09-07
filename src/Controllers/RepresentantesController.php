@@ -93,9 +93,10 @@ class RepresentantesController extends Controller
             ->join('ciudades', 'ciudades.ids', '=', 'colegios.ciudad_id')
             ->where('representante_id', '=', $id)
         ->get();
+         $representantes = DB::table('representantes')->get();
    
 
-        return view('colegiomiig::colegios-region')->with('colegios', $colegios)->with('ano', $ano);
+        return view('colegiomiig::colegios-region')->with('colegios', $colegios)->with('ano', $ano)->with('representantes', $representantes);
     }
 
     /**

@@ -129,13 +129,7 @@ Route::get('/colegios-region', 'Digitalmiig\Colegiomiig\Controllers\ColegiosCont
 Route::get('/colegios-regioncid/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@regionciudad');
 Route::get('/asistente-ciudades', 'Digitalmiig\Colegiomiig\Controllers\CiudadesController@index');
 
-Route::get('proyeccion/{id}', function ($id) {
-    $represen = DB::table('colegios')->where('id', '=', $id)->get();
-    $fechas =  DB::table('proyeccion')->where('colegio_id', $id)->orderBy('id', 'asc')->get();
-    $conteo = DB::table('proyeccion')->where('colegio_id', $id)->count();
-    $ano = DB::table('configuracion')->where('id', '=', 1)->get();
-    return view('colegiomiig::proyeccion')->with('fechas', $fechas)->with('conteo', $conteo)->with('represen', $represen)->with('ano', $ano);
-});
+
 
 
 Route::post('actualizarcierrecolegio/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@actucolegio');
@@ -150,6 +144,21 @@ Route::get('editar-gradoweb-octavo/{id}', 'Digitalmiig\Colegiomiig\Controllers\C
 Route::get('editar-gradoweb-noveno/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradonoveno');
 Route::get('editar-gradoweb-decimo/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradodecimo');
 Route::get('editar-gradoweb-once/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoonce');
+
+
+Route::get('editar-gradowebasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoasi');
+Route::get('editar-gradoweb-segundoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradosegundoasi');
+Route::get('editar-gradoweb-terceroasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoterceroasi');
+Route::get('editar-gradoweb-cuartoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradocuartoasi');
+Route::get('editar-gradoweb-quintoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoquintoasi');
+Route::get('editar-gradoweb-sextoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradosextoasi');
+Route::get('editar-gradoweb-septimoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoseptimoasi');
+Route::get('editar-gradoweb-octavoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradooctavoasi');
+Route::get('editar-gradoweb-novenoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradonovenoasi');
+Route::get('editar-gradoweb-decimoasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradodecimoasi');
+Route::get('editar-gradoweb-onceasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradoonceasi');
+
+Route::post('editar-proventaadopcionasi/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editarproventawebadopcionasi');
 Route::post('editar-proventa/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editarproventaweb');
 Route::post('editar-proventaadopcion/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editarproventawebadopcion');
 
@@ -178,24 +187,24 @@ Route::get('/colegios-asignados/{id}', 'Digitalmiig\Usuariomiig\Controllers\Repr
 
 Route::get('proyeccionventas/{id}', function ($id) {
    
-    $proventas = DB::table('campos')->where('colegio_id', '=', $id)->get();
-    $proventasf = DB::table('campos')->where('colegio_id', '=', $id)->get();
-    $proventasprimero = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 1)->select('id')->orderBy('id', 'DESC')->first();   
-    $proventassegundo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 2)->select('id')->orderBy('id', 'DESC')->first();   
-    $proventastercero = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 3)->select('id')->orderBy('id', 'DESC')->first();
-    $proventascuarto = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 4)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasquinto = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 5)->select('id')->orderBy('id', 'DESC')->first();
-    $proventassexto = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 6)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasseptimo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 7)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasoctavo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 8)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasnoveno = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 9)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasdecimo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
-    $proventasonce = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->orderBy('id', 'DESC')->first();
+    $proventas = DB::table('proventas')->where('colegio_id', '=', $id)->get();
+    $proventasf = DB::table('proventas')->where('colegio_id', '=', $id)->get();
+    $proventasprimero = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 1)->select('id')->orderBy('id', 'DESC')->first();   
+    $proventassegundo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 2)->select('id')->orderBy('id', 'DESC')->first();   
+    $proventastercero = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 3)->select('id')->orderBy('id', 'DESC')->first();
+    $proventascuarto = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 4)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasquinto = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 5)->select('id')->orderBy('id', 'DESC')->first();
+    $proventassexto = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 6)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasseptimo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 7)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasoctavo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 8)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasnoveno = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 9)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasdecimo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
+    $proventasonce = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->orderBy('id', 'DESC')->first();
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoe = DB::table('configuracion')->where('id', '=', 1)->get();
-    $identificador = DB::table('campos')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
-     $identificadores = DB::table('campos')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
+    $identificador = DB::table('proventas')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
+     $identificadores = DB::table('proventas')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
     return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores'));
 
 });
@@ -575,6 +584,14 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
 
 Route::group(['middleware' => ['auditorjr']], function (){
 
+    Route::get('proyeccion/{id}', function ($id) {
+    $represen = DB::table('colegios')->where('id', '=', $id)->get();
+    $fechas =  DB::table('proyeccion')->where('colegio_id', $id)->orderBy('id', 'asc')->get();
+    $conteo = DB::table('proyeccion')->where('colegio_id', $id)->count();
+    $ano = DB::table('configuracion')->where('id', '=', 1)->get();
+    return view('colegiomiig::proyeccion')->with('fechas', $fechas)->with('conteo', $conteo)->with('represen', $represen)->with('ano', $ano);
+});
+
 Route::get('proyeccionventasadopcionaud/{id}', function ($id) {
    
     $proventas = DB::table('campos')->where('colegio_id', '=', $id)->get();
@@ -619,137 +636,167 @@ Route::get('editar-gradoweb-onceaud/{id}', 'Digitalmiig\Colegiomiig\Controllers\
 Route::get('grado-primeroadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoprimeroadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoprimeroadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 
 Route::get('grado-segundoadopcionaud/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
+     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradosegundoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradosegundoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 
 Route::get('grado-terceroadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoterceroadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoterceroadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 
 Route::get('grado-cuartoadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradocuartoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradocuartoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 
 Route::get('grado-quintoadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
-    $proventas = DB::table('campos')
-        ->join('titulo', 'titulo.id', '=', 'campos.pr_titulo_mat')
+    $proventas = DB::table('proventas')
+        ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
-                         
-    return view('usuariomiig::gradoquintoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoquintoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-sextoadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradosextoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradosextoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-septimoadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoseptimoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoseptimoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-octavoadopcionaud/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
+  $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradooctavoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradooctavoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-novenoadopcionaud/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
+     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
-                         
-    return view('usuariomiig::gradonovenoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradonovenoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-decimoadopcionaud/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
+     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
-                         
-    return view('usuariomiig::gradodecimoadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradodecimoadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 Route::get('grado-onceadopcionaud/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $editorial = DB::table('editoriales')->get();
+    $editoriala = DB::table('editoriales')->get();
+    $editorialb = DB::table('editoriales')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoonceadopcionaud', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoonceadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
 
 

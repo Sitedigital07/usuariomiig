@@ -102,19 +102,7 @@ Gestión de usuarios Libros & Libros
                                             </div>
                                         </div>
 
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 col-lg-offset-3">
-                                         <input type="checkbox" name="vinculo1" value="1"> BB<br>
-                                        </div>
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo2" value="1"> PR<br>
-                                        </div>
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo3" value="1"> IG<br>
-                                        </div>
-                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
-                                         <input type="checkbox" name="vinculo4" value="1"> Plataforma<br>
-                                        </div>
-
+                                       
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                        <br><br>
                                         <div class="form-group form-actions">

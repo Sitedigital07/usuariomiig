@@ -163,7 +163,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulo as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 1)
              <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
            @endif
@@ -205,7 +205,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulo as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 1)
             <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
            @endif
@@ -248,7 +248,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulo as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 1)
             <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
            @endif
@@ -305,7 +305,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulof as $titulob)
-          @if($titulob->grado == 5)
+          @if($titulob->grado == 7)
            @if($titulob->asignatura == 2)
              <option value="{{$titulob->id}}">{{$titulob->nombre}}</option>
            @endif
@@ -347,7 +347,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulowebf as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 2)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -391,7 +391,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulof as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 2)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
@@ -448,7 +448,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 3)
              <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
            @endif
@@ -490,7 +490,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 3)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -534,7 +534,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 3)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
@@ -591,7 +591,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 4)
              <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
            @endif
@@ -633,7 +633,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 4)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -677,7 +677,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 4)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
@@ -733,7 +733,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulo)
-          @if($titulo->grado == 5)
+          @if($titulo->grado == 7)
            @if($titulo->asignatura == 5)
              <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
            @endif
@@ -775,7 +775,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 5)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -819,7 +819,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 5)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
@@ -874,7 +874,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $tituloa)
-          @if($tituloa->grado == 5)
+          @if($tituloa->grado == 7)
            @if($tituloa->asignatura == 6)
              <option value="{{$tituloa->id}}">{{$tituloa->nombre}}</option>
            @endif
@@ -916,7 +916,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 6)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -960,7 +960,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 6)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
@@ -1016,7 +1016,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $tituloa)
-          @if($tituloa->grado == 5)
+          @if($tituloa->grado == 7)
            @if($tituloa->asignatura == 7)
              <option value="{{$tituloa->id}}">{{$tituloa->nombre}}</option>
            @endif
@@ -1058,7 +1058,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulowebf)
-          @if($titulowebf->grado == 5)
+          @if($titulowebf->grado == 7)
            @if($titulowebf->asignatura == 7)
             <option value="{{$titulowebf->id}}">{{$titulowebf->nombre}}a</option>
            @endif
@@ -1102,7 +1102,7 @@ Gestión de usuarios Libros & Libros
          @endforeach
 
          @foreach($titulom as $titulof)
-          @if($titulof->grado == 5)
+          @if($titulof->grado == 7)
            @if($titulof->asignatura == 7)
             <option value="{{$titulof->id}}">{{$titulof->nombre}}a</option>
            @endif
