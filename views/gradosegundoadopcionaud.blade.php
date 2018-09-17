@@ -422,7 +422,7 @@ Gestión de usuarios Libros & Libros
 
     <input id="id_input" type="text" hidden>
     <input type="hidden" name="materia" value="1" />
-    <input type="hidden" name="subcategory" value="1" />
+    <input type="hidden" name="subcategory" value="2" />
     <input type="hidden" name="region" value="{{$region->region_id}}" />
     <input type="hidden" name="colegio" value="{{$region->id}}" />
     <input type="hidden" name="representante" value="{{$region->representante_id}}" />

@@ -216,13 +216,14 @@ Route::get('proyeccionventas/{id}', function ($id) {
 Route::get('grado-primero/{id}', function ($id) {
     $titulo = DB::table('titulo')->get();
     $titulof = DB::table('titulo')->get();
+    $adopciones = DB::table('adopciones')->where('id', '=', 1)->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoprimero', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoprimero', compact('titulo','titulof','region','date','proventas','adopciones'));
 });
 
 
