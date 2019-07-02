@@ -21,6 +21,9 @@ Gestión de usuarios Libros & Libros
                                 <li>
                                     <a href="/crear-representante"><i class="fa fa-plus-circle"></i> Crear representantes</a>
                                 </li>
+                                 <li>
+                                    <a href="/excel-representantes"><i class="fa fa-plus-circle"></i>Excel</a>
+                                </li>
                             </ul>
                         </div>
 
