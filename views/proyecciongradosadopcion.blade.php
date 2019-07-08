@@ -1,3 +1,4 @@
+
 @extends ('adminsite.asistente')
 <!-- Define el titulo de la Página -->    
 @section('title')
@@ -14,23 +15,25 @@ Gestión de usuarios Libros & Libros
 @stop
 @section('contenido')
 @foreach($anon as $anon)
-
-
+@if (DB::table('campos')->where('cierre', '=', 1)->where('ano', '=', $anon->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+Usted ya realizo el cierre para este colegio
+@else
+{{$total*10/100}}
 <div class="container">
 
-
- <div class="col-sm-12">                              <!-- Widget -->
-  <a href="page_widgets_stats.html" class="widget widget-hover-effect1">
+ <div class="col-sm-6">
+  <a href="" class="widget widget-hover-effect1">
    <div class="widget-simple">
+    
     <div class="widget-icon pull-left themed-background animation-fadeIn">
      <i class="fa fa-calendar"></i>
     </div>
-  
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
+    
     <h3 class="widget-content animation-pullDown visible-lg">
-     Año <strong>Adopción</strong> 
+     Año <strong>Auditado</strong> 
      @foreach($ano as $ano)
      {{$ano->ano}}
      @endforeach
@@ -41,46 +44,35 @@ Gestión de usuarios Libros & Libros
  </div>
 
 
- @foreach($anoe as $anoe)
-   
-   @endforeach
-   @if (DB::table('campos')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
-@foreach($identificador as $identificador)
 
-<div class="modal fade" id="modal-id">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
-                                       
-          <div class="form-group">
-           <label class="col-md-3 control-label" for="example-text-input">Nombres</label>
-            <div class="col-md-9">
-             {{ Form::select('cierre', ['' => '-- Seleccione Cierre --',
-                '1' => 'Cerrar Colegio'
-                ], null, array('class' => 'form-control')) }}
-            </div>
-          </div>
-            
-            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+  <div class="col-sm-6">         
 
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-
-      {{ Form::close() }}
+  <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    <div class="widget-icon pull-left themed-background animation-fadeIn">
+     <i class="fa fa-expeditedssl"></i>
     </div>
-  </div>
-</div>
+  
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    <h3 class="widget-content animation-pullDown visible-lg">
+     <strong>Fecha</strong> 
+     <small>Registro actual</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+
+ 
+@foreach($anoweb as $anowebs)
 @endforeach
-@else
+
+@if (DB::table('fecha_adopcion')->where('ano','=', $anowebs->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+
+
+@foreach($fecha as $fechas)
+
 <div class="modal fade" id="modal-id">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -89,12 +81,19 @@ Gestión de usuarios Libros & Libros
         <h4 class="modal-title">Modal title</h4>
       </div>
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfecha'))) }}
                                       
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
-            <h2>Para realizar cierre debe registrar datos de venta para el colegio</h2>
+            <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">Fecha:</label>
+              <div class="col-sm-10">
+                <input type="date" name="fecha" id="input" class="form-control" value="{{$fechas->fecha}}" required="required" title="">
+              </div>
+            </div>
+
+              {{Form::hidden('ano', $fechas->ano, array('class' => 'form-control','placeholder'=>''))}}  
 
       </div>
 
@@ -107,9 +106,57 @@ Gestión de usuarios Libros & Libros
     </div>
   </div>
 </div>
+@endforeach
+
+@else
+
+<div class="modal fade" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfecha'))) }}
+                                      
+            
+            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+
+           
+            <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">Fecha:</label>
+              <div class="col-sm-10">
+                <input type="date" name="fecha" id="input" class="form-control" value="" required="required" title="">
+              </div>
+            </div>
+
+              @foreach($anoweb as $anoweb)
+            {{Form::hidden('ano', $anoweb->ano, array('class' => 'form-control','placeholder'=>''))}}  
+              @endforeach
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
+
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 1)->where('colegio_id', '=', Request::segment(2))->exists())
+
+
+
+
+ @foreach($anoe as $anoe)
+   
+   @endforeach
+
+@if (DB::table('campos')->where('grado_id', '=', 1)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasprimero  as $proventasprimero)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradowebasi/{{$proventasprimero}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -138,7 +185,7 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 2)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 2)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassegundo  as $proventassegundo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-segundoasi/{{$proventassegundo}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -168,7 +215,7 @@ Gestión de usuarios Libros & Libros
 
 
 
-@if (DB::table('campos')->where('grado_id', '=', 3)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 3)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventastercero  as $proventastercero)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-terceroasi/{{$proventastercero}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -198,11 +245,11 @@ Gestión de usuarios Libros & Libros
 
 
 
-@if (DB::table('campos')->where('grado_id', '=', 4)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 4)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventascuarto as $proventascuarto)
 <div class="col-sm-12 col-lg-4">
-  <a href="/editar-gradoweb-cuartoasi/{{$proventascuarto}}" class="widget widget-hover-effect1" style="background:#f39c12">
-   <div class="widget-simple">
+   <a href="/editar-gradoweb-cuartoasi/{{$proventascuarto}}" class="widget widget-hover-effect1" style="background:#f39c12">
+  <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Cuarto</strong>
@@ -227,7 +274,7 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 5)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 5)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasquinto as $proventasquinto)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-quintoasi/{{$proventasquinto}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -255,7 +302,7 @@ Gestión de usuarios Libros & Libros
  </div>
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 6)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 6)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventassexto as $proventassexto)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-sextoasi/{{$proventassexto}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -283,7 +330,7 @@ Gestión de usuarios Libros & Libros
  </div>
 @endif
 
-@if (DB::table('campos')->where('grado_id', '=', 7)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 7)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasseptimo as $proventasseptimo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-septimoasi/{{$proventasseptimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -312,7 +359,7 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 8)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 8)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasoctavo as $proventasoctavo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-octavoasi/{{$proventasoctavo}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -341,9 +388,8 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 9)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 9)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasnoveno as $proventasnoveno)
-
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-novenoasi/{{$proventasnoveno}}" class="widget widget-hover-effect1" style="background:#f39c12">
    <div class="widget-simple">
@@ -355,7 +401,6 @@ Gestión de usuarios Libros & Libros
    </div>
   </a>
  </div>
-
 @endforeach
 @else
   <div class="col-sm-12 col-lg-4">
@@ -372,7 +417,7 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 10)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 10)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasdecimo as $proventasdecimo)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-decimoasi/{{$proventasdecimo}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -401,7 +446,7 @@ Gestión de usuarios Libros & Libros
 @endif
 
 
-@if (DB::table('campos')->where('grado_id', '=', 11)->where('colegio_id', '=', Request::segment(2))->exists())
+@if (DB::table('campos')->where('grado_id', '=', 11)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasonce as $proventasonce)
 <div class="col-sm-12 col-lg-4">
   <a href="/editar-gradoweb-onceasi/{{$proventasonce}}" class="widget widget-hover-effect1" style="background:#f39c12">
@@ -427,11 +472,11 @@ Gestión de usuarios Libros & Libros
    </div>
   </a>
  </div>
+
 @endif
+
 </div>
-
-
-
+@endif
 @endforeach
 
 

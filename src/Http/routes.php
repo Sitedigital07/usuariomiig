@@ -57,7 +57,7 @@ Route::post('login', function(){
 
 Route::group(['middleware' => ['auditor']], function (){
 Route::get('/usuarios', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@index');
-
+Route::get('/formatear-colegio/{id}', 'Digitalmiig\Colegiomiig\Controllers\PoblacionesController@format');
 Route::post('/crearusuario', 'Digitalmiig\Usuariomiig\Controllers\UsuariosController@create');
 
 Route::get('/crear-usuario', function () {
@@ -103,6 +103,8 @@ Route::get('/crear-representante', function () {
 
 Route::post('/crearrepresentante', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@create');
 
+
+
 Route::get('/editar-representante/{id}', function ($id) {
     $categories = Digitalmiig\Usuariomiig\Region::all();
     $represen = DB::table('representantes')->where('id', $id)->get();
@@ -130,6 +132,21 @@ Route::group(['middleware' => ['auditor']], function (){
 Route::get('/configuracion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracion');
 
 Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracionupdate');
+
+Route::get('/carga-esseg', function () {                     
+    $datos = DB::table('esseg_con')->get();
+    return view('usuariomiig::cargaesseg',compact('datos'));    
+});
+
+Route::get('excel-esseg', function () {
+    return view('colegiomiig::importExportEsseg');
+});
+
+Route::get('exportadoresseg/{type}', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@exportador');
+Route::post('importadoresseg', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@importador');
+Route::post('importadoresseg', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@importador');
+Route::get('eliminar-esseg', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@eliminaresseg');
+
 });
 
 // Rol Asistente
@@ -140,7 +157,11 @@ Route::get('/editar-colegiorp/{id}', 'Digitalmiig\Colegiomiig\Controllers\Colegi
 Route::post('/update-colegiojr/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@updatejr');
 Route::get('/colegios/auditores/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@colegioauditores');
 Route::get('/poblacion-registrada/{id}', 'Digitalmiig\Colegiomiig\Controllers\PoblacionesController@show');
-Route::get('/formatear-colegio/{id}', 'Digitalmiig\Colegiomiig\Controllers\PoblacionesController@format');
+Route::post('/crearfecha', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createfecha');
+Route::post('/actualizarfecha/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefecha');
+
+Route::post('/crearfechameta', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createfechameta');
+Route::post('/actualizarfechameta/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefechameta');
 
 Route::get('/colegio-poblacion/{id}', function ($id) {
  date_default_timezone_set('America/Bogota');
@@ -235,6 +256,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
     $proventasdecimo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
     $proventasonce = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->select('id')->orderBy('id', 'DESC')->first();
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
+    $anoweb = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoe = DB::table('configuracion')->where('id', '=', 1)->get();
     $esseg = DB::table('esseg')->where('colegio_id', '=', $id)->get();
@@ -242,6 +264,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
     $identificadores = DB::table('proventas')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
     foreach($ano as $anoes){
     
+         $fecha = DB::table('fecha_meta')->where('ano','=', $anoes->ano)->where('colegio_id','=',$id)->get();   
         $matematicas = DB::table('titulo')
         ->join('proventas','titulo.id','=','proventas.pr_titulo_mat')
         ->select(DB::raw('sum(pr_vender_mat*precio) as vender_mat'))
@@ -314,7 +337,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
         }
          
         $total = $cienciaswebsd+$matematicaswebsd+$espanolwebsd+$comprensionwebsd+$intereswebsd+$artisticawebsd+$ingleswebsd;
-    return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg'));
+    return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','anoweb','fecha'));
 
 });
 
@@ -618,7 +641,7 @@ Route::get('grado-onceadopcion/{id}', function ($id) {
     return view('usuariomiig::gradoonceadopcion', compact('titulo','titulof','region','date','proventas'));
 });
 
-Route::get('proyeccion-grado/{id}', function ($id) {
+Route::get('proyeccionventasadopcion/{id}', function ($id) {
 
     return view('usuariomiig::proyeccionforms');
 });
@@ -692,11 +715,95 @@ Route::get('/usuario/ajax-subcat',function(){
 
 Route::group(['middleware' => ['representante']], function (){
 
+    Route::get('/informe/representantes', function () {
+  
+        $representantes = DB::table('representantes')
+        ->where('id', '=', 168)
+        ->get();
+
+        $colegios = DB::table('colegios')
+        ->where('representante_id', '=', 168)
+        ->get();
+
+        $informes = DB::table('titulo')
+        ->join('proventas','titulo.id','=','proventas.pr_titulo_mat')
+        ->select(DB::raw('sum(pr_vender_mat*precio) as vender_mat'),
+         DB::raw('sum(pr_vender_esp*precio) as vender_esp'),
+         DB::raw('sum(pr_vender_cie*precio) as vender_cie'),
+         DB::raw('sum(pr_vender_com*precio) as vender_com'),
+         DB::raw('sum(pr_vender_int*precio) as vender_int'),
+         DB::raw('sum(pr_vender_ing*precio) as vender_ing'),
+         DB::raw('sum(pr_vender_art*precio) as vender_art'),
+         DB::raw('sum(pr_vender_mat) as suma_mat'),
+         DB::raw('sum(pr_vender_esp) as suma_esp'),
+         DB::raw('sum(pr_vender_cie) as suma_cie'),
+         DB::raw('sum(pr_vender_com) as suma_com'),
+         DB::raw('sum(pr_vender_int) as suma_int'),
+         DB::raw('sum(pr_vender_ing) as suma_ing'),
+         DB::raw('sum(pr_vender_art) as suma_art'),
+         DB::raw('sum(pr_muestra_mat) as muestra_mat'),
+         DB::raw('sum(pr_muestra_esp) as muestra_esp'),
+         DB::raw('sum(pr_muestra_cie) as muestra_cie'),
+         DB::raw('sum(pr_muestra_com) as muestra_com'),
+         DB::raw('sum(pr_muestra_int) as muestra_int'),
+         DB::raw('sum(pr_muestra_ing) as muestra_ing'),
+         DB::raw('sum(pr_muestra_art) as muestra_art'),
+         DB::raw('colegio_id as colegio_id'))
+        ->groupBy('colegio_id')
+        ->get();
+        foreach($informes as $informesweb){
+         $informesweb = $informesweb->vender_mat+$informesweb->vender_esp;
+         
+        }
+        
+
+        $informesadopcion = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_mat')
+        ->select(DB::raw('sum(pr_vender_mat*precio) as vender_mat'),
+         DB::raw('sum(pr_vender_esp*precio) as vender_esp'),
+         DB::raw('sum(pr_vender_cie*precio) as vender_cie'),
+         DB::raw('sum(pr_vender_com*precio) as vender_com'),
+         DB::raw('sum(pr_vender_int*precio) as vender_int'),
+         DB::raw('sum(pr_vender_ing*precio) as vender_ing'),
+         DB::raw('sum(pr_vender_art*precio) as vender_art'),
+         DB::raw('sum(pr_vender_mat) as suma_mat'),
+         DB::raw('sum(pr_vender_esp) as suma_esp'),
+         DB::raw('sum(pr_vender_cie) as suma_cie'),
+         DB::raw('sum(pr_vender_com) as suma_com'),
+         DB::raw('sum(pr_vender_int) as suma_int'),
+         DB::raw('sum(pr_vender_ing) as suma_ing'),
+         DB::raw('sum(pr_vender_art) as suma_art'),
+         DB::raw('sum(pr_muestra_mat) as muestra_mat'),
+         DB::raw('sum(pr_muestra_esp) as muestra_esp'),
+         DB::raw('sum(pr_muestra_cie) as muestra_cie'),
+         DB::raw('sum(pr_muestra_com) as muestra_com'),
+         DB::raw('sum(pr_muestra_int) as muestra_int'),
+         DB::raw('sum(pr_muestra_ing) as muestra_ing'),
+         DB::raw('sum(pr_muestra_art) as muestra_art'),
+         DB::raw('colegio_id as colegio_id'))
+        ->groupBy('colegio_id')
+        ->get();
+
+
+        foreach($informesadopcion as $informeswebsite){
+         $informeswebadop = $informeswebsite->vender_mat+$informeswebsite->vender_esp;
+         
+        }
+        
+
+ 
+         return view('usuariomiig::informes', compact('informesweb','informeswebadop','representantes','colegios','informes','informesadopcion'));
+});
+
 Route::post('/crearesseg', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createsseg');
 Route::post('/updateesseg/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@updateesseg');
 
+
+
+
+
 Route::get('proyeccionventasadopcion/{id}', function ($id) {
-   
+
     $proventas = DB::table('campos')->where('colegio_id', '=', $id)->get();
     $proventasf = DB::table('campos')->where('colegio_id', '=', $id)->get();
     $proventasprimero = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 1)->select('id')->orderBy('id', 'DESC')->first();   
@@ -711,10 +818,90 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
     $proventasdecimo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
     $proventasonce = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->select('id')->orderBy('id', 'DESC')->first();
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
+    $anoweb = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoe = DB::table('configuracion')->where('id', '=', 1)->get();
+    $esseg = DB::table('esseg')->where('colegio_id', '=', $id)->get();
     $identificador = DB::table('campos')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
-    return view('usuariomiig::proyecciongradosadopcion', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe'));
+    $identificadores = DB::table('campos')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
+     foreach($ano as $anoes){
+    
+        $fecha = DB::table('fecha_adopcion')->where('ano','=', $anoes->ano)->where('colegio_id','=',$id)->get();
+
+        $matematicas = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_mat')
+        ->select(DB::raw('sum(pr_vender_mat*precio) as vender_mat'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($matematicas as $matematicasweb){
+         $matematicaswebsd = $matematicasweb->vender_mat;
+        }
+
+
+        $ciencias = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_cie')
+        ->select(DB::raw('sum(pr_vender_cie*precio) as vender_cie'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($ciencias as $cienciasweb){
+         $cienciaswebsd = $cienciasweb->vender_cie;
+        }
+
+        $espanol = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_esp')
+        ->select(DB::raw('sum(pr_vender_esp*precio) as vender_esp'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($espanol as $espanolweb){
+         $espanolwebsd = $espanolweb->vender_esp;
+        }
+
+        $comprension = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_com')
+        ->select(DB::raw('sum(pr_vender_com*precio) as vender_com'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($comprension as $comprensionweb){
+         $comprensionwebsd = $comprensionweb->vender_com;
+        }
+
+        $interes = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_int')
+        ->select(DB::raw('sum(pr_vender_int*precio) as vender_int'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($interes as $interesweb){
+         $intereswebsd = $interesweb->vender_int;
+        }
+
+        $artistica = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_art')
+        ->select(DB::raw('sum(pr_vender_art*precio) as vender_art'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($artistica as $artisticaweb){
+         $artisticawebsd = $artisticaweb->vender_art;
+        }
+
+        $ingles = DB::table('titulo')
+        ->join('campos','titulo.id','=','campos.pr_titulo_ing')
+        ->select(DB::raw('sum(pr_vender_ing*precio) as vender_ing'))
+        ->where('colegio_id', '=', $id)
+        ->where('ano', '=', $anoes->ano)
+        ->get();
+        foreach($ingles as $inglesweb){
+         $ingleswebsd = $inglesweb->vender_ing;
+        }
+        }
+         
+        $total = $cienciaswebsd+$matematicaswebsd+$espanolwebsd+$comprensionwebsd+$intereswebsd+$artisticawebsd+$ingleswebsd;
+    return view('usuariomiig::proyecciongradosadopcion', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','fecha','anoweb'));
 
 });
 });
@@ -935,6 +1122,9 @@ Route::get('grado-onceadopcionaud/{id}', function ($id) {
                          
     return view('usuariomiig::gradoonceadopcionaud', compact('titulo','titulof','region','date','proventas','editorial','editoriala','editorialb'));
 });
+
+
+
 
 
 Route::post('editar-proventaadopcionaud/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editarproventawebadopcionaud');

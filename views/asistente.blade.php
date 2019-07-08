@@ -22,20 +22,7 @@ Gestión de usuarios Libros & Libros
                             <div class="row">
                             	
                       
-                           
-                            <div class="col-sm-12 col-lg-4">
-                                <a href="/asistente-representantes" class="widget widget-hover-effect1 themed-background">
-                                    <div class="widget-simple">
-                                        <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
-                                        <h4 class="widget-content widget-content-light">
-                                            <strong>Representantes</strong>
-                                            <small>Web Designer</small>
-                                        </h4>
-                                    </div>
-                                </a>
-                            </div>
-
-							   <div class="col-sm-12 col-lg-4">
+							   <div class="col-sm-12 col-lg-12">
                                 <a href="/colegios-region" class="widget widget-hover-effect1 themed-background">
                                     <div class="widget-simple">
                                         <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
@@ -48,17 +35,6 @@ Gestión de usuarios Libros & Libros
                             </div>
 
 
-							   <div class="col-sm-12 col-lg-4">
-                                <a href="/asistente-ciudades" class="widget widget-hover-effect1 themed-background">
-                                    <div class="widget-simple">
-                                        <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
-                                        <h4 class="widget-content widget-content-light">
-                                            <strong>Ciudaddes</strong>
-                                            <small>Web Designer</small>
-                                        </h4>
-                                    </div>
-                                </a>
-                            </div>
                           
                             </div>
                         </div>

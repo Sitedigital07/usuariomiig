@@ -20,7 +20,7 @@ Usted ya realizo el cierre para este colegio
 {{$total*10/100}}
 <div class="container">
 
- <div class="col-sm-6">
+ <div class="col-sm-4">
   <a href="" class="widget widget-hover-effect1">
    <div class="widget-simple">
     
@@ -44,7 +44,7 @@ Usted ya realizo el cierre para este colegio
 
 
 
-  <div class="col-sm-6">         
+  <div class="col-sm-4">         
 
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
@@ -62,6 +62,112 @@ Usted ya realizo el cierre para este colegio
    </div>
   </a>
  </div>
+
+
+   <div class="col-sm-4">         
+
+  <a href="#modal-ida" data-toggle="modal" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    <div class="widget-icon pull-left themed-background animation-fadeIn">
+     <i class="fa fa-expeditedssl"></i>
+    </div>
+  
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    <h3 class="widget-content animation-pullDown visible-lg">
+     <strong>Fecha</strong> 
+     <small>Registro actual</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+
+
+
+@foreach($anoweb as $anowebs)
+@endforeach
+
+@if (DB::table('fecha_meta')->where('ano','=', $anowebs->ano)->where('colegio_id', '=', Request::segment(2))->exists())
+
+
+@foreach($fecha as $fecha)
+
+<div class="modal fade" id="modal-ida">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarfechameta',$fecha->id))) }}
+                                      
+            
+            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+
+            <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">Fecha:</label>
+              <div class="col-sm-10">
+                <input type="date" name="fecha" id="input" class="form-control" value="{{$fecha->fecha}}" required="required" title="">
+              </div>
+            </div>
+
+              {{Form::hidden('ano', $fecha->ano, array('class' => 'form-control','placeholder'=>''))}}  
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
+@endforeach
+
+@else
+
+<div class="modal fade" id="modal-ida">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfechameta'))) }}
+                                      
+            
+            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+
+           
+            <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">Fecha:</label>
+              <div class="col-sm-10">
+                <input type="date" name="fecha" id="input" class="form-control" value="" required="required" title="">
+              </div>
+            </div>
+
+              @foreach($anoweb as $anoweb)
+            {{Form::hidden('ano', $anoweb->ano, array('class' => 'form-control','placeholder'=>''))}}  
+              @endforeach
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
+
+@endif
+
 
  
 
@@ -157,7 +263,7 @@ Usted ya realizo el cierre para este colegio
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
-            <h2>Para realizar cierre debe registrar datos de venta para el colegio</h2>
+            <h2>Para ingresar valor del Esseg debe ingresar datos al colegio</h2>
 
       </div>
 
@@ -200,6 +306,7 @@ Usted ya realizo el cierre para este colegio
 </div>
 @endforeach
 @endif
+
 @endif
 
 @if (DB::table('proventas')->where('grado_id', '=', 1)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())

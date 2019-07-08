@@ -10,6 +10,8 @@ use Hash;
 use \Crypt;
 use Illuminate\Http\Request;
 use Digitalmiig\Usuariomiig\User;
+use Digitalmiig\Usuariomiig\Fecha;
+use Digitalmiig\Usuariomiig\Fechameta;
 use Digitalmiig\Usuariomiig\Representante;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,6 +71,56 @@ class RepresentantesController extends Controller
 
     return Redirect('representantes')->with('status', 'ok_create');
     }
+
+
+       public function createfecha()
+    {
+        $user = new Fecha;
+        $user->fecha = Input::get('fecha');
+        $user->colegio_id = Input::get('colegio');
+        $user->ano = Input::get('ano');
+        $user->save();
+
+    return Redirect('proyeccionventasadopcion/'.$user->colegio_id)->with('status', 'ok_create');
+    }
+
+        public function updatefecha($id)
+    {
+        $input = Input::all();
+        $user = Fecha::find($id);
+        $user->fecha = Input::get('fecha');
+        $user->colegio_id = Input::get('colegio');
+        $user->ano = Input::get('ano');
+        $user->save();
+
+    return Redirect('proyeccionventasadopcion/'.$user->colegio_id)->with('status', 'ok_create');
+    }
+
+           public function createfechameta()
+    {
+        $user = new Fechameta;
+        $user->fecha = Input::get('fecha');
+        $user->colegio_id = Input::get('colegio');
+        $user->ano = Input::get('ano');
+        $user->save();
+
+    return Redirect('proyeccionventas/'.$user->colegio_id)->with('status', 'ok_create');
+    }
+
+        public function updatefechameta($id)
+    {
+        $input = Input::all();
+        $user = Fechameta::find($id);
+        $user->fecha = Input::get('fecha');
+        $user->colegio_id = Input::get('colegio');
+        $user->ano = Input::get('ano');
+        $user->save();
+
+    return Redirect('proyeccionventas/'.$user->colegio_id)->with('status', 'ok_create');
+    }
+
+
+
 
 
         public function createventa()
