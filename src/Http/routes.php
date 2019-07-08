@@ -139,7 +139,7 @@ Route::get('/carga-esseg', function () {
 });
 
 Route::get('excel-esseg', function () {
-    return view('colegiomiig::importExportEsseg');
+    return view('colegiomiig::ImportExportEsseg');
 });
 
 Route::get('exportadoresseg/{type}', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@exportador');
