@@ -21,7 +21,7 @@ Usted ya realizo el cierre para este colegio
 {{$total*10/100}}
 <div class="container">
 
- <div class="col-sm-6">
+ <div class="col-sm-4">
   <a href="" class="widget widget-hover-effect1">
    <div class="widget-simple">
     
@@ -44,8 +44,35 @@ Usted ya realizo el cierre para este colegio
  </div>
 
 
+ <div class="col-sm-4">
+  <a href="" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    
+    <div class="widget-icon pull-left themed-background animation-fadeIn">
+     <i class="fa fa-calendar"></i>
+    </div>
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    
+    <h3 class="widget-content animation-pullDown visible-lg">
+      @foreach($ventas as $ventas)
+      @if($ventas->miig == 'null')
+      Consumo Esseg Nulo
+      @else
+     Consumo ESSEG <b>{{$ventas->valor}}</b>
+     @endif
+   @endforeach
 
-  <div class="col-sm-6">         
+     <small>Registro actual</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+
+
+
+  <div class="col-sm-4">         
 
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">

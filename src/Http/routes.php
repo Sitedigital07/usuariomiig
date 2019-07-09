@@ -817,6 +817,11 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
     $proventasnoveno = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 9)->select('id')->orderBy('id', 'DESC')->first();
     $proventasdecimo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
     $proventasonce = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->select('id')->orderBy('id', 'DESC')->first();
+    $ventas = DB::table('esseg_con')
+    ->join('colegios','esseg_con.miig','=','colegios.codigo')
+    ->where('colegios.id','=',$id)
+    ->get();
+    dd($ventas);
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoweb = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();
@@ -901,7 +906,7 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
         }
          
         $total = $cienciaswebsd+$matematicaswebsd+$espanolwebsd+$comprensionwebsd+$intereswebsd+$artisticawebsd+$ingleswebsd;
-    return view('usuariomiig::proyecciongradosadopcion', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','fecha','anoweb'));
+    return view('usuariomiig::proyecciongradosadopcion', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','fecha','anoweb','ventas'));
 
 });
 });
