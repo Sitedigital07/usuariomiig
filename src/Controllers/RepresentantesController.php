@@ -12,7 +12,9 @@ use Illuminate\Http\Request;
 use Digitalmiig\Usuariomiig\User;
 use Digitalmiig\Usuariomiig\Fecha;
 use Digitalmiig\Usuariomiig\Fechameta;
+use Digitalmiig\Colegiomiig\Essegcon;
 use Digitalmiig\Usuariomiig\Representante;
+use Digitalmiig\Usuariomiig\Descuento;
 use Illuminate\Support\Facades\Auth;
 
 class RepresentantesController extends Controller
@@ -106,6 +108,59 @@ class RepresentantesController extends Controller
 
     return Redirect('proyeccionventas/'.$user->colegio_id)->with('status', 'ok_create');
     }
+
+
+    public function createdescuento()
+    {
+        $user = new Descuento;
+        $user->descuento = Input::get('descuento');
+        $user->colegio_id = Input::get('colegio_id');
+        $user->ano = Input::get('ano');
+        $user->rol_id = Input::get('rol_id');
+        $user->save();
+
+    return Redirect('colegio-descuento/'.$user->colegio_id)->with('status', 'ok_create');
+    }
+
+
+        public function editardescuento($id)
+    {
+        $input = Input::all();
+        $user = Descuento::find($id);
+        $user->descuento = Input::get('descuento');
+        $user->colegio_id = Input::get('colegio_id');
+        $user->ano = Input::get('ano');
+        $user->rol_id = Input::get('rol_id');
+        $user->save();
+        if(Auth::user()->rol_id == 3){
+        return Redirect('colegio-descuentoaud/'.$user->colegio_id)->with('status', 'ok_update');
+         }
+        else{
+        return Redirect('colegio-descuentoaud/'.$user->colegio_id)->with('status', 'ok_update');
+        }
+    }
+
+
+       public function editaressegcol($id)
+    {
+        $input = Input::all();
+        $user = Essegcon::find($id);
+        $user->miig = Input::get('miig');
+        $user->valor = Input::get('valor');
+        $user->identificador = Input::get('identificador');
+        $user->save();
+        return Redirect('carga-esseg')->with('status', 'ok_update');
+    
+    }
+
+
+      public function eliminardescuento($id)
+    {
+    $users = Descuento::find($id);
+    $users->delete();
+    return Redirect('colegio-descuento/'.$users->colegio_id)->with('status', 'ok_delete');
+    }
+
 
         public function updatefechameta($id)
     {

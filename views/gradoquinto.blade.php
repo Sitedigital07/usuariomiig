@@ -437,7 +437,10 @@ option {
 
 
   <div class="modal-footer">
+       @if(Auth::user()->rol_id == 5)
    {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   @else
+   @endif
   </div>
  {{ Form::close() }}
 

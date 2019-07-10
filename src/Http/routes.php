@@ -129,6 +129,7 @@ Route::get('generar-usuario/{id}', function ($id) {
 
 Route::group(['middleware' => ['auditor']], function (){
 
+
 Route::get('/configuracion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracion');
 
 Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracionupdate');
@@ -137,6 +138,15 @@ Route::get('/carga-esseg', function () {
     $datos = DB::table('esseg_con')->get();
     return view('usuariomiig::cargaesseg',compact('datos'));    
 });
+
+Route::get('/editar-esseg/{id}', function ($id) {                     
+    $esseg = DB::table('esseg_con')->where('id', '=', $id)->get();
+    return view('usuariomiig::editaresseg',compact('esseg'));    
+});
+
+
+
+Route::post('/editaressegcol/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcol');
 
 Route::get('excel-esseg', function () {
     return view('colegiomiig::ImportExportEsseg');
@@ -153,12 +163,29 @@ Route::get('eliminar-esseg', 'Digitalmiig\Colegiomiig\Controllers\ExportadorCont
 
 Route::group(['middleware' => ['representante']], function (){
 
+Route::get('/colegio-descuento/{id}', function ($id) {
+    $descuentos = DB::table('descuento')->where('colegio_id', '=', $id)->get();
+    $ano = DB::table('configuracion')->where('id','=',1)->get();
+    $anos = DB::table('configuracion')->where('id','=',1)->get();
+    return view('colegiomiig::descuento')->with('descuentos', $descuentos)->with('ano', $ano)->with('anos', $anos);
+});
+
+Route::get('/editar-descuento/{id}', function ($id) {
+    $descuentos = DB::table('descuento')->where('colegio_id', '=', $id)->get();
+    return view('colegiomiig::editar-descuento')->with('descuentos', $descuentos);
+});
+
+Route::get('/eliminar-descuento/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@eliminardescuento');
+Route::post('/creardescuento', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createdescuento');
+Route::post('/editardescuento/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editardescuento');
+
 Route::get('/editar-colegiorp/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@edicion');
 Route::post('/update-colegiojr/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@updatejr');
 Route::get('/colegios/auditores/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@colegioauditores');
 Route::get('/poblacion-registrada/{id}', 'Digitalmiig\Colegiomiig\Controllers\PoblacionesController@show');
 Route::post('/crearfecha', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createfecha');
 Route::post('/actualizarfecha/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefecha');
+
 
 Route::post('/crearfechameta', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createfechameta');
 Route::post('/actualizarfechameta/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefechameta');
@@ -187,7 +214,6 @@ Route::get('/asistente-ciudades', 'Digitalmiig\Colegiomiig\Controllers\CiudadesC
 
 
 
-Route::post('actualizarcierrecolegio/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@actucolegio');
 Route::get('editar-gradoweb/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargrado');
 Route::get('editar-gradoweb-segundo/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradosegundo');
 Route::get('editar-gradoweb-tercero/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editargradotercero');
@@ -817,11 +843,10 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
     $proventasnoveno = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 9)->select('id')->orderBy('id', 'DESC')->first();
     $proventasdecimo = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
     $proventasonce = DB::table('campos')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->select('id')->orderBy('id', 'DESC')->first();
-    $ventas = DB::table('esseg_con')
-    ->join('colegios','esseg_con.miig','=','colegios.codigo')
+    $ventas = DB::table('colegios')
+    ->join('esseg_con','esseg_con.miig','=','colegios.codigo')
     ->where('colegios.id','=',$id)
     ->get();
-    dd($ventas);
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoweb = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();

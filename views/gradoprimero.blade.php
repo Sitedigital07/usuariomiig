@@ -424,7 +424,7 @@ option {
 
     <input id="id_input" type="text" hidden>
     <input type="hidden" name="materia" value="1" />
-    <input type="hidden" name="subcategory" value="2" />
+    <input type="hidden" name="subcategory" value="1" />
     <input type="hidden" name="region" value="{{$region->region_id}}" />
     <input type="hidden" name="colegio" value="{{$region->id}}" />
     <input type="hidden" name="representante" value="{{$region->representante_id}}" />
@@ -436,7 +436,10 @@ option {
 
 
   <div class="modal-footer">
+    @if(Auth::user()->rol_id == 5)
    {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   @else
+   @endif
   </div>
  {{ Form::close() }}
 

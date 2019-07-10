@@ -90,7 +90,7 @@ Gestión de usuarios Libros & Libros
                                              <td></td>
 
                                             <td class="text-center">
-                                               <a href="editar-colegio" class="btn btn-primary">Editar</a>
+                                               <a href="/editar-esseg/{{$datos->id}}" class="btn btn-primary"><i class="fa fa-eraser"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
