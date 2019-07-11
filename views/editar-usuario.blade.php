@@ -96,8 +96,14 @@ Gestión de usuarios Libros & Libros
                                             <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">Agencia</label>
                                             <div class="col-md-9">
+
                                               <select class="form-control selector" name="agencia" id="agencia">
-                                                <option value="0" selected>Seleccione agencia</option>
+                                               @foreach($usuariosagencia as $usuariosagencia)
+                                                <option value="{{$usuariosagencia->ciudadid}}" selected>{{$usuariosagencia->n_ciudad}}</option>
+                                               @endforeach
+                                               @foreach($ciudades as $ciudades)
+                                                <option value="{{$ciudades->ids}}">{{$ciudades->n_ciudad}}</option>
+                                               @endforeach
                                              <option value="1"></option>
                                             </select> 
                                             </div>

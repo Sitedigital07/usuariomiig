@@ -106,12 +106,22 @@ Gestión de usuarios Libros & Libros
                                          <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">Región</label>
                                             <div class="col-md-9">
-                                                <select id="example-select" name="region" class="form-control">
+                                                <select id="region" name="region" class="form-control">
                                                     <option value="" disabled selected>Seleccione Región</option>
                                                @foreach($regiones as $regiones)
                                                       <option value="{{$regiones->id}}">{{$regiones->region}}</option>
                                                @endforeach
                                            </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Agencia</label>
+                                            <div class="col-md-9">
+                                              <select class="form-control selector" name="agencia" id="agencia">
+                                                <option value="0" selected>Seleccione agencia</option>
+                                             <option value="1"></option>
+                                            </select> 
                                             </div>
                                         </div>
                                         
@@ -233,6 +243,21 @@ $(document).ready(function() {
 
 </script>
 
+ <script type="text/javascript">
+     
+      $('#region').on('change',function(e){
+        console.log(e);
+
+        var cat_id = e.target.value;
+
+        $.get('/usuario/ajax-subcat?cat_id=' + cat_id, function(data){
+            $('#agencia').empty();
+            $.each(data, function(index, subcatObj){
+              $('#agencia').append('<option value="'+subcatObj.ids+'">'+subcatObj.n_ciudad+'</option>');
+            });
+        });
+      });
+   </script>   
 
 @stop
 

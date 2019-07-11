@@ -112,8 +112,12 @@ public function index()
         $usuariosregion = DB::table('users')
         ->join('regiones','regiones.id','=','users.regionid')
         ->where('users.id', '=', $id)->get();
+        $usuariosagencia = DB::table('users')
+        ->join('ciudades','ciudades.ids','=','users.ciudadid')
+        ->where('users.id', '=', $id)->get();
         $regiones = DB::table('regiones')->get();
-        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones)->with('usuariosregion', $usuariosregion);
+        $ciudades = DB::table('ciudades')->where('region_id','=',$id)->get();
+        return view('usuariomiig::editar-usuario')->with('usuarios', $usuarios)->with('rols', $rols)->with('regiones', $regiones)->with('usuariosregion', $usuariosregion)->with('usuariosagencia', $usuariosagencia)->with('ciudades', $ciudades);
     }
 
         public function password($id)
