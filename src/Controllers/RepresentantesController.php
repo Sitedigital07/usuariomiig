@@ -136,7 +136,7 @@ class RepresentantesController extends Controller
         return Redirect('colegio-descuentoaud/'.$user->colegio_id)->with('status', 'ok_update');
          }
         else{
-        return Redirect('colegio-descuentoaud/'.$user->colegio_id)->with('status', 'ok_update');
+        return Redirect('colegio-descuento/'.$user->colegio_id)->with('status', 'ok_update');
         }
     }
 

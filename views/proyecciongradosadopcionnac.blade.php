@@ -124,8 +124,11 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         @if(Auth::user()->rol_id == 5)
         <button type="submit" class="btn btn-primary">Save changes</button>
+        @else
+        @endif
       </div>
 
       {{ Form::close() }}

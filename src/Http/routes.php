@@ -532,8 +532,10 @@ Route::get('grado-once/{id}', function ($id) {
 
 
 Route::get('grado-primeroadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -545,8 +547,10 @@ Route::get('grado-primeroadopcion/{id}', function ($id) {
 
 
 Route::get('grado-segundoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -557,9 +561,14 @@ Route::get('grado-segundoadopcion/{id}', function ($id) {
 });
 
 
+
+
+
 Route::get('grado-terceroadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -571,8 +580,10 @@ Route::get('grado-terceroadopcion/{id}', function ($id) {
 
 
 Route::get('grado-cuartoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -584,8 +595,10 @@ Route::get('grado-cuartoadopcion/{id}', function ($id) {
 
 
 Route::get('grado-quintoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('campos')
@@ -596,8 +609,10 @@ Route::get('grado-quintoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-sextoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -608,8 +623,10 @@ Route::get('grado-sextoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-septimoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -620,8 +637,10 @@ Route::get('grado-septimoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-octavoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -632,8 +651,10 @@ Route::get('grado-octavoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-novenoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -644,8 +665,10 @@ Route::get('grado-novenoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-decimoadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -656,8 +679,10 @@ Route::get('grado-decimoadopcion/{id}', function ($id) {
 });
 
 Route::get('grado-onceadopcion/{id}', function ($id) {
-    $titulo = DB::table('titulo')->get();
-    $titulof = DB::table('titulo')->get();
+    $titulof = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
+    $titulo = DB::table('colegios')
+    ->join('titulo','colegios.adopcion', '=', 'titulo.portafolio')->get();
     $region = Digitalmiig\Colegiomiig\Colegio::find($id);
     $date = DB::table('configuracion')->where('id', '=', 1)->get();
     $proventas = DB::table('proventas')
@@ -856,7 +881,7 @@ Route::get('proyeccionventasadopcion/{id}', function ($id) {
     $identificadores = DB::table('campos')->where('colegio_id', '=', $id)->select('id')->orderBy('id', 'DESC')->first();
      foreach($ano as $anoes){
     
-        $fecha = DB::table('fecha_adopcion')->where('ano','=', $anoes->ano)->where('colegio_id','=',$id)->get();
+        $fecha = DB::table('fecha_adopcion')->where('ano','=', $anoes->ano)->where('colegio_id','=',$id)->orderby('fecha','DESC')->take(1)->get();
 
         $matematicas = DB::table('titulo')
         ->join('campos','titulo.id','=','campos.pr_titulo_mat')
