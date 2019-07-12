@@ -428,6 +428,7 @@ option {
     <input type="hidden" name="region" value="{{$region->region_id}}" />
     <input type="hidden" name="colegio" value="{{$region->id}}" />
     <input type="hidden" name="representante" value="{{$region->representante_id}}" />
+
     <input type="hidden" name="metadopcion" value="0" />
     
     @foreach($date as $date)

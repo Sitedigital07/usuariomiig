@@ -259,7 +259,7 @@ return Redirect('gestion/factura/crear-producto')->with('status', 'ok_create');
 
 
 
-Route::get('/asistente', function () {
+Route::get('/representante', function () {
     return view('usuariomiig::asistente');
 });
 
