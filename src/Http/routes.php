@@ -47,7 +47,7 @@ Route::post('login', function(){
         return Redirect::to('/gerentereg');
     }
     elseif (Auth::user()->rol_id == 5) {
-        return Redirect::to('/asistente');
+        return Redirect::to('/representante');
     }
     elseif (Auth::user()->rol_id == 6) {
         return Redirect::to('/vendedor');
