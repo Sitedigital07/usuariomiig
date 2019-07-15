@@ -108,7 +108,7 @@ Gestión de usuarios Libros & Libros
     
       <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
               </div>
@@ -142,7 +142,7 @@ Gestión de usuarios Libros & Libros
 
               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
               </div>
@@ -224,7 +224,7 @@ Gestión de usuarios Libros & Libros
     
      <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_espanol', [$proventas->pr_espanol => $proventas->pr_espanol,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1b')) }}
               </div>
@@ -259,7 +259,7 @@ Gestión de usuarios Libros & Libros
 
               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_espanol', [$proventas->pr_espanol => $proventas->pr_espanol,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1b')) }}
               </div>
@@ -348,7 +348,7 @@ Gestión de usuarios Libros & Libros
     
    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_ciencias', [$proventas->pr_ciencias => $proventas->pr_ciencias,
-              '0' => 'No meta',
+              '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1c')) }}
               </div>
@@ -384,7 +384,7 @@ Gestión de usuarios Libros & Libros
 
               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_ciencias', [$proventas->pr_ciencias => $proventas->pr_ciencias,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1c')) }}
               </div>
@@ -470,7 +470,7 @@ Gestión de usuarios Libros & Libros
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_comprension', [$proventas->pr_comprension => $proventas->pr_comprension,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1d')) }}
               </div>
@@ -505,7 +505,7 @@ Gestión de usuarios Libros & Libros
 
               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_comprension', [$proventas->pr_comprension => $proventas->pr_comprension,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                ], null, array('class' => 'form-control', 'id' => 'category1d')) }}
               </div>
@@ -589,7 +589,7 @@ Gestión de usuarios Libros & Libros
     
       <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                {{ Form::select('pr_interes', [$proventas->pr_interes => $proventas->pr_interes,
-               '0' => 'No meta',
+               '0' => 'No adopción',
                '1' => 'Libros y Libros',
                 ], null, array('class' => 'form-control', 'id' => 'category1e')) }}
               </div>
@@ -624,7 +624,7 @@ Gestión de usuarios Libros & Libros
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
        {{ Form::select('pr_interes', [$proventas->pr_interes => $proventas->pr_interes,
-       '0' => 'No meta',
+       '0' => 'No adopción',
                '1' => 'Libros y Libros',
        ], null, array('class' => 'form-control', 'id' => 'category1e')) }}
       </div>
@@ -706,7 +706,7 @@ Gestión de usuarios Libros & Libros
     
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
        {{ Form::select('pr_artistica', [$proventas->pr_artistica => $proventas->pr_artistica,
-       '0' => 'No meta',
+       '0' => 'No adopción',
                '1' => 'Libros y Libros',
        ], null, array('class' => 'form-control', 'id' => 'category1f')) }}
       </div>
@@ -741,7 +741,7 @@ Gestión de usuarios Libros & Libros
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
        {{ Form::select('pr_artistica', [$proventas->pr_artistica => $proventas->pr_artistica,
-       '0' => 'No meta',
+       '0' => 'No adopción',
                '1' => 'Libros y Libros',
        ], null, array('class' => 'form-control', 'id' => 'category1f')) }}
       </div>
@@ -816,7 +816,7 @@ Gestión de usuarios Libros & Libros
     
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
        {{ Form::select('pr_ingles', [$proventas->pr_ingles => $proventas->pr_ingles,
-       '0' => 'No meta',
+       '0' => 'No adopción',
                '1' => 'Libros y Libros',
        ], null, array('class' => 'form-control', 'id' => 'category1g')) }}
       </div>
@@ -853,7 +853,7 @@ Gestión de usuarios Libros & Libros
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
        {{ Form::select('pr_ingles', [$proventas->pr_ingles => $proventas->pr_ingles,
-       '0' => 'No meta',
+       '0' => 'No adopción',
        '1' => 'Libros y Libros',
        ], null, array('class' => 'form-control', 'id' => 'category1g')) }}
       </div>
@@ -940,7 +940,7 @@ Gestión de usuarios Libros & Libros
 
   <div class="modal-footer">
        @if(Auth::user()->rol_id == 5)
-   {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   {{Form::submit('Guardar adopción', array('class' => 'btn btn-primary')  )}}
    @else
    @endif
   </div>

@@ -115,7 +115,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulo as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 1)
@@ -263,7 +263,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1b" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 2)
@@ -411,7 +411,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1c" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 3)
@@ -558,7 +558,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1d" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 4)
@@ -702,7 +702,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1e" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_int" id="category1e" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 5)
@@ -842,7 +842,7 @@ Gestión de usuarios Libros & Libros
       
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1f" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_art" id="category1f" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 6)
@@ -982,7 +982,7 @@ Gestión de usuarios Libros & Libros
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1g" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_ing" id="category1g" required="required">
-      <option value="0" selected>Seleccione editorial</option>
+      <option value="0" selected>Seleccione título</option>
        @foreach($titulof as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 7)
@@ -1121,7 +1121,7 @@ Gestión de usuarios Libros & Libros
 
   <div class="modal-footer">
   @if(Auth::user()->rol_id == 5)
-   {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   {{Form::submit('Guardar metas', array('class' => 'btn btn-primary')  )}}
    @else
    @endif
   </div>

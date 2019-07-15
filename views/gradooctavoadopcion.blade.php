@@ -118,7 +118,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_matematicas" id="category1a" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -154,7 +154,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_espanol" id="category1b" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -190,7 +190,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_ciencias" id="category1c" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -224,7 +224,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_comprension" id="category1d" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -260,7 +260,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_interes" id="category1e" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -295,7 +295,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_artistica" id="category1f" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -331,7 +331,7 @@ option {
     
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
      <select class="form-control input-sm" name="pr_ingles" id="category1g" required="required">
-      <option value="0" selected>No meta</option>
+      <option value="0" selected>No adopción</option>
       <option value="1">Libros y Libros</option>
      </select>
     </div>
@@ -378,7 +378,7 @@ option {
 
   <div class="modal-footer">
        @if(Auth::user()->rol_id == 5)
-   {{Form::submit('Crear datos auditoría', array('class' => 'btn btn-primary')  )}}
+   {{Form::submit('Guardar adopción', array('class' => 'btn btn-primary')  )}}
    @else
    @endif
   </div>

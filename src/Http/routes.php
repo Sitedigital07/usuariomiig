@@ -171,7 +171,7 @@ Route::get('/colegio-descuento/{id}', function ($id) {
 });
 
 Route::get('/editar-descuento/{id}', function ($id) {
-    $descuentos = DB::table('descuento')->where('colegio_id', '=', $id)->get();
+    $descuentos = DB::table('descuento')->where('id', '=', $id)->get();
     return view('colegiomiig::editar-descuento')->with('descuentos', $descuentos);
 });
 

@@ -17,7 +17,7 @@ Gestión de usuarios Libros & Libros
           <!-- Datatables Content -->
                         <div class="block full">
                             <div class="block-title">
-                                <h2><strong>Ciudades</strong> registrados</h2>
+                                <h2><strong>Colegios</strong> registrados</h2>
                             </div>
                             <div class="row">
                             	
@@ -28,8 +28,8 @@ Gestión de usuarios Libros & Libros
                                         <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
                                         <h4 class="widget-content widget-content-light">
                                             <strong>Colegios</strong>
-                                            <small>Web Designer</small>
                                         </h4>
+                                        
                                     </div>
                                 </a>
                             </div>

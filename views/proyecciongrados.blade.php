@@ -32,7 +32,7 @@ Usted ya realizo el cierre para este colegio
     </div>
     
     <h3 class="widget-content animation-pullDown visible-lg">
-     Año <strong>Auditado</strong> 
+      <strong>Temporada</strong> 
      @foreach($ano as $ano)
      {{$ano->ano}}
      @endforeach
@@ -49,15 +49,15 @@ Usted ya realizo el cierre para este colegio
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
-     <i class="fa fa-expeditedssl"></i>
+    <i class="fa fa-usd"></i>
     </div>
   
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
     <h3 class="widget-content animation-pullDown visible-lg">
-     <strong>ESSEG</strong> 
-     <small>Registro actual</small>
+     <strong>Presupuesto ESSEG</strong> 
+     <small>Registrar presupuesto</small>
     </h3>
    </div>
   </a>
@@ -69,15 +69,15 @@ Usted ya realizo el cierre para este colegio
   <a href="#modal-ida" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
-     <i class="fa fa-expeditedssl"></i>
+     <i class="fa fa-calendar-check-o"></i>
     </div>
   
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
     <h3 class="widget-content animation-pullDown visible-lg">
-     <strong>Fecha</strong> 
-     <small>Registro actual</small>
+     <strong>Fecha de cierre</strong> 
+     <small>Registrar fecha de cierre</small>
     </h3>
    </div>
   </a>
@@ -98,7 +98,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Fecha de cierre</h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarfechameta',$fecha->id))) }}
@@ -118,8 +118,8 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -135,7 +135,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Fecha de Cierre</h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfechameta'))) }}
@@ -157,8 +157,8 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -218,13 +218,13 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><b>Crear valor Esseg</b></h4>
+        <h4 class="modal-title"><b>Registrar presupuesto ESSEG</b></h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearesseg'))) }}
                                        
           <div class="form-group">
-           <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
+           <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
             <div class="col-md-9">
               {{Form::number('esseg', '', array('class' => 'form-control','placeholder'=>'', 'max'=>$total*10/100))}} 
             </div>
@@ -237,8 +237,8 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -255,7 +255,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Presupuesto ESSEG</h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
@@ -263,13 +263,13 @@ Usted ya realizo el cierre para este colegio
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
-            <h2>Para ingresar valor del Esseg debe ingresar datos al colegio</h2>
+            <h2>Para ingresar el valor de presupuesto ESSEG debe primero registrar la totalidad de metas del colegio.</h2>
 
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -283,7 +283,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Fecha de cierre</h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
@@ -296,8 +296,8 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -317,7 +317,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Primero</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -330,7 +330,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Primero</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -346,7 +346,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Segundo</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -359,7 +359,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Segundo</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -376,7 +376,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Tercero</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -389,7 +389,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Tercero</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -406,7 +406,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Cuarto</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -419,7 +419,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Cuarto</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -435,7 +435,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Quinto</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -448,7 +448,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Quinto</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -463,7 +463,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Sexto</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -476,7 +476,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Sexto</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -491,7 +491,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Septimo</strong>
-      <small>Editar Registro</small>
+ 
      </h4>
    </div>
   </a>
@@ -504,7 +504,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Septimo</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -520,7 +520,6 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Octavo</strong>
-      <small>Editar Registro</small>
      </h4>
    </div>
   </a>
@@ -533,7 +532,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Octavo</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -549,7 +548,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado noveno</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -562,7 +561,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Noveno</strong>
-      <small>Registro inicial</small>
+   
      </h4>
    </div>
   </a>
@@ -578,7 +577,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Decimo</strong>
-      <small>Editar Registro</small>
+
      </h4>
    </div>
   </a>
@@ -591,7 +590,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Decimo</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
@@ -607,7 +606,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Once</strong>
-      <small>Editar Registro</small>
+ 
      </h4>
    </div>
   </a>
@@ -620,7 +619,7 @@ Usted ya realizo el cierre para este colegio
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
       <strong>Grado Once</strong>
-      <small>Registro inicial</small>
+
      </h4>
    </div>
   </a>
