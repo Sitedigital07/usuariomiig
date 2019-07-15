@@ -17,7 +17,7 @@ Gestión de usuarios Libros & Libros
 @if (DB::table('campos')->where('cierre', '=', 1)->where('ano', '=', $anon->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 Usted ya realizo el cierre para este colegio
 @else
-{{$total*10/100}}
+
 <div class="container">
 
  <div class="col-sm-4">
@@ -31,7 +31,7 @@ Usted ya realizo el cierre para este colegio
      <span id="mini-chart-brand"></span>
     </div>
     
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
      Año <strong>Auditado</strong> 
      @foreach($ano as $ano)
      {{$ano->ano}}
@@ -54,7 +54,7 @@ Usted ya realizo el cierre para este colegio
      <span id="mini-chart-brand"></span>
     </div>
     
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
       @foreach($ventas as $ventas)
       @if($ventas->miig == 'null')
       Consumo Esseg Nulo
@@ -81,8 +81,8 @@ Usted ya realizo el cierre para este colegio
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
-    <h3 class="widget-content animation-pullDown visible-lg">
-     <strong>Fecha</strong> 
+    <h3 class="widget-content animation-pullDown">
+     <strong>Fecha de adopción</strong> 
 
     </h3>
    </div>

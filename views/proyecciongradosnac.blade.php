@@ -33,7 +33,7 @@ Usted ya realizo el cierre para este colegio
      <span id="mini-chart-brand"></span>
     </div>
     
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
      Año <strong>Auditado</strong> 
      @foreach($ano as $ano)
      {{$ano->ano}}
@@ -57,7 +57,7 @@ Usted ya realizo el cierre para este colegio
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
      <strong>ESSEG</strong> 
 
     </h3>
@@ -77,7 +77,7 @@ Usted ya realizo el cierre para este colegio
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
      <strong>Fecha</strong> 
 
     </h3>
@@ -97,7 +97,7 @@ Usted ya realizo el cierre para este colegio
     <div class="pull-right">
      <span id="mini-chart-brand"></span>
     </div>
-    <h3 class="widget-content animation-pullDown visible-lg">
+    <h3 class="widget-content animation-pullDown">
      <strong>Cierre</strong> 
 
     </h3>

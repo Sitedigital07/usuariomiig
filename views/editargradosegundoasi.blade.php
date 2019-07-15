@@ -136,7 +136,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
     
@@ -202,7 +202,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" value="{{$proventas->pr_muestra_mat}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" value="{{$proventas->pr_muestra_mat}}" placeholder="Muestras entregadas" type="text">
         </div>
 
       
@@ -215,7 +215,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
       
@@ -256,7 +256,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
        
@@ -319,7 +319,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" value="{{$proventas->pr_muestra_esp}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" value="{{$proventas->pr_muestra_esp}}" placeholder="Muestras entregadas" type="text">
         </div>
 
  
@@ -330,7 +330,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
      
@@ -377,7 +377,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
       
@@ -442,7 +442,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" value="{{$proventas->pr_muestra_cie}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" value="{{$proventas->pr_muestra_cie}}" placeholder="Muestras entregadas" type="text">
         </div>
 
         
@@ -454,7 +454,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
        
@@ -498,7 +498,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
    
@@ -562,7 +562,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" value="{{$proventas->pr_muestra_com}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" value="{{$proventas->pr_muestra_com}}" placeholder="Muestras entregadas" type="text">
         </div>
 
    
@@ -574,7 +574,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
      
@@ -616,7 +616,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
       
@@ -675,7 +675,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputint2" name="pr_muestra_int" class="form-control" value="{{$proventas->pr_muestra_int}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputint2" name="pr_muestra_int" class="form-control" value="{{$proventas->pr_muestra_int}}" placeholder="Muestras entregadas" type="text">
         </div>
 
     
@@ -688,7 +688,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
        @endif
@@ -730,7 +730,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
      
@@ -791,7 +791,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputart2" name="pr_muestra_art" class="form-control" value="{{$proventas->pr_muestra_art}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputart2" name="pr_muestra_art" class="form-control" value="{{$proventas->pr_muestra_art}}" placeholder="Muestras entregadas" type="text">
         </div>
 
      
@@ -805,7 +805,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
    
@@ -846,7 +846,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
    
@@ -905,7 +905,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" value="{{$proventas->pr_muestra_ing}}" placeholder="Muestras solicitadas" type="text">
+         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" value="{{$proventas->pr_muestra_ing}}" placeholder="Muestras entregadas" type="text">
         </div>
 
      
@@ -918,7 +918,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+         <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
         </div>
 
       
