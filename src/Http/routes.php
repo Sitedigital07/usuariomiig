@@ -768,12 +768,12 @@ Route::group(['middleware' => ['representante']], function (){
 
     Route::get('/informe/representantes', function () {
   
-        $representantes = DB::table('representantes')
-        ->where('id', '=', 168)
+        $representantes = DB::table('users')
+        ->where('id', '=', 6)
         ->get();
 
         $colegios = DB::table('colegios')
-        ->where('representante_id', '=', 168)
+        ->where('representante_id', '=', 6)
         ->get();
 
         $informes = DB::table('titulo')

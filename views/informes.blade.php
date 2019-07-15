@@ -32,7 +32,9 @@
 </html>
 
 
-
+<div class="container">
+	
+<h1>Informe Representantes</h1>
 
 
 <table id="tabla1" class="table table-bordered table-striped table-hover">
@@ -94,3 +96,4 @@
 </table>
 
 
+</div>
