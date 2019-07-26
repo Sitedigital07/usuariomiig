@@ -135,6 +135,9 @@ class RepresentantesController extends Controller
         if(Auth::user()->rol_id == 3){
         return Redirect('colegio-descuentoaud/'.$user->colegio_id)->with('status', 'ok_update');
          }
+         elseif(Auth::user()->rol_id == 4){
+            return Redirect('colegio-descuentoreg/'.$user->colegio_id)->with('status', 'ok_update');
+         }
         else{
         return Redirect('colegio-descuento/'.$user->colegio_id)->with('status', 'ok_update');
         }
