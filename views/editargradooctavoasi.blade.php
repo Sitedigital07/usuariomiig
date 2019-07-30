@@ -125,9 +125,7 @@ Gestión de usuarios Libros & Libros
     </select>
    </div>
    
-   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-    <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" placeholder="Población"  disabled>
-   </div>
+
 
    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
     <input id="id_inputmat1" name="pr_vender_mat" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -137,13 +135,7 @@ Gestión de usuarios Libros & Libros
     <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
    </div>
 
-   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-    <select class="form-control" name="pr_metas_mat" id="id_inputmat3" disabled>
-     <option value="" disabled selected>Seleccione meta</option>
-      <option value="1">Crecimiento</option>
-       <option value="2">Sostenimiento</option>
-    </select>
-   </div>
+   
 
  </div>
  
@@ -201,10 +193,7 @@ Gestión de usuarios Libros & Libros
 
     @if($proventas->pr_matematicas == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" value="{{$proventas->pr_poblacion_mat}}" placeholder="Población">
-        </div>
-
+     
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputmat1" name="pr_vender_mat" class="form-control" value="{{$proventas->pr_vender_mat}}" placeholder="Libros a vender" type="text">
         </div>
@@ -213,17 +202,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" value="{{$proventas->pr_muestra_mat}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_mat', [$proventas->pr_metas_mat => $proventas->pr_metas_mat,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputmat3')) }}
-        </div>
+       
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" placeholder="Población"  disabled>
-        </div>
+ 
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputmat1" name="pr_vender_mat" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -233,13 +216,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_mat" id="id_inputmat3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+      
       
        @endif
             </div>
@@ -271,9 +248,7 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_esp" id="id_inputesp" class="form-control" placeholder="Población"  disabled>
-        </div>
+
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputesp1" name="pr_vender_esp" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -283,13 +258,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_esp" id="id_inputesp3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+      
 </div>
 @else
 
@@ -345,9 +314,7 @@ Gestión de usuarios Libros & Libros
 
                @if($proventas->pr_espanol == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_esp" id="id_inputesp" class="form-control" value="{{$proventas->pr_poblacion_esp}}" placeholder="Población">
-        </div>
+ 
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputesp1" name="pr_vender_esp" class="form-control" value="{{$proventas->pr_vender_esp}}" placeholder="Libros a vender" type="text">
@@ -357,17 +324,10 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" value="{{$proventas->pr_muestra_esp}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_esp', [$proventas->pr_metas_esp => $proventas->pr_metas_esp,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputesp3')) }}
-        </div>
- 
+    
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_esp" id="id_inputesp" class="form-control" placeholder="Población"  disabled>
-        </div>
+     
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputesp1" name="pr_vender_esp" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -377,13 +337,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_esp" id="id_inputesp3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+     
       
        @endif
 
@@ -421,9 +375,6 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_cie" id="id_inputcie" class="form-control" placeholder="Población"  disabled>
-        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcie1" name="pr_vender_cie" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -433,13 +384,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_cie" id="id_inputcie3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+        
 </div>
 
 @else
@@ -496,9 +441,7 @@ Gestión de usuarios Libros & Libros
 
                @if($proventas->pr_ciencias == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_cie" id="id_inputcie" class="form-control" value="{{$proventas->pr_poblacion_cie}}" placeholder="Población">
-        </div>
+  
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcie1" name="pr_vender_cie" class="form-control" value="{{$proventas->pr_vender_cie}}" placeholder="Libros a vender" type="text">
@@ -508,17 +451,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" value="{{$proventas->pr_muestra_cie}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_cie', [$proventas->pr_metas_cie => $proventas->pr_metas_cie,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputcie3')) }}
-        </div>
+        
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_cie" id="id_inputcie" class="form-control" placeholder="Población"  disabled>
-        </div>
+  
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcie1" name="pr_vender_cie" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -528,13 +465,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_cie" id="id_inputcie3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+       
       
        @endif
 
@@ -570,9 +501,7 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_com" id="id_inputcom" class="form-control" placeholder="Población"  disabled>
-        </div>
+
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcom1" name="pr_vender_com" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -582,13 +511,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-        <select class="form-control" name="pr_metas_com" id="id_inputcom3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+        
 </div>
 
 @else
@@ -645,9 +568,6 @@ Gestión de usuarios Libros & Libros
 
               @if($proventas->pr_comprension == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_com" id="id_inputcom" class="form-control" value="{{$proventas->pr_poblacion_com}}" placeholder="Población">
-        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcom1" name="pr_vender_com" class="form-control" value="{{$proventas->pr_vender_com}}" placeholder="Libros a vender" type="text">
@@ -657,17 +577,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcom2" name="pr_muestra_com" class="form-control" value="{{$proventas->pr_muestra_com}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_com', [$proventas->pr_metas_com => $proventas->pr_metas_com,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputcom3')) }}
-        </div>
+       
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_com" id="id_inputcom" class="form-control" placeholder="Población"  disabled>
-        </div>
+   
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputcom1" name="pr_vender_com" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -677,13 +591,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputcom2" name="pr_muestra_com" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_com" id="id_inputcom3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+        
       
        @endif
 
@@ -716,9 +624,7 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_int" id="id_inputint" class="form-control" placeholder="Población"  disabled>
-        </div>
+  
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputint1" name="pr_vender_int" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -728,13 +634,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_int" id="id_inputint3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+      
 </div>
 @else
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -786,9 +686,7 @@ Gestión de usuarios Libros & Libros
 
      @if($proventas->pr_interes == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_int" id="id_inputint" class="form-control" value="{{$proventas->pr_poblacion_int}}" placeholder="Población">
-        </div>
+      
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputint1" name="pr_vender_int" class="form-control" value="{{$proventas->pr_vender_int}}" placeholder="Libros a vender" type="text">
@@ -798,17 +696,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputint2" name="pr_muestra_int" class="form-control" value="{{$proventas->pr_muestra_int}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_int', [$proventas->pr_metas_int => $proventas->pr_metas_int,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputint3')) }}
-        </div>
+        
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_int" id="id_inputint" class="form-control" placeholder="Población"  disabled>
-        </div>
+        
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputint1" name="pr_vender_int" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -818,13 +710,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_int" id="id_inputint3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+        
       
        @endif
 
@@ -849,7 +735,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_art" id="category1f" required="required">
       <option value="0" selected>Seleccione título</option>
        @foreach($titulo as $titulos)
-        @if($titulos->grado == 9)
+        @if($titulos->grado == 8)
         @if($titulos->asignatura == 6)
          <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
@@ -858,9 +744,7 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_art" id="id_inputart" class="form-control" placeholder="Población"  disabled>
-        </div>
+  
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputart1" name="pr_vender_art" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -870,13 +754,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_art" id="id_inputart3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+     
 
 </div>
 @else
@@ -930,9 +808,7 @@ Gestión de usuarios Libros & Libros
 
 @if($proventas->pr_artistica == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_art" id="id_inputart" class="form-control" value="{{$proventas->pr_poblacion_art}}" placeholder="Población">
-        </div>
+      
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputart1" name="pr_vender_art" class="form-control" value="{{$proventas->pr_vender_art}}" placeholder="Libros a vender" type="text">
@@ -942,18 +818,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputart2" name="pr_muestra_art" class="form-control" value="{{$proventas->pr_muestra_art}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_art', [$proventas->pr_metas_art => $proventas->pr_metas_art,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputart3')) }}
-        </div>
+       
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_art" id="id_inputart" class="form-control" placeholder="Población"  disabled>
-        </div>
-
+       
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputart1" name="pr_vender_art" class="form-control" placeholder="Libros a vender" type="text" disabled>
         </div>
@@ -962,13 +831,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_art" id="id_inputart3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+       
       
        @endif
 
@@ -1000,9 +863,7 @@ Gestión de usuarios Libros & Libros
      </select>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_ing" id="id_inputing" class="form-control" placeholder="Población"  disabled>
-        </div>
+ 
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputing1" name="pr_vender_ing" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -1012,13 +873,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_ing" id="id_inputing3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+       
 </div>
 @else
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -1070,9 +925,7 @@ Gestión de usuarios Libros & Libros
 
     @if($proventas->pr_ingles == 1) 
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_ing" id="id_inputing" class="form-control" value="{{$proventas->pr_poblacion_ing}}" placeholder="Población">
-        </div>
+  
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputing1" name="pr_vender_ing" class="form-control" value="{{$proventas->pr_vender_ing}}" placeholder="Libros a vender" type="text">
@@ -1082,17 +935,11 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputing2" name="pr_muestra_ing" class="form-control" value="{{$proventas->pr_muestra_ing}}" placeholder="Muestras solicitadas" type="text">
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         {{ Form::select('pr_metas_ing', [$proventas->pr_metas_ing => $proventas->pr_metas_ing,
-         '1' => 'Crecimiento',
-         '2' => 'Sostenimiento'], null, array('class' => 'form-control', 'id' => 'id_inputing3')) }}
-        </div>
+      
  
        @else
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_ing" id="id_inputing" class="form-control" placeholder="Población"  disabled>
-        </div>
+      
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input id="id_inputing1" name="pr_vender_ing" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -1102,13 +949,7 @@ Gestión de usuarios Libros & Libros
          <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_ing" id="id_inputing3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
+        
       
        @endif
 
