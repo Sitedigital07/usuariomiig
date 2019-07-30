@@ -1040,7 +1040,7 @@ Gestión de usuarios Libros & Libros
         @endif
         @endforeach
        @foreach($titulo as $titulo)
-        @if($titulo->grado == 3)
+        @if($titulo->grado == 7)
         @if($titulo->asignatura == 7)
          @foreach($colegios as $colegiosa)
          @if($colegiosa->adopcion == $titulo->portafolio)
@@ -1058,7 +1058,7 @@ Gestión de usuarios Libros & Libros
      <select class="form-control input-sm" name="pr_titulo_ing" id="category" required="required">
       <option  selected>Seleccione titulo</option>
        @foreach($titulo as $titulo)
-        @if($titulo->grado == 3)
+        @if($titulo->grado == 7)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
