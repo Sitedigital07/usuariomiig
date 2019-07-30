@@ -103,98 +103,103 @@ Gestión de usuarios Libros & Libros
 {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventa',$proventas->id))) }}
 
 @if($proventas->pr_matematicas == 0)
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
-   <h4><b>MT</b> - Matematicas </h4>
-    
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-               {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
-               '0' => 'No meta',
-               '1' => 'Libros y Libros',
-                ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
-              </div>
+ <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+  <h4><b>MT</b> - Matematicas </h4>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
+    '0' => 'No meta',
+    '1' => 'Libros y Libros',
+    ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
+   </div>
+   
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="1a" class="element" hidden>
+    <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
+     <option value="0" selected>Seleccione título</option>
+      @foreach($titulo as $titulos)
+      @if($titulos->grado == 11)
+      @if($titulos->asignatura == 1)
+      <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+      @endif
+      @endif
+      @endforeach
+    </select>
+   </div>
+   
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" placeholder="Población"  disabled>
+   </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="1a" class="element" hidden>
-     <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
-      <option value="0" selected>Seleccione título</option>
-       @foreach($titulo as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 1)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <input id="id_inputmat1" name="pr_vender_mat" class="form-control" placeholder="Libros a vender" type="text" disabled>
+   </div>
+
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
+   </div>
+
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <select class="form-control" name="pr_metas_mat" id="id_inputmat3" disabled>
+     <option value="" disabled selected>Seleccione meta</option>
+      <option value="1">Crecimiento</option>
+       <option value="2">Sostenimiento</option>
+    </select>
+   </div>
+
+ </div>
+ 
+ @else
+ 
+ <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
+  <h4><b>MT</b> - Matematicas </h4>
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
+    '0' => 'No meta',
+    '1' => 'Libros y Libros',
+    ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
+   </div>
+      
+   @if($proventas->pr_matematicas == 1)                               
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element">
+     <select class="form-control input-sm" name="pr_titulo_mat" id="category1a" required="required">
+      @foreach($titulowebf as $tituloweb)
+       @if($tituloweb->id == $proventas->pr_titulo_mat)
+        <option value="{{$tituloweb->id}}" selected>{{$tituloweb->nombre}}</option>
+       @endif
+      @endforeach
+
+      @foreach($titulo as $titulos)
+       @if($titulos->grado == 11)
+        @if($titulos->asignatura == 1)
+        @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+          <option value="{{$titulos->id}}">{{$titulos->nombre}}f</option>
+         @else
+         @endif
+         @endforeach
         @endif
-        @endif
-       @endforeach
+       @endif
+      @endforeach
      </select>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" placeholder="Población"  disabled>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputmat1" name="pr_vender_mat" class="form-control" placeholder="Libros a vender" type="text" disabled>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras solicitadas" type="text" disabled>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_mat" id="id_inputmat3" disabled>
-          <option value="" disabled selected>Seleccione meta</option>
-          <option value="1">Crecimiento</option>
-          <option value="2">Sostenimiento</option>
-         </select>
-        </div>
-</div>
-@else
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
-             <h4><b>MT</b> - Matematicas </h4>
-
-              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-               {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
-               '0' => 'No meta',
-               '1' => 'Libros y Libros',
-                ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
-              </div>
-      
-              @if($proventas->pr_matematicas == 1)                               
-               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element">
-                <select class="form-control input-sm" name="pr_titulo_mat" id="category1a" required="required">
-                 @foreach($titulowebf as $tituloweb)
-                  @if($tituloweb->id == $proventas->pr_titulo_mat)
-                   <option value="{{$tituloweb->id}}" selected>{{$tituloweb->nombre}}</option>
-                  @endif
-                 @endforeach
-
-                 @foreach($titulo as $titulo)
-                  @if($titulo->grado == 11)
-                   @if($titulo->asignatura == 1)
-                    @if($titulo->adopcion == $titulo->portafolio)
-                    <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
-                    @else
-                    @endif
-                   @endif
-                  @endif
-                 @endforeach
-                </select>
-               </div>
     
-              @else
+    @else
     
-               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element" hidden>
-                <select class="form-control input-sm" name="pr_titulo_mat" id="category1a" required="required">
-                 <option value="{{$proventas->pr_titulo_mat}}" selected>{{$proventas->pr_titulo_mat}}</option>
-                  @foreach($titulo as $titulo)
-                   @if($titulo->grado == 11)
-                    @if($titulo->asignatura == 1)
-                     <option value="{{$titulo->id}}">{{$titulo->nombre}}a</option>
-                    @endif
-                   @endif
-                  @endforeach
-                </select>
-               </div>
-             @endif
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element" hidden>
+     <select class="form-control input-sm" name="pr_titulo_mat" id="category1a" required="required">
+      <option value="{{$proventas->pr_titulo_mat}}" selected>{{$proventas->pr_titulo_mat}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+         @if($titulos->asignatura == 1)
+          <option value="{{$titulos->id}}">{{$titulos->nombre}}a</option>
+         @endif
+        @endif
+       @endforeach
+      </select>
+     </div>
+             
+     @endif
 
- @if($proventas->pr_matematicas == 1) 
+    @if($proventas->pr_matematicas == 1) 
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
          <input type="text" name="pr_poblacion_mat" id="id_inputmat" class="form-control" value="{{$proventas->pr_poblacion_mat}}" placeholder="Población">
@@ -256,10 +261,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1b" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 2)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 2)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -307,13 +312,15 @@ Gestión de usuarios Libros & Libros
                   @endif
                  @endforeach
        
-                 @foreach($titulof as $titulo)
-                  @if($titulo->grado == 11)
-                   @if($titulo->asignatura == 2)
-                    @if($titulo->adopcion == $titulo->portafolio)
-                    <option value="{{$titulo->id}}">{{$titulo->nombre}} </option>
+                 @foreach($titulo as $titulos)
+                  @if($titulos->grado == 11)
+                   @if($titulos->asignatura == 2)
+                    @foreach($colegios as $colegiosa)
+                    @if($colegiosa->adopcion == $titulos->portafolio)
+                    <option value="{{$titulos->id}}">{{$titulos->nombre}} </option>
                     @else
                     @endif
+                    @endforeach
                    @endif
                   @endif
                  @endforeach
@@ -325,10 +332,10 @@ Gestión de usuarios Libros & Libros
                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1b" class="element" hidden>
                 <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
                  <option value="" disabled>Seleccione Titulo</option>
-                  @foreach($titulof as $titulo)
-                   @if($titulo->grado == 11)
-                    @if($titulo->asignatura == 2)
-                     <option value="{{$titulo->id}}">{{$titulo->nombre}} b</option>
+                  @foreach($titulo as $titulos)
+                   @if($titulos->grado == 11)
+                    @if($titulos->asignatura == 2)
+                     <option value="{{$titulos->id}}">{{$titulos->nombre}} b</option>
                     @endif
                    @endif
                   @endforeach
@@ -404,10 +411,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1c" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 3)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 3)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -455,13 +462,15 @@ Gestión de usuarios Libros & Libros
                   @endif
                  @endforeach
 
-                 @foreach($titulof as $titulo)
-                  @if($titulo->grado == 11)
-                   @if($titulo->asignatura == 3)
-                    @if($titulo->adopcion == $titulo->portafolio)
-                    <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+                 @foreach($titulo as $titulos)
+                  @if($titulos->grado == 11)
+                   @if($titulos->asignatura == 3)
+                    @foreach($colegios as $colegiosa)
+                    @if($colegiosa->adopcion == $titulos->portafolio)
+                    <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
                     @else
                     @endif
+                    @endforeach
                    @endif
                   @endif
                  @endforeach
@@ -473,10 +482,10 @@ Gestión de usuarios Libros & Libros
                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1c" class="element" hidden>
                 <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
                  <option  selected>Seleccione titulo</option>
-                  @foreach($titulof as $titulo)
-                   @if($titulo->grado == 11)
-                    @if($titulo->asignatura == 3)
-                     <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+                  @foreach($titulo as $titulos)
+                   @if($titulos->grado == 11)
+                    @if($titulos->asignatura == 3)
+                     <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
                     @endif
                    @endif
                   @endforeach
@@ -551,10 +560,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1d" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 4)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 4)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -574,7 +583,7 @@ Gestión de usuarios Libros & Libros
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-         <select class="form-control" name="pr_metas_com" id="id_inputcom3" disabled>
+        <select class="form-control" name="pr_metas_com" id="id_inputcom3" disabled>
           <option value="" disabled selected>Seleccione meta</option>
           <option value="1">Crecimiento</option>
           <option value="2">Sostenimiento</option>
@@ -602,13 +611,15 @@ Gestión de usuarios Libros & Libros
                   @endif
                  @endforeach
        
-                 @foreach($titulof as $titulo)
-                  @if($titulo->grado == 11)
-                   @if($titulo->asignatura == 4)
-                    @if($titulo->adopcion == $titulo->portafolio)
-                    <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+                 @foreach($titulo as $titulos)
+                  @if($titulos->grado == 11)
+                   @if($titulos->asignatura == 4)
+                    @foreach($colegios as $colegiosa)
+                    @if($colegiosa->adopcion == $titulos->portafolio)
+                    <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
                     @else
                     @endif
+                    @endforeach
                    @endif
                   @endif
                  @endforeach
@@ -620,10 +631,10 @@ Gestión de usuarios Libros & Libros
                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1d" class="element" hidden>
                 <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
                  <option  selected>Seleccione titulo</option>
-                  @foreach($titulof as $titulo)
-                   @if($titulo->grado == 11)
-                    @if($titulo->asignatura == 4)
-                     <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+                  @foreach($titulo as $titulos)
+                   @if($titulos->grado == 11)
+                    @if($titulos->asignatura == 4)
+                     <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
                     @endif
                    @endif
                   @endforeach
@@ -695,10 +706,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1e" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_int" id="category1e" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 5)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 5)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -744,13 +755,15 @@ Gestión de usuarios Libros & Libros
         <option value="{{$tituloweb->id}}" selected>{{$tituloweb->nombre}}</option>
         @endif
         @endforeach
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 5)
-         @if($titulo->adopcion == $titulo->portafolio)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 5)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
          @else
          @endif
+         @endforeach
         @endif
         @endif
        @endforeach
@@ -760,10 +773,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1e" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_int" id="category" required="required">
       <option  selected>Seleccione titulo</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 5)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 5)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -835,10 +848,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1f" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_art" id="category1f" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 6)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 6)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -886,13 +899,15 @@ Gestión de usuarios Libros & Libros
         <option value="{{$tituloweb->id}}" selected>{{$tituloweb->nombre}}</option>
         @endif
         @endforeach
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 6)
-         @if($titulo->adopcion == $titulo->portafolio)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 6)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
          @else
          @endif
+         @endforeach
         @endif
         @endif
        @endforeach
@@ -902,10 +917,10 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1f" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_art" id="category" required="required">
       <option  selected>Seleccione titulo</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
-        @if($titulo->asignatura == 6)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 11)
+        @if($titulos->asignatura == 6)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
         @endif
         @endif
        @endforeach
@@ -975,8 +990,8 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1g" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_ing" id="category1g" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
+       @foreach($titulo as $titulo)
+        @if($titulo->grado == 3)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -1024,13 +1039,15 @@ Gestión de usuarios Libros & Libros
         <option value="{{$tituloweb->id}}" selected>{{$tituloweb->nombre}}</option>
         @endif
         @endforeach
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
+       @foreach($titulo as $titulo)
+        @if($titulo->grado == 3)
         @if($titulo->asignatura == 7)
-         @if($titulo->adopcion == $titulo->portafolio)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulo->portafolio)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
          @else
          @endif
+         @endforeach
         @endif
         @endif
        @endforeach
@@ -1040,8 +1057,8 @@ Gestión de usuarios Libros & Libros
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1g" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_ing" id="category" required="required">
       <option  selected>Seleccione titulo</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 11)
+       @foreach($titulo as $titulo)
+        @if($titulo->grado == 3)
         @if($titulo->asignatura == 7)
          <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
         @endif
@@ -1494,4 +1511,3 @@ $( function() {
 
 
 @stop
-

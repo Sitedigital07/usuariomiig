@@ -29,7 +29,6 @@ option {
     $("#category1a").change( function() {
         if ($(this).val() === "1") {
             $("#1a").prop("hidden", false);
-
         } else {
             $("#1a").prop("hidden", true);
         }
@@ -104,7 +103,6 @@ option {
     });
     </script>
 
-
 @stop
 @section('contenido')
  
@@ -127,16 +125,22 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulo as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 1)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 1)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
      </select>
     </div>
 
+ 
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
       <input id="id_inputmat1" name="pr_vender_mat" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -146,7 +150,7 @@ option {
      <input id="id_inputmat2" name="pr_muestra_mat" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-  
+   
 </div>
 
 
@@ -163,16 +167,20 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1b" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_esp" id="category1b" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 2)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 2)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
      </select>
     </div>
-
 
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" class="element">
@@ -183,7 +191,7 @@ option {
      <input id="id_inputesp2" name="pr_muestra_esp" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-   
+
 </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -199,10 +207,15 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1c" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_cie" id="category1c" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 3)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 3)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
@@ -218,7 +231,6 @@ option {
      <input id="id_inputcie2" name="pr_muestra_cie" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-   
 </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -234,16 +246,22 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1d" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_com" id="category1d" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 4)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 4)
+         @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
      </select>
     </div>
 
+  
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" class="element">
       <input id="id_inputcom1" name="pr_vender_com" class="form-control" placeholder="Libros a vender" type="text" disabled>
@@ -269,10 +287,15 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1e" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_int" id="category1e" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 5)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 5)
+        @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
@@ -288,7 +311,7 @@ option {
      <input id="id_inputint2" name="pr_muestra_int" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-    
+ 
 </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -304,16 +327,20 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1f" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_art" id="category1f" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
-        @if($titulo->grado == 2)
-        @if($titulo->asignatura == 6)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 2)
+        @if($titulos->asignatura == 6)
+        @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
      </select>
     </div>
-
 
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" class="element">
@@ -324,7 +351,7 @@ option {
      <input id="id_inputart2" name="pr_muestra_art" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-   
+
 </div>
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -340,15 +367,21 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1g" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_ing" id="category1g" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulof as $titulo)
+       @foreach($titulo as $titulo)
         @if($titulo->grado == 2)
         @if($titulo->asignatura == 7)
-         <option value="{{$titulo->id}}">{{$titulo->nombre}}</option>
+        @foreach($colegios as $colegiosa)
+         @if($colegiosa->adopcion == $titulos->portafolio)
+         <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>
+         @else
+         @endif
+        @endforeach
         @endif
         @endif
        @endforeach
      </select>
     </div>
+
 
 
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" class="element">
@@ -359,14 +392,14 @@ option {
      <input id="id_inputing2" name="pr_muestra_ing" class="form-control" placeholder="Muestras entregadas" type="text" disabled>
     </div>
 
-    
+
 </div>
 
 
 
     <input id="id_input" type="text" hidden>
     <input type="hidden" name="materia" value="1" />
-    <input type="hidden" name="subcategory" value="2" />
+    <input type="hidden" name="subcategory" value="1" />
     <input type="hidden" name="region" value="{{$region->region_id}}" />
     <input type="hidden" name="colegio" value="{{$region->id}}" />
     <input type="hidden" name="representante" value="{{$region->representante_id}}" />
@@ -378,7 +411,7 @@ option {
 
 
   <div class="modal-footer">
-      @if(Auth::user()->rol_id == 5)
+       @if(Auth::user()->rol_id == 5)
    {{Form::submit('Guardar adopción', array('class' => 'btn btn-primary')  )}}
    @else
    @endif
@@ -760,7 +793,5 @@ $( function() {
     });
 });
 </script>
-
-
 
 @stop
