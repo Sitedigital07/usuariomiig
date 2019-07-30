@@ -541,7 +541,7 @@ Route::get('grado-primeroadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoprimeroadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoprimeroadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 
@@ -554,7 +554,7 @@ Route::get('grado-segundoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradosegundoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradosegundoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 
@@ -570,7 +570,7 @@ Route::get('grado-terceroadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoterceroadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoterceroadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 
@@ -583,7 +583,7 @@ Route::get('grado-cuartoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradocuartoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradocuartoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 
@@ -596,7 +596,7 @@ Route::get('grado-quintoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'campos.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoquintoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoquintoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-sextoadopcion/{id}', function ($id) {
@@ -608,7 +608,7 @@ Route::get('grado-sextoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradosextoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradosextoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-septimoadopcion/{id}', function ($id) {
@@ -620,7 +620,7 @@ Route::get('grado-septimoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoseptimoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoseptimoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-octavoadopcion/{id}', function ($id) {
@@ -632,7 +632,7 @@ Route::get('grado-octavoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradooctavoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradooctavoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-novenoadopcion/{id}', function ($id) {
@@ -644,7 +644,7 @@ Route::get('grado-novenoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradonovenoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradonovenoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-decimoadopcion/{id}', function ($id) {
@@ -656,7 +656,7 @@ Route::get('grado-decimoadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradodecimoadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradodecimoadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('grado-onceadopcion/{id}', function ($id) {
@@ -668,7 +668,7 @@ Route::get('grado-onceadopcion/{id}', function ($id) {
         ->join('titulo', 'titulo.id', '=', 'proventas.pr_titulo_mat')
         ->where('colegio_id', '=', $id)->get();
                          
-    return view('usuariomiig::gradoonceadopcion', compact('titulo','titulof','region','date','proventas'));
+    return view('usuariomiig::gradoonceadopcion', compact('titulo','titulof','region','date','proventas','colegios'));
 });
 
 Route::get('proyeccionventasadopcion/{id}', function ($id) {
