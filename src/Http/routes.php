@@ -154,9 +154,16 @@ Route::get('/editar-esseg/{id}', function ($id) {
 
 
 Route::get('/editar-essegreg/{id}', function ($id) {
-    $esseg = DB::table('esseg')->where('id', '=', $id)->get();
+    $ano = DB::table('configuracion')->where('id', '=', 1)->get();
+    foreach($ano as $anoes){
+    $esseg = DB::table('esseg')->where('colegio_id', '=', $id)->where('ano','=',$anoes->ano)->get();
+    }
     return view('usuariomiig::editaressegreg',compact('esseg'));    
 });
+
+
+
+  
 
 
 Route::post('/editaressegcolreg/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcolreg');
