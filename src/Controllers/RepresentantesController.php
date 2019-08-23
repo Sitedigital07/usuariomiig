@@ -13,6 +13,7 @@ use Digitalmiig\Usuariomiig\User;
 use Digitalmiig\Usuariomiig\Fecha;
 use Digitalmiig\Usuariomiig\Fechameta;
 use Digitalmiig\Colegiomiig\Essegcon;
+use Digitalmiig\Colegiomiig\Esseg;
 use Digitalmiig\Usuariomiig\Representante;
 use Digitalmiig\Usuariomiig\Descuento;
 use Illuminate\Support\Facades\Auth;
@@ -153,6 +154,19 @@ class RepresentantesController extends Controller
         $user->identificador = Input::get('identificador');
         $user->save();
         return Redirect('carga-esseg')->with('status', 'ok_update');
+    
+    }
+
+
+         public function editaressegcolreg($id)
+    {
+        $input = Input::all();
+        $user = Esseg::find($id);
+        $user->esseg = Input::get('valor');
+        $user->ano = Input::get('ano');
+        $user->colegio_id = Input::get('colegio_id');
+        $user->save();
+        return Redirect('carga-essegreg')->with('status', 'ok_update');
     
     }
 

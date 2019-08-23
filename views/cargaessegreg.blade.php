@@ -15,7 +15,7 @@ Gestión de usuarios Libros & Libros
 
 <div class="content-header">
                             <ul class="nav-horizontal text-center">
-                                <li class="active">
+                                <li>
                                     <a href="/carga-esseg"><i class="fa fa-building"></i> Esseg</a>
                                 </li>
                                 <li>
@@ -24,7 +24,7 @@ Gestión de usuarios Libros & Libros
                                  <li>
                                     <a href="/eliminar-esseg"><i class="fa fa-download"></i> Eliminar Esseg</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="/carga-essegreg"><i class="fa fa-balance-scale"></i> Esseg Registrado</a>
                                 </li>
                             </ul>
@@ -64,7 +64,7 @@ Gestión de usuarios Libros & Libros
           <!-- Datatables Content -->
                         <div class="block full">
                             <div class="block-title">
-                                <h2><strong>Colegios</strong> registrados</h2>
+                                <h2><strong>Esseg</strong> registrados</h2>
                             </div>
                             
 
@@ -77,7 +77,7 @@ Gestión de usuarios Libros & Libros
                                             <th class="text-center">DANE</th>
                                             <th class="text-center">Valor</th>
                                             <th class="text-center">Colegio</th>
-                                            <th class="text-center">Identificador</th>
+                                            <th class="text-center">Año</th>
                                             <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
@@ -86,21 +86,21 @@ Gestión de usuarios Libros & Libros
                                         <tr>
                                  
                                             <td class="text-center">{{$datos->id}}</td>
-                                            <td class="text-center">{{$datos->miig}}</td>
-                                            <td class="text-center">${{number_format($datos->valor,0,",",".")}}</td>
-                                            @foreach($colegio as $colegiosa)
-                                            @if($colegiosa->codigo == $datos->miig)
-                                            <td class="text-center">{{$colegiosa->nombres}}</td>
-                                         @else
+                                            <td class="text-center"><b>{{$datos->codigo}}</b></td>
+                                            <td class="text-center">${{number_format($datos->esseg,0,",",".")}}</td>
+                                            <td class="text-center">{{$datos->nombres}}</td>
+                                      
+                                        
+                                            <td class="text-center">{{$datos->ano}}</td>
+                                    
 
                                    
-                                                @endif
-                                             @endforeach
-                                        <td class="text-center">{{$datos->identificador}}</td>
+                                
+                 
                              
 
                                             <td class="text-center">
-                                               <a href="/editar-esseg/{{$datos->id}}" class="btn btn-primary"><i class="fa fa-eraser"></i></a>
+                                               <a href="/editar-essegreg/{{$datos->id}}" class="btn btn-primary"><i class="fa fa-eraser"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -108,18 +108,43 @@
 <td>0</td>
 @endif
 
-<td>esseg</td>
-<td>esseg</td>
-
-@if(DB::table('campos')->where('colegio_id',$colegios->id)->first())
-@foreach($informes as $informesweb)
-@foreach($informesadopcion as $informeswebadopcion)
-@if($colegios->id == $informesweb->colegio_id AND $colegios->id == $informeswebadopcion->colegio_id)
-<td>{{$informesweb->muestra_mat+$informesweb->muestra_esp+$informesweb->muestra_cie+$informesweb->muestra_com+$informesweb->muestra_art+$informesweb->muestra_int+$informesweb->muestra_ing}}</td>
-<td>{{$informeswebadopcion->muestra_mat+$informeswebadopcion->muestra_esp+$informeswebadopcion->muestra_cie+$informeswebadopcion->muestra_com+$informeswebadopcion->muestra_art+$informeswebadopcion->muestra_int+$informeswebadopcion->muestra_ing}}</td>
-@else
+@if(DB::table('esseg')->where('colegio_id',$colegios->id)->first())
+@foreach($esseg as $essegs)
+@if($colegios->id == $essegs->colegio_id)
+<td>${{number_format($essegs->esseg,0,",",".")}}</td>
 @endif
 @endforeach
+@else
+<td>0</td>
+@endif
+
+
+@if(DB::table('esseg_con')->where('miig',$colegios->codigo)->first())
+@foreach($essegcon as $essegcons)
+@if($colegios->codigo == $essegcons->miig)
+<td>${{number_format($essegcons->valor,0,",",".")}}</td>
+@endif
+@endforeach
+@else
+<td>0</td>
+@endif
+
+@if(DB::table('proventas')->where('colegio_id',$colegios->id)->first())
+@foreach($informes as $informesweb)
+@if($colegios->id == $informesweb->colegio_id)
+<td>{{$informesweb->suma_mat+$informesweb->suma_esp+$informesweb->suma_cie+$informesweb->suma_com+$informesweb->suma_art+$informesweb->suma_int+$informesweb->suma_ing}}</td>
+@endif
+@endforeach
+@else
+<td>0</td>
+<td>0</td>
+@endif
+
+@if(DB::table('campos')->where('colegio_id',$colegios->id)->first())
+@foreach($informesadopcion as $informeswebadopcion)	
+@if($colegios->id == $informeswebadopcion->colegio_id)
+<td>{{$informeswebadopcion->suma_mat+$informeswebadopcion->suma_esp+$informeswebadopcion->suma_cie+$informeswebadopcion->suma_com+$informeswebadopcion->suma_art+$informeswebadopcion->suma_int+$informeswebadopcion->suma_ing}}</td>
+@endif
 @endforeach
 @else
 <td>0</td>
@@ -129,7 +154,7 @@
 @if(DB::table('fecha_meta')->where('colegio_id',$colegios->id)->first())
 @foreach($fechameta as $fechametas)
 @if($colegios->id == $fechametas->colegio_id)
-<td>{{$fechametas->fecha}}</td>
+<td>{{$fechametas->fecha}} </td>
 @endif
 @endforeach
 @else
@@ -139,8 +164,35 @@
 @if(DB::table('fecha_adopcion')->where('colegio_id',$colegios->id)->first())
 @foreach($fechaadopcion as $fechaadopcions)
 @if($colegios->id == $fechaadopcions->colegio_id)
-<td>{{$fechaadopcions->fecha}}</td>
+
+
+@if ($loop->last)
+
+
+@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) <= 15)
+<td style="background: #FF8585">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}} </td>
+@else
 @endif
+
+@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) >= 16 && round((strtotime($fechametas->fecha) - time()) / 86400) <= 29)
+	@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400)>30)
+	@else
+   <td style="background: #FFCD85">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}} </td>
+   @endif
+@else
+@endif
+
+@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) >= 30)
+<td  style="background: #A1F792">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}}</td>
+@else
+@endif
+
+
+@endif
+
+@endif
+
+
 @endforeach
 @else
 <td>Sin Fecha</td>
@@ -150,6 +202,7 @@
 </tr>
 </tbody>
 </table>
+
 
 
 </div>

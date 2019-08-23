@@ -134,18 +134,32 @@ Route::get('/configuracion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosContro
 
 Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracionupdate');
 
-Route::get('/carga-esseg', function () {                     
-    $datos = DB::table('esseg_con')->get();
-    return view('usuariomiig::cargaesseg',compact('datos'));    
+Route::get('/carga-esseg', function () {
+ $datos = DB::table('esseg_con')->get();
+ $colegio  = DB::table('colegios')->get();
+ return view('usuariomiig::cargaesseg',compact('datos','colegio'));    
 });
 
-Route::get('/editar-esseg/{id}', function ($id) {                     
+Route::get('/carga-essegreg', function () {
+ $datos = DB::table('esseg')
+ ->join('colegios','colegios.id','=','esseg.colegio_id')->get();
+ $colegio  = DB::table('colegios')->get();
+ return view('usuariomiig::cargaessegreg',compact('datos','colegio'));    
+});
+
+Route::get('/editar-esseg/{id}', function ($id) {
     $esseg = DB::table('esseg_con')->where('id', '=', $id)->get();
     return view('usuariomiig::editaresseg',compact('esseg'));    
 });
 
 
+Route::get('/editar-essegreg/{id}', function ($id) {
+    $esseg = DB::table('esseg')->where('id', '=', $id)->get();
+    return view('usuariomiig::editaressegreg',compact('esseg'));    
+});
 
+
+Route::post('/editaressegcolreg/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcolreg');
 Route::post('/editaressegcol/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcol');
 
 Route::get('excel-esseg', function () {
@@ -867,12 +881,25 @@ Route::group(['middleware' => ['representante']], function (){
          
         }
 
+        $date = date('Y-m-d');
+        //convertimos la fecha 1 a objeto Carbon
+$carbon1 = new \Carbon\Carbon($date);
+//convertimos la fecha 2 a objeto Carbon
+$carbon2 = new \Carbon\Carbon("2010-02-02 00:00:00");
+//de esta manera sacamos la diferencia en minutos
+$minutesDiff=$carbon1->diffInDays($carbon2);
+
+
 
         $fechameta = DB::table('fecha_meta')->get();
         $fechaadopcion = DB::table('fecha_adopcion')->get();
 
+
+        $esseg = DB::table('esseg')->get();
+        $essegcon = DB::table('esseg_con')->get();
+
  
-         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas'));
+         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas','esseg','essegcon','date'));
 });
 
 Route::post('/crearesseg', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createsseg');
