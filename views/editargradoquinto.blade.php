@@ -105,14 +105,14 @@ Gestión de usuarios Libros & Libros
 @if($proventas->pr_matematicas == 0)
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
   <h4><b>MT</b> - Matematicas </h4>
-   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
     {{ Form::select('pr_matematicas', [$proventas->pr_matematicas => $proventas->pr_matematicas,
     '0' => 'No meta',
     '1' => 'Libros y Libros',
     ], null, array('class' => 'form-control', 'id' => 'category1a')) }}
    </div>
    
-   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="1a" class="element" hidden>
+   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1a" class="element" hidden>
     <select class="form-control input-sm" name="pr_titulo_mat" id="category" required="required">
      <option value="0" selected>Seleccione título</option>
       @foreach($titulo as $titulos)
@@ -463,7 +463,7 @@ Gestión de usuarios Libros & Libros
                  @endforeach
 
                  @foreach($titulo as $titulos)
-                  @if($titulos->grado == )
+                  @if($titulos->grado == 5)
                    @if($titulos->asignatura == 3)
                     @foreach($colegios as $colegiosa)
                     @if($colegiosa->adopcion == $titulos->portafolio)
