@@ -170,6 +170,8 @@ class RepresentantesController extends Controller
     
     }
 
+            
+
 
       public function eliminardescuento($id)
     {

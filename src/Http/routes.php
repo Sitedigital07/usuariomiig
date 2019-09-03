@@ -140,6 +140,13 @@ Route::get('/carga-esseg', function () {
  return view('usuariomiig::cargaesseg',compact('datos','colegio'));    
 });
 
+Route::post('/editar-descuentos/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editardescuentowebsite');
+
+Route::get('/carga-descuento', function () {
+ $descuentos = DB::table('descuentos')->get();
+ return view('usuariomiig::cargadescuento',compact('descuentos'));    
+});
+
 Route::get('/carga-essegreg', function () {
  $datos = DB::table('esseg')
  ->join('colegios','colegios.id','=','esseg.colegio_id')->get();
@@ -188,8 +195,12 @@ Route::get('/colegio-descuento/{id}', function ($id) {
     $descuentos = DB::table('descuento')->where('colegio_id', '=', $id)->get();
     $ano = DB::table('configuracion')->where('id','=',1)->get();
     $anos = DB::table('configuracion')->where('id','=',1)->get();
-    return view('colegiomiig::descuento')->with('descuentos', $descuentos)->with('ano', $ano)->with('anos', $anos);
+     $valores = DB::table('descuentos')->where('id', '=', 1)->get();
+    return view('colegiomiig::descuento')->with('descuentos', $descuentos)->with('ano', $ano)->with('anos', $anos)->with('valores', $valores);
 });
+
+
+
 
 Route::get('/editar-descuento/{id}', function ($id) {
     $descuentos = DB::table('descuento')->where('id', '=', $id)->get();
@@ -312,9 +323,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
     foreach($ano as $anoes){
     
          $fecha = DB::table('fecha_meta')->where('ano','=', $anoes->ano)->where('colegio_id','=',$id)->get();   
-        $matematicas = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_mat')
-        ->select(DB::raw('sum(pr_vender_mat*precio) as vender_mat'))
+        $matematicas = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_mat*pr_valor_mat) as vender_mat'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -322,9 +332,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $matematicaswebsd = $matematicasweb->vender_mat;
         }
 
-        $ciencias = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_cie')
-        ->select(DB::raw('sum(pr_vender_cie*precio) as vender_cie'))
+        $ciencias = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_cie*pr_valor_cie) as vender_cie'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -332,9 +341,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $cienciaswebsd = $cienciasweb->vender_cie;
         }
 
-        $espanol = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_esp')
-        ->select(DB::raw('sum(pr_vender_esp*precio) as vender_esp'))
+        $espanol = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_esp*pr_valor_esp) as vender_esp'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -342,9 +350,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $espanolwebsd = $espanolweb->vender_esp;
         }
 
-        $comprension = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_com')
-        ->select(DB::raw('sum(pr_vender_com*precio) as vender_com'))
+        $comprension = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_com*pr_valor_com) as vender_com'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -352,9 +359,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $comprensionwebsd = $comprensionweb->vender_com;
         }
 
-        $interes = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_int')
-        ->select(DB::raw('sum(pr_vender_int*precio) as vender_int'))
+        $interes = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_int*pr_valor_int) as vender_int'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -362,9 +368,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $intereswebsd = $interesweb->vender_int;
         }
 
-        $artistica = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_art')
-        ->select(DB::raw('sum(pr_vender_art*precio) as vender_art'))
+        $artistica = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_art*pr_valor_art) as vender_art'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -372,9 +377,8 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $artisticawebsd = $artisticaweb->vender_art;
         }
 
-        $ingles = DB::table('titulo')
-        ->join('proventas','titulo.id','=','proventas.pr_titulo_ing')
-        ->select(DB::raw('sum(pr_vender_ing*precio) as vender_ing'))
+        $ingles = DB::table('proventas')
+        ->select(DB::raw('sum(pr_vender_ing*pr_valor_ing) as vender_ing'))
         ->where('colegio_id', '=', $id)
         ->where('ano', '=', $anoes->ano)
         ->get();
@@ -382,7 +386,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
          $ingleswebsd = $inglesweb->vender_ing;
         }
         }
-         
+
         $total = $cienciaswebsd+$matematicaswebsd+$espanolwebsd+$comprensionwebsd+$intereswebsd+$artisticawebsd+$ingleswebsd;
     return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','anoweb','fecha'));
 
@@ -766,6 +770,12 @@ Route::get('/usuario/ajax-subcat',function(){
 
 Route::group(['middleware' => ['representante']], function (){
 
+    Route::get('/editar-descuentorep/{id}', function ($id) {
+    $descuentos = DB::table('descuento')->where('id', '=', $id)->get();
+     $valores = DB::table('descuentos')->where('id', '=', 1)->get();
+    return view('colegiomiig::editar-descuento')->with('descuentos', $descuentos)->with('valores', $valores);
+});
+
     Route::get('/informe/representantes', function () {
   
         $representantes = DB::table('users')
@@ -896,17 +906,40 @@ $carbon2 = new \Carbon\Carbon("2010-02-02 00:00:00");
 //de esta manera sacamos la diferencia en minutos
 $minutesDiff=$carbon1->diffInDays($carbon2);
 
+  $masa = DB::table('fecha_adopcion')
+    ->select(DB::raw('*, max(fecha) as fechaguard'))
+    ->groupBy('colegio_id')
+    ->orderBy('fecha', 'asc')
+    ->get();
 
 
         $fechameta = DB::table('fecha_meta')->get();
-        $fechaadopcion = DB::table('fecha_adopcion')->get();
+        $fechaadopcion = DB::table('fecha_adopcion')
+    ->select(DB::raw('*, max(fecha) as fechaguard'))
+    ->groupBy('colegio_id')
+    ->orderBy('fecha', 'asc')
+    ->get();
 
+
+            $latestPosts = DB::table('fecha_meta')
+                   ->select('fecha', DB::raw('MAX(fecha) as last_post_created_at'))
+
+                   ->groupBy('user_id');
+
+
+
+  
+$query = DB::table('fecha_adopcion')
+    ->select(DB::raw('*, max(fecha) as id'))
+    ->groupBy('colegio_id')
+    ->orderBy('id', 'desc')
+    ->get();
 
         $esseg = DB::table('esseg')->get();
         $essegcon = DB::table('esseg_con')->get();
 
  
-         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas','esseg','essegcon','date'));
+         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas','esseg','essegcon','date','masa','informesadopcion'));
 });
 
 Route::post('/crearesseg', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createsseg');

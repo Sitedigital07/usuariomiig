@@ -33,13 +33,14 @@
 
 <div class="container">
 
-<h1>Informe Representantes</h1>
 
+
+<h1>Informe Representantes</h1>
 
 <table id="tabla1" class="table table-bordered table-striped table-hover">
 <tbody>
 <tr>
-<td>ID</td>
+<td>Estado</td>
 <td>Colegio</td>
 <td colspan="2">Metas</td>
 <td colspan="2">Adopciones</td>
@@ -48,6 +49,7 @@
 <td colspan="2">Muestra</td>
 <td>Fecha Cierre (Metas)</td>
 <td>Fecha Cierre (Adopciones)</td>
+
 </tr>
 <tr>
 <td colspan="2"></td>
@@ -63,11 +65,60 @@
 <td>Consumo</td>
 <td></td>
 <td></td>
+
 </tr>
 @foreach($colegios as $colegios)
 
 <tr>
-<td>{{$colegios->id}}</td>
+
+  @if(DB::table('fecha_adopcion')->where('colegio_id',$colegios->id)->exists())
+ @foreach($fechaadopcion as $fechaadopcions)
+  @if($colegios->id == $fechaadopcions->colegio_id)
+
+
+  @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) <= 15)
+    <td style="background: #FF8585">Estado {{ $fechaadopcions->fechaguard }} </td>
+   @endif
+
+   @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) >= 16 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) <= 29)
+    @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)>30)
+	@else
+    <td style="background: #FFCD85">Estado {{ $fechaadopcions->fechaguard }}</td>
+    @endif
+   @else
+   @endif
+
+   @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) >= 31)
+    <td  style="background: #A1F792">Estado{{ $fechaadopcions->fechaguard }} </td>
+   @endif
+
+
+  @endif
+ @endforeach
+@else
+ 
+  @if(DB::table('fecha_meta')->where('colegio_id',$colegios->id)->exists())
+  @if(round((strtotime($fechametas->fecha) - time()) / 86400) <= 15)
+    <td style="background: #FF8585">Estado {{round((strtotime($fechametas->fecha) - time()) / 86400)}}   <h2>{{$fechametas->fecha }} </h2> </td>
+   @endif
+
+   @if(round((strtotime($fechametas->fecha) - time()) / 86400) >= 16 && round((strtotime($fechametas->fecha) - time()) / 86400) <= 29)
+    @if(round((strtotime($fechametas->fecha) - time()) / 86400)>30)
+  @else
+    <td style="background: #FFCD85">Estado {{round((strtotime($fechametas->fecha) - time()) / 86400)}}  <h2>{{ $fechametas->fecha }}</h2> </td>
+    @endif
+   @else
+   @endif
+
+   @if(round((strtotime($fechametas->fecha) - time()) / 86400) >= 31)
+    <td  style="background: #A1F792">Estado {{round((strtotime($fechametas->fecha) - time()) / 86400)}}  <h2>{{ $fechametas->fecha }}</h2> </td>
+   @endif
+@else
+<td style="background: #948e8e;color:#fff" class="text-center">Sin Fecha</td>
+@endif
+
+@endif
+
 <td>{{$colegios->nombres}}</td>
 
 @if(DB::table('proventas')->where('colegio_id',$colegios->id)->first())
@@ -111,7 +162,7 @@
 @if(DB::table('esseg')->where('colegio_id',$colegios->id)->first())
 @foreach($esseg as $essegs)
 @if($colegios->id == $essegs->colegio_id)
-<td>${{number_format($essegs->esseg,0,",",".")}}</td>
+<td>${{number_format($essegs->esseg,0,",",".")}} </td>
 @endif
 @endforeach
 @else
@@ -137,7 +188,6 @@
 @endforeach
 @else
 <td>0</td>
-<td>0</td>
 @endif
 
 @if(DB::table('campos')->where('colegio_id',$colegios->id)->first())
@@ -147,7 +197,6 @@
 @endif
 @endforeach
 @else
-<td>0</td>
 <td>0</td>
 @endif
 
@@ -162,41 +211,40 @@
 @endif
 
 @if(DB::table('fecha_adopcion')->where('colegio_id',$colegios->id)->first())
-@foreach($fechaadopcion as $fechaadopcions)
-@if($colegios->id == $fechaadopcions->colegio_id)
+ @foreach($fechaadopcion as $fechaadopcions)
+  @if($colegios->id == $fechaadopcions->colegio_id)
 
 
-@if ($loop->last)
+   
+  
+      @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) < 0 && DB::table('proventas')->where('colegio_id','=',$colegios->id)->count() == 0)
+     <td style="background:#FF8585"> dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> Adopc {{DB::table('proventas')->where('colegio_id','=',$colegios->id)->count()}} </td>
+      @endif
 
 
-@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) <= 15)
-<td style="background: #FF8585">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}} </td>
-@else
-@endif
+     @if(DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count() <= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1)
+      <td style="background:#FFCD85"> Dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> # fechas: {{DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count()}} <br>
+      # Adopc: {{DB::table('proventas')->where('colegio_id','=',$colegios->id)->count()}} </td>
+     @endif
 
-@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) >= 16 && round((strtotime($fechametas->fecha) - time()) / 86400) <= 29)
-	@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400)>30)
-	@else
-   <td style="background: #FFCD85">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}} </td>
+        @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) < 0 && DB::table('proventas')->where('colegio_id','=',$colegios->id)->count() >= 1)
+      <td style="background:#A1F792">dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}} <br>Adop:{{DB::table('proventas')->where('colegio_id','=',$colegios->id)->count()}}</td>
+     @endif
+
    @endif
-@else
-@endif
-
-@if(round((strtotime($fechaadopcions->fecha) - time()) / 86400) >= 30)
-<td  style="background: #A1F792">{{$fechaadopcions->fecha}} {{round((strtotime($fechaadopcions->fecha) - time()) / 86400)}}</td>
-@else
-@endif
-
-
-@endif
-
-@endif
-
 
 @endforeach
 @else
-<td>Sin Fecha</td>
+
+<td style="background: #948e8e;color:#fff" class="text-center">Sin Fecha</td>
+
+
+
+
 @endif
+
+
+
 
 @endforeach
 </tr>

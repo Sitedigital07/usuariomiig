@@ -18,6 +18,8 @@ Gestión de usuarios Libros & Libros
 Usted ya realizo el cierre para este colegio
 @else
 
+
+{{$total}}
 <div class="container">
 
  <div class="col-sm-4">
