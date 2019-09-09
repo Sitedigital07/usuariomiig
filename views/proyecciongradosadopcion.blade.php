@@ -132,7 +132,8 @@ Usted ya realizo el cierre para este colegio
         <h4 class="modal-title">Fecha de Cierre</h4>
       </div>
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfecha'))) }}
+
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/updatefecha',Request::segment(2)))) }}
                                       
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  

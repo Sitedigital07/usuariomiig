@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td colspan="2"></td>
-<td>Titulo</td>
+<td>Titulo </td>
 <td>Valor</td>
 <td>Titulo</td>
 <td>Valor</td>
@@ -231,8 +231,8 @@
 
 
      @if(DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count() >= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1 && DB::table('campos')->where('colegio_id','=',$colegios->id)->count() == 0)
-      <td style="background:#FFCD85"> Dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> # fechas: {{DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count()}} <br>
-      # Adopc: {{DB::table('campos')->where('colegio_id','=',$colegios->id)->count()}} <br>{{DB::table('fecha_adopcion')->count() >= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1 && DB::table('campos')->count() == 0}}</td>
+      <td style="background:#FFCD85"> Dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> 
+      # Adopc: {{DB::table('campos')->where('colegio_id','=',$colegios->id)->count()}} <br>{{DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count() >= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1 && DB::table('campos')->count() == 0}}</td>
      @endif
 
         @if(round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) < 0 && DB::table('campos')->where('colegio_id','=',$colegios->id)->count() >= 1)
@@ -283,7 +283,7 @@
 </tr>
 <tr>
 <td width="208" colspan="2"><b>TOTALES</b></td>
-@if(DB::table('proventas')->where('representante_id','=',Request::segment(3))->count() == 0)
+@if(DB::table('proventas')->where('representante_id','=',Auth::user()->id)->count() == 0)
 <td><b>0</b></td>
 <td><b>0</b></td>
 @else
@@ -292,7 +292,7 @@
 <td><b>${{number_format($informestotales->total_metval,0,",",".")}}</b></td>
 @endforeach
 @endif
-@if(DB::table('campos')->where('representante_id','=',Request::segment(3))->count() == 0)
+@if(DB::table('campos')->where('representante_id','=',Auth::user()->id)->count() == 0)
 <td><b>0</b></td>
 <td><b>0</b></td>
 @else
@@ -302,15 +302,15 @@
 @endforeach
 @endif
 
-@if(DB::table('campos')->where('representante_id','=',Request::segment(3))->count() == 0)
+@if(DB::table('campos')->where('representante_id','=',Auth::user()->id)->count() == 0)
 <td><b>0</b></td>
 <td><b>0</b></td>
 @else
 <td><b>{{$informesadopciontotales->total_adop-$informestotales->total_met}}</b></td>
 <td><b>${{number_format($informesadopciontotales->total_adopval-$informestotales->total_metval,0,",",".")}}</b></td>
 @endif
-<td><b>${{number_format(DB::table('esseg')->where('representante_id','=',Request::segment(3))->sum('esseg'),0,",",".")}}</b></td>
-<td><b>${{number_format(DB::table('esseg_con')->where('representante_id','=',Request::segment(3))->sum('valor'),0,",",".")}}</b></td>
+<td><b>${{number_format(DB::table('esseg')->where('representante_id','=',Auth::user()->id)->sum('esseg'),0,",",".")}}</b></td>
+<td><b>${{number_format(DB::table('esseg_con')->where('representante_id','=',Auth::user()->id)->sum('valor'),0,",",".")}}</b></td>
 @foreach($presupuestomet as $presupuestometd)
 <td><b>{{$presupuestometd->muestra_mat+$presupuestometd->muestra_esp+$presupuestometd->muestra_cie+$presupuestometd->muestra_com+$presupuestometd->muestra_int+$presupuestometd->muestra_ing+$presupuestometd->muestra_art}}</b></td>
 @endforeach

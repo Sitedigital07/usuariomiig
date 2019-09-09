@@ -1130,7 +1130,11 @@ Gestión de usuarios Libros & Libros
 
   <div class="modal-footer">
    @if(Auth::user()->rol_id == 5)
-   {{Form::submit('Guardar metas', array('class' => 'btn btn-primary')  )}}
+      @if (DB::table('cierre')->where('colegio_id', '=', $proventas->colegio_id)->where('ano', '=', $proventas->ano)->where('cierre','=',1)->exists())
+ 
+   @else
+  {{Form::submit('Guardar metas', array('class' => 'btn btn-primary')  )}}
+   @endif
    @else
    @endif
   </div>

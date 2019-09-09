@@ -106,6 +106,11 @@ class RepresentantesController extends Controller
         $user->colegio_id = Input::get('colegio');
         $user->ano = Input::get('ano');
         $user->save();
+        $usera = new Fecha;
+        $usera->fecha = Input::get('fecha');
+        $usera->colegio_id = Input::get('colegio');
+        $usera->ano = Input::get('ano');
+        $usera->save();
 
     return Redirect('proyeccionventas/'.$user->colegio_id)->with('status', 'ok_create');
     }
@@ -190,9 +195,32 @@ class RepresentantesController extends Controller
         $user->ano = Input::get('ano');
         $user->save();
 
+
+       $updates = DB::table('fecha_adopcion')
+        ->where('colegio_id', '=',Input::get('colegio'))->update([
+        'fecha' => Input::get('fecha'),
+        'ano' => Input::get('ano'),
+        'colegio_id' => Input::get('colegio')
+    ]);
+
     return Redirect('proyeccionventas/'.$user->colegio_id)->with('status', 'ok_create');
     }
 
+
+
+        public function updatefetch($id)
+    {
+      
+        $user = Input::get('colegio');
+       $updates = DB::table('fecha_adopcion')
+        ->where('colegio_id', '=',Input::get('colegio'))->update([
+        'fecha' => Input::get('fecha'),
+        'ano' => Input::get('ano'),
+        'colegio_id' => Input::get('colegio')
+    ]);
+
+    return Redirect('proyeccionventasadopcion/'.$user)->with('status', 'ok_create');
+    }
 
 
 

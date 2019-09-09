@@ -89,13 +89,17 @@ Gestión de usuarios Libros & Libros
                                             <td class="text-center">{{$datos->id}}</td>
                                             <td class="text-center"><b>{{$datos->codigo}}</b></td>
                                             <td class="text-center">${{number_format($datos->esseg,0,",",".")}}</td>
-                                            @foreach($consumido as $consumidos)
+                                            @if(DB::table('esseg_con')->count() == 0)
+                                            <td class="text-center">Sin Esseg</td>
+                                            @else
+                                             @foreach($consumido as $consumidos)
                                             @if($consumidos->miig == $datos->codigo)
                                             <td class="text-center">${{number_format($consumidos->valor,0,",",".")}}</td>
                                             @else
                                             <td class="text-center">Sin Valor</td>
-                                            @endif
+                                            @endif                                            
                                             @endforeach
+                                             @endif
                                             <td class="text-center">{{$datos->nombres}}</td>
                                       
                                         

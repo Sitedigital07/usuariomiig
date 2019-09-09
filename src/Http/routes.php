@@ -228,6 +228,7 @@ Route::post('/actualizarfecha/{id}', 'Digitalmiig\Usuariomiig\Controllers\Repres
 
 Route::post('/crearfechameta', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@createfechameta');
 Route::post('/actualizarfechameta/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefechameta');
+Route::post('/updatefecha/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@updatefetch');
 
 Route::get('/colegio-poblacion/{id}', function ($id) {
  date_default_timezone_set('America/Bogota');
@@ -306,7 +307,7 @@ Route::get('/colegios-asignados/{id}', 'Digitalmiig\Usuariomiig\Controllers\Repr
 
 
 Route::get('proyeccionventas/{id}', function ($id) {
-   
+    $colegios = DB::table('colegios')->where('id',$id)->get();
     $proventas = DB::table('proventas')->where('colegio_id', '=', $id)->get();
     $proventasf = DB::table('proventas')->where('colegio_id', '=', $id)->get();
     $proventasprimero = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 1)->select('id')->orderBy('id', 'DESC')->first();   
@@ -320,6 +321,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
     $proventasnoveno = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 9)->select('id')->orderBy('id', 'DESC')->first();
     $proventasdecimo = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 10)->select('id')->orderBy('id', 'DESC')->first();
     $proventasonce = DB::table('proventas')->where('colegio_id', '=', $id)->where('grado_id', '=', 11)->select('id')->orderBy('id', 'DESC')->first();
+    $anoesma = DB::table('configuracion')->where('id', '=', 1)->get();
     $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     $anoweb = DB::table('configuracion')->where('id', '=', 1)->get();
     $anon = DB::table('configuracion')->where('id', '=', 1)->get();
@@ -413,7 +415,7 @@ Route::get('proyeccionventas/{id}', function ($id) {
         }
         }
 
-    return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','anoweb','fecha'));
+    return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','anoweb','fecha','anoesma','colegios'));
 
 });
 
@@ -801,7 +803,7 @@ Route::group(['middleware' => ['representante']], function (){
     return view('colegiomiig::editar-descuento')->with('descuentos', $descuentos)->with('valores', $valores);
 });
 
-    Route::get('/informe/representantes/{id}', function ($id) {
+    Route::get('/informe/representantes', function () {
   
         $representantes = DB::table('users')
         ->where('id', '=', Auth::user()->id)
@@ -858,6 +860,8 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(proventas.pr_vender_mat*proventas.pr_valor_mat+proventas.pr_vender_esp*proventas.pr_valor_esp+proventas.pr_vender_cie*proventas.pr_valor_cie+proventas.pr_vender_com*proventas.pr_valor_com+proventas.pr_vender_int*proventas.pr_valor_int+proventas.pr_vender_art*proventas.pr_valor_art+proventas.pr_vender_ing*proventas.pr_valor_ing) as totalwebvalor'),
          DB::raw('sum(campos.pr_vender_mat*campos.pr_valor_mat+campos.pr_vender_esp*campos.pr_valor_esp+campos.pr_vender_cie*campos.pr_valor_cie+campos.pr_vender_com*campos.pr_valor_com+campos.pr_vender_int*campos.pr_valor_int+campos.pr_vender_ing*campos.pr_valor_ing+campos.pr_vender_art*campos.pr_valor_art) as totalwebadopvalor'),
          DB::raw('proventas.colegio_id as colegio_id'))
+        ->where('campos.ano','=',2019)
+        ->where('proventas.ano','=',2019)
         ->groupBy('colegio_id')
         ->get();
 
@@ -893,8 +897,11 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_vender_mat+pr_vender_esp+pr_vender_cie+pr_vender_com+pr_vender_int+pr_vender_ing+pr_vender_art) as total_met'),
          DB::raw('sum(pr_muestra_mat+pr_muestra_esp+pr_muestra_cie+pr_muestra_com+pr_muestra_int+pr_muestra_ing+pr_muestra_art) as total_muestramet'),
          DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'),
-         DB::raw('colegio_id as colegio_id'))
+         DB::raw('colegio_id as colegio_id'),
+        DB::raw('ano as ano'))
+        ->where('ano','=',2019)
         ->groupBy('colegio_id')
+
         ->get();
         foreach($informes as $informesweb){
          $informesweb = $informesweb->total_metval;
@@ -926,9 +933,12 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_muestra_ing) as muestra_ing'),
          DB::raw('sum(pr_muestra_art) as muestra_art'),
          DB::raw('sum(pr_vender_mat+pr_vender_esp+pr_vender_cie+pr_vender_com+pr_vender_int+pr_vender_ing+pr_vender_art) as total_met'),
-         DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'))
+         DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'),
+          DB::raw('ano as ano'))
+        ->where('ano','=',2019)
          ->groupBy('representante_id')
-         ->where('representante_id','=',$id) 
+         ->where('representante_id','=',Auth::user()->id)
+
         ->get();
 
         foreach($informes as $informesweb){
@@ -960,14 +970,17 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_muestra_art) as muestra_art'),
          DB::raw('sum(pr_vender_mat+pr_vender_esp+pr_vender_cie+pr_vender_com+pr_vender_int+pr_vender_ing+pr_vender_art) as total_adop'),
          DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_adopval'),
-         DB::raw('colegio_id as colegio_id'))
+         DB::raw('colegio_id as colegio_id'),
+         DB::raw('ano as ano'))
+        ->where('ano','=',2019)
         ->groupBy('colegio_id')
+
         ->get();
 
 
         foreach($informesadopcion as $informeswebsite){
-       $informeswebadop = $informeswebsite->total_adopval;
-         
+       $informeswebadop = $informeswebsite->ano;
+    
         }
 
  $colegiosman = DB::table('colegios')
@@ -984,7 +997,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_muestra_ing) as muestra_ing'),
          DB::raw('sum(pr_muestra_art) as muestra_art'),
          DB::raw('colegio_id as colegio_id'))
-         ->where('representante_id','=',$id) 
+         ->where('representante_id','=',Auth::user()->id) 
         ->get();
 
 
@@ -999,7 +1012,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_muestra_art) as muestra_art'),
          DB::raw('sum(pr_muestra_mat+pr_muestra_esp+pr_muestra_cie+pr_muestra_com+pr_muestra_int+pr_muestra_ing+pr_muestra_art) as total_adop'),
          DB::raw('colegio_id as colegio_id'))
-        ->where('representante_id','=',$id) 
+        ->where('representante_id','=',Auth::user()->id) 
         ->get();
 
 
@@ -1034,7 +1047,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_adopval'),
          DB::raw('representante_id as representante_id'))
         ->groupBy('representante_id')
-        ->where('representante_id','=',$id) 
+        ->where('representante_id','=',Auth::user()->id) 
         ->get();
 
 
@@ -1092,6 +1105,7 @@ $query = DB::table('fecha_adopcion')
          DB::raw('sum(pr_vender_mat*precio) as vender_mat'), 
          DB::raw('colegio_id as colegio_id'))
         ->groupBy('colegio_id')
+     
         ->get();
 
  

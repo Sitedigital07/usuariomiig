@@ -72,10 +72,12 @@ Usted ya realizo el cierre para este colegio
   </a>
  </div>
 
+@foreach($anoweb as $anowebsa)
 
+@endforeach
 
+@if(DB::table('esseg')->where('ano','=',$anowebsa->ano)->where('colegio_id','=',Request::segment(2))->count() == 1)
   <div class="col-sm-4">         
-
   <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
    <div class="widget-simple">
     <div class="widget-icon pull-left themed-background animation-fadeIn">
@@ -92,7 +94,25 @@ Usted ya realizo el cierre para este colegio
    </div>
   </a>
  </div>
-
+@else
+ <div class="col-sm-4">         
+  <a href="#modal-id" data-toggle="modal" class="widget widget-hover-effect1">
+   <div class="widget-simple">
+    <div class="widget-icon pull-left themed-background animation-fadeIn" style="background: red">
+    <i class="fa fa-usd"></i>
+    </div>
+  
+    <div class="pull-right">
+     <span id="mini-chart-brand"></span>
+    </div>
+    <h3 class="widget-content animation-pullDown">
+     <strong style="color: red">Sin Presupuesto ESSEG</strong> 
+     <small>Registrar presupuesto</small>
+    </h3>
+   </div>
+  </a>
+ </div>
+@endif
 
    <div class="col-sm-4">         
 
@@ -149,7 +169,14 @@ Usted ya realizo el cierre para este colegio
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                 @foreach($anoesma as $anoesmad)
+
+     @endforeach   
+
+       @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesmad->ano)->where('cierre','=',1)->exists())
+       @else
         <button type="submit" class="btn btn-primary">Aceptar</button>
+        @endif
       </div>
 
       {{ Form::close() }}
@@ -188,7 +215,9 @@ Usted ya realizo el cierre para este colegio
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
         <button type="submit" class="btn btn-primary">Aceptar</button>
+   
       </div>
 
       {{ Form::close() }}
@@ -226,8 +255,9 @@ Usted ya realizo el cierre para este colegio
               {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','placeholder'=>'','max'=>$total*10/100))}} 
             </div>
           </div>
-    
-         
+            @foreach($colegios as $colegios)
+            {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 
+            @endforeach 
             {{Form::hidden('ano', $ano->ano, array('class' => 'form-control','placeholder'=>''))}}  
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
@@ -235,7 +265,15 @@ Usted ya realizo el cierre para este colegio
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        @foreach($anoesma as $anoesma)
+
+     @endforeach   
+
+       @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
+        
+        @else
+        <button type="submit" class="btn btn-primary">Guardar Fecha</button>
+        @endif
       </div>
 
       {{ Form::close() }}
@@ -260,7 +298,9 @@ Usted ya realizo el cierre para este colegio
             </div>
           </div>
     
-         
+   @foreach($colegios as $colegios)
+            {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 
+            @endforeach 
             {{Form::hidden('ano', $ano->ano, array('class' => 'form-control','placeholder'=>''))}}  
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
