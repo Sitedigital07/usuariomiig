@@ -110,10 +110,7 @@ Gestión de usuarios Libros & Libros
                                             <div class="form-group hidden-xs hidden-md hidden-lg hidden-sm">
                                             <label class="col-md-3 control-label" for="example-text-input">Agencia</label>
                                             <div class="col-md-9">
-                                              <select class="form-control selector" name="agencia" id="agencia">
-                                                <option value="0" selected>Seleccione agencia</option>
-                                             <option value="1"></option>
-                                            </select> 
+                                                  {{Form::text('agencia',$usuarios->ciudadid, array('class' => 'form-control','placeholder'=>''))}}
                                             </div>
                                         </div>
 

@@ -20,6 +20,34 @@ Usted ya realizo el cierre para este colegio
 
 
 {{$total}}
+
+
+
+
+  <div class="container">
+   <?php $status=Session::get('status');?>
+
+    @if($status=='ok_create')
+     <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Contenido registrada con éxito</strong> SD ...
+     </div>
+    @endif
+
+    @if($status=='ok_danger')
+     <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Usted no registro Información para este grado</strong> SD ...
+     </div>
+    @endif
+
+    @if($status=='ok_update')
+     <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Contenido actualizado con éxito</strong> SD ...
+     </div>
+    @endif
+  </div>
 <div class="container">
 
  <div class="col-sm-4">

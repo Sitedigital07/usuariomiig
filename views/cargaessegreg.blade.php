@@ -75,7 +75,8 @@ Gestión de usuarios Libros & Libros
                                           
                                             <th class="text-center">ID</th>
                                             <th class="text-center">DANE</th>
-                                            <th class="text-center">Valor</th>
+                                            <th class="text-center">Esseg</th>
+                                             <th class="text-center">Esseg_con</th>
                                             <th class="text-center">Colegio</th>
                                             <th class="text-center">Año</th>
                                             <th class="text-center">Acciones</th>
@@ -88,6 +89,13 @@ Gestión de usuarios Libros & Libros
                                             <td class="text-center">{{$datos->id}}</td>
                                             <td class="text-center"><b>{{$datos->codigo}}</b></td>
                                             <td class="text-center">${{number_format($datos->esseg,0,",",".")}}</td>
+                                            @foreach($consumido as $consumidos)
+                                            @if($consumidos->miig == $datos->codigo)
+                                            <td class="text-center">${{number_format($consumidos->valor,0,",",".")}}</td>
+                                            @else
+                                            <td class="text-center">Sin Valor</td>
+                                            @endif
+                                            @endforeach
                                             <td class="text-center">{{$datos->nombres}}</td>
                                       
                                         
