@@ -40,7 +40,7 @@
 <table id="testTable" class="table table-bordered table-striped table-hover">
 <tbody>
 <tr>
-<td width="200">Estado {{$date}} {{$date_future}}</td>
+<td width="200">Estado</td>
 <td width="250">Colegio</td>
 <td colspan="2">Metas</td>
 <td colspan="2">Adopciones</td>

@@ -190,7 +190,7 @@ Route::get('excel-esseg', function () {
 Route::get('exportador-esseg/{type}', 'Digitalmiig\Colegiomiig\Controllers\EssegController@exportador');
 Route::post('importador-esseg', 'Digitalmiig\Colegiomiig\Controllers\EssegController@importador');
 Route::post('importador-esseg', 'Digitalmiig\Colegiomiig\Controllers\EssegController@importador');
-Route::get('eliminar-esseg', 'Digitalmiig\Colegiomiig\Controllers\ExportadorControllerweb@eliminaresseg');
+Route::get('eliminar-esseg', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@eliminaresseg');
 
 });
 

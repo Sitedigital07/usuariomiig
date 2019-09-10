@@ -252,7 +252,7 @@ Usted ya realizo el cierre para este colegio
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
             <div class="col-md-9">
-              {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','placeholder'=>'','max'=>$total*10/100))}} 
+              {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
             </div>
           </div>
             @foreach($colegios as $colegios)
@@ -264,7 +264,7 @@ Usted ya realizo el cierre para este colegio
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         @foreach($anoesma as $anoesma)
 
      @endforeach   
@@ -272,7 +272,7 @@ Usted ya realizo el cierre para este colegio
        @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
         
         @else
-        <button type="submit" class="btn btn-primary">Guardar Fecha</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
         @endif
       </div>
 
@@ -294,7 +294,7 @@ Usted ya realizo el cierre para este colegio
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
             <div class="col-md-9">
-              {{Form::number('esseg', '', array('class' => 'form-control','placeholder'=>'', 'max'=>$total*10/100))}} 
+              {{Form::number('esseg', '', array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
             </div>
           </div>
     

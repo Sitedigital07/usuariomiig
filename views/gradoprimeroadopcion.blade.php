@@ -412,7 +412,10 @@ option {
 
   <div class="modal-footer">
        @if(Auth::user()->rol_id == 5)
+      @if (DB::table('cierre')->where('colegio_id', '=', $region->id)->where('ano', '=', $date->ano)->where('cierre','=',1)->exists())
    {{Form::submit('Guardar adopción', array('class' => 'btn btn-primary')  )}}
+   @else
+   @endif
    @else
    @endif
   </div>
