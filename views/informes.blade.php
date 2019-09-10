@@ -231,7 +231,7 @@
 
 
      @if(DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count() >= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1 && DB::table('campos')->where('colegio_id','=',$colegios->id)->count() == 0)
-      <td style="background:#FFCD85"> Dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> 
+      <td style="background:#FFCD85"> Dias:{{round((strtotime($fechaadopcions->fechaguard) - time()) / 86400)}}<br> <br>
       # Adopc: {{DB::table('campos')->where('colegio_id','=',$colegios->id)->count()}} <br>{{DB::table('fecha_adopcion')->where('colegio_id','=',$colegios->id)->count() >= 1 && round((strtotime($fechaadopcions->fechaguard) - time()) / 86400) > 1 && DB::table('campos')->count() == 0}}</td>
      @endif
 
