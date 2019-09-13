@@ -151,7 +151,7 @@ Usted ya realizo el cierre para este colegio
         <h4 class="modal-title">Fecha de cierre</h4>
       </div>
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarfechameta',$fecha->id))) }}
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/actualizarfechameta',$fecha->id))) }}
                                       
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
@@ -175,7 +175,7 @@ Usted ya realizo el cierre para este colegio
 
        @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesmad->ano)->where('cierre','=',1)->exists())
        @else
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <button type="submit" class="btn btn-primary" id="btsubmit">Aceptar</button>
         @endif
       </div>
 
@@ -195,7 +195,7 @@ Usted ya realizo el cierre para este colegio
         <h4 class="modal-title">Fecha de Cierre</h4>
       </div>
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearfechameta'))) }}
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearfechameta'))) }}
                                       
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
@@ -216,7 +216,7 @@ Usted ya realizo el cierre para este colegio
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <button type="submit" class="btn btn-primary" id="btsubmit">Aceptar</button>
    
       </div>
 
@@ -230,11 +230,8 @@ Usted ya realizo el cierre para este colegio
 
  
 
- @foreach($anoe as $anoe)
-   
+ @foreach($anoe as $anoe)  
    @endforeach
-   @if (DB::table('proventas')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
-@foreach($identificador as $identificador)
 
 @if (DB::table('esseg')->where('ano', '=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($esseg as $esseg)
@@ -242,59 +239,67 @@ Usted ya realizo el cierre para este colegio
 <div class="modal fade" id="modal-id">
   <div class="modal-dialog">
     <div class="modal-content">
+      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><b>Actualizar valor Esseg</b></h4>
+        <h4 class="modal-title"><b>Actualizar valor Essegsxfd</b></h4>
       </div>
+      
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/updateesseg',$esseg->id))) }}
+       {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmita()', 'url' => array('/updateesseg',$esseg->id))) }}
                                        
-          <div class="form-group">
-           <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
-            <div class="col-md-9">
-              {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
-            </div>
-          </div>
-            @foreach($colegios as $colegios)
-            {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 
-            @endforeach 
-            {{Form::hidden('ano', $ano->ano, array('class' => 'form-control','placeholder'=>''))}}  
-            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
-
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        @foreach($anoesma as $anoesma)
-
-     @endforeach   
-
-       @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
+        <div class="form-group">
+         <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
+       
+         <div class="col-md-9"> 
+          {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
+         </div>
         
-        @else
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-        @endif
-      </div>
+         @foreach($colegios as $colegios)
+         {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 
+         @endforeach 
+         {{Form::hidden('ano', $ano->ano, array('class' => 'form-control','placeholder'=>''))}}  
+         {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+
+         </div>
+        </div>
+      
+
+        <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+         @foreach($anoesma as $anoesma)
+         @endforeach   
+
+         @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
+         @else
+            {{Form::submit('Aceptar', array('class' => 'btn btn-primary','id' => 'btsubmita')  )}}
+         @endif
+        </div>
 
       {{ Form::close() }}
+
     </div>
   </div>
 </div>
+
+
 @else
 <div class="modal fade" id="modal-id">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><b>Registrar presupuesto ESSEG</b></h4>
+        <h4 class="modal-title"><b>Registrar presupuesto ESSEG sgfda</b></h4>
       </div>
       <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearesseg'))) }}
+        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmita()', 'url' => array('/crearesseg'))) }}
+
+
                                        
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
             <div class="col-md-9">
-              {{Form::number('esseg', '', array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
+              {{Form::number('esseg', '', array('class' => 'form-control','onsubmit' => 'return checkSubmit()','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
             </div>
           </div>
     
@@ -308,7 +313,7 @@ Usted ya realizo el cierre para este colegio
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <button type="submit" class="btn btn-primary" id="btsubmita">Aceptar</button>
       </div>
 
       {{ Form::close() }}
@@ -316,68 +321,7 @@ Usted ya realizo el cierre para este colegio
   </div>
 </div>
 @endif
-@endforeach
-@else
 
-@if($identificador == '')
-<div class="modal fade" id="modal-id">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Presupuesto ESSEG</h4>
-      </div>
-      <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
-                                      
-            
-            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
-
-            <h2>Para ingresar el valor de presupuesto ESSEG debe primero registrar la totalidad de metas del colegio.</h2>
-
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </div>
-
-      {{ Form::close() }}
-    </div>
-  </div>
-</div>
-@else
-@foreach($identificador as $identificador)
-<div class="modal fade" id="modal-id">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Fecha de cierre</h4>
-      </div>
-      <div class="modal-body">
-        {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$identificador))) }}
-                                      
-            
-            {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
-
-            <h2>Para realizar cierre debe registrar datos de venta para el colegio</h2>
-
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" disabled>Cerrar</button>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-      </div>
-
-      {{ Form::close() }}
-    </div>
-  </div>
-</div>
-@endforeach
-@endif
-
-@endif
 
 @if (DB::table('proventas')->where('grado_id', '=', 1)->where('ano','=', $anoe->ano)->where('colegio_id', '=', Request::segment(2))->exists())
 @foreach($proventasprimero  as $proventasprimero)
@@ -560,7 +504,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Septimo</strong>
+      <strong>Grado Séptimo</strong>
  
      </h4>
    </div>
@@ -573,7 +517,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Septimo</strong>
+      <strong>Grado Séptimo</strong>
 
      </h4>
    </div>
@@ -646,7 +590,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Decimo</strong>
+      <strong>Grado Décimo</strong>
 
      </h4>
    </div>
@@ -659,7 +603,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Decimo</strong>
+      <strong>Grado Décimo</strong>
 
      </h4>
    </div>
@@ -707,7 +651,21 @@ Usted ya realizo el cierre para este colegio
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
+    <script type="text/javascript">
+function checkSubmit() {
+    document.getElementById("btsubmit").value = "Enviando...";
+    document.getElementById("btsubmit").disabled = true;
+    return true;
+}
+  </script>
 
+    <script type="text/javascript">
+function checkSubmita() {
+    document.getElementById("btsubmita").value = "Enviando...";
+    document.getElementById("btsubmita").disabled = true;
+    return true;
+}
+  </script>
 @stop
 
 

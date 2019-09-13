@@ -109,7 +109,7 @@ option {
 <div class="container-fluid">
 	
 
- {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/crearproventa/'))) }}
+ {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventa/'))) }}
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
    <h4><b>MT</b> - Matemáticas </h4>
@@ -442,7 +442,7 @@ option {
       @if (DB::table('cierre')->where('colegio_id', '=', $region->id)->where('ano', '=', $date->ano)->where('cierre','=',1)->exists())
  
    @else
-  {{Form::submit('Guardar metas', array('class' => 'btn btn-primary')  )}}
+  {{Form::submit('Guardar metas', array('class' => 'btn btn-primary','id' => 'btsubmit','id' => 'btsubmit')  )}}
    @endif
    @else
    @endif
@@ -457,7 +457,18 @@ option {
 
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+    <script type="text/javascript">
+function checkSubmit() {
+    document.getElementById("btsubmit").value = "Enviando...";
+    document.getElementById("btsubmit").disabled = true;
+    return true;
+}
+  </script>
 <script type="text/javascript">
+
+
   
 $( function() {
     $("#category1a").change( function() {

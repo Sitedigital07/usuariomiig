@@ -389,7 +389,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Septimo</strong>
+      <strong>Grado Séptimo</strong>
 
      </h4>
    </div>
@@ -402,7 +402,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Septimo</strong>
+      <strong>Grado Séptimo</strong>
 
      </h4>
    </div>
@@ -475,7 +475,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Decimo</strong>
+      <strong>Grado Décimo</strong>
      
      </h4>
    </div>
@@ -488,7 +488,7 @@ Usted ya realizo el cierre para este colegio
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
-      <strong>Grado Decimo</strong>
+      <strong>Grado Décimo</strong>
 
      </h4>
    </div>

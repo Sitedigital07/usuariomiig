@@ -100,7 +100,7 @@ Gestión de usuarios Libros & Libros
   
                                  
 @foreach($proventas as $proventas)
-{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'url' => array('/editar-proventaadopcionasi',$proventas->id))) }}
+{{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/editar-proventaadopcionasi',$proventas->id))) }}
 
 @if($proventas->pr_matematicas == 0)
  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
@@ -971,7 +971,7 @@ Gestión de usuarios Libros & Libros
 
   <div class="modal-footer">
    @if(Auth::user()->rol_id == 5)
-   {{Form::submit('Guardar metas', array('class' => 'btn btn-primary')  )}}
+   {{Form::submit('Guardar metas', array('class' => 'btn btn-primary','id' => 'btsubmit')  )}}
    @else
    @endif
   </div>
@@ -983,7 +983,13 @@ Gestión de usuarios Libros & Libros
 
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
+    <script type="text/javascript">
+function checkSubmit() {
+    document.getElementById("btsubmit").value = "Enviando...";
+    document.getElementById("btsubmit").disabled = true;
+    return true;
+}
+  </script>
 <script type="text/javascript">
 $( function() {
     $("#category1a").change( function() {
