@@ -104,13 +104,24 @@ option {
     </script>
 
 @stop
+
+
+
+
 @section('contenido')
  
 
 <div class="container-fluid">
-  
+  @foreach($titulo as $tituloema)
+@if($tituloema->representante_id ==  Auth::user()->id)
+
 
  {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventa/'))) }}
+
+ @else
+ {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventafail/'))) }}
+ @endif
+ @endforeach
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-12">
    <h4><b>MT</b> - Matemáticas </h4>
@@ -445,6 +456,8 @@ option {
    @endif
   </div>
  {{ Form::close() }}
+
+
 
 </div>
 
@@ -831,3 +844,4 @@ $( function() {
 </script>
 
 @stop
+

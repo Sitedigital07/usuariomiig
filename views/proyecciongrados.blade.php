@@ -12,6 +12,12 @@ Gestión de usuarios Libros & Libros
 
 
 @stop
+
+@foreach($colegios as $colegiosa)
+@if($colegiosa->representante_id == Auth::user()->id)
+
+
+
 @section('contenido')
 @foreach($anon as $anon)
 @if (DB::table('proventas')->where('cierre', '=', 1)->where('ano', '=', $anon->ano)->where('colegio_id', '=', Request::segment(2))->exists())
@@ -20,6 +26,7 @@ Usted ya realizo el cierre para este colegio
 
 
 {{$total}}
+
 
 
 
@@ -155,13 +162,24 @@ Usted ya realizo el cierre para este colegio
                                       
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
+    @foreach($anoesma as $anoesmad)
 
+     @endforeach 
+     @if(DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesmad->ano)->where('cierre','=',1)->exists())
             <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">Fecha:</label>
+              <div class="col-sm-10">
+                <input type="date" name="fecha" id="input" class="form-control" value="{{$fecha->fecha}}" required="required" title="" disabled="">
+              </div>
+            </div>
+          @else
+          <div class="form-group">
               <label for="input" class="col-sm-2 control-label">Fecha:</label>
               <div class="col-sm-10">
                 <input type="date" name="fecha" id="input" class="form-control" value="{{$fecha->fecha}}" required="required" title="">
               </div>
             </div>
+          @endif
 
               {{Form::hidden('ano', $fecha->ano, array('class' => 'form-control','placeholder'=>''))}}  
 
@@ -169,9 +187,7 @@ Usted ya realizo el cierre para este colegio
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                 @foreach($anoesma as $anoesmad)
-
-     @endforeach   
+             
 
        @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesmad->ano)->where('cierre','=',1)->exists())
        @else
@@ -242,7 +258,7 @@ Usted ya realizo el cierre para este colegio
       
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><b>Actualizar valor Essegsxfd</b></h4>
+        <h4 class="modal-title"><b>Actualizar valor Esseg</b></h4>
       </div>
       
       <div class="modal-body">
@@ -250,10 +266,17 @@ Usted ya realizo el cierre para este colegio
                                        
         <div class="form-group">
          <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
-       
-         <div class="col-md-9"> 
-          {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
+         @foreach($anoesma as $anoesma)
+         @endforeach
+                  @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
+         <div class="col-md-9">
+          {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','disabled' => 'disabled','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*8/100))}} 
          </div>
+         @else
+         <div class="col-md-9">
+          {{Form::number('esseg', $esseg->esseg, array('class' => 'form-control','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*8/100))}} 
+         </div>
+         @endif
         
          @foreach($colegios as $colegios)
          {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 
@@ -267,8 +290,7 @@ Usted ya realizo el cierre para este colegio
 
         <div class="modal-footer">
          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-         @foreach($anoesma as $anoesma)
-         @endforeach   
+       
 
          @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
          @else
@@ -299,7 +321,7 @@ Usted ya realizo el cierre para este colegio
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
             <div class="col-md-9">
-              {{Form::number('esseg', '', array('class' => 'form-control','onsubmit' => 'return checkSubmit()','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*10/100))}} 
+              {{Form::number('esseg', '', array('class' => 'form-control','onsubmit' => 'return checkSubmit()','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*8/100))}} 
             </div>
           </div>
     
@@ -669,3 +691,12 @@ function checkSubmita() {
 @stop
 
 
+
+@else
+
+@section('contenido')
+<h1 class="text-center"><b>Usted no tiene permisos para gestionar este colegio</b></h1>
+@stop
+
+@endif
+@endforeach

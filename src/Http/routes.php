@@ -848,6 +848,9 @@ $fechafin = $now->format('Y-m-d');
         foreach($informesmat as $informesmats){
             $informesmats = $informesmats->vender_mat;
         }
+
+
+
         $informesesp = DB::table('proventas')
         ->join('campos','campos.colegio_id','=','proventas.colegio_id')
         ->select(DB::raw('sum(proventas.pr_vender_mat) as vender_mat'),
@@ -869,6 +872,74 @@ $fechafin = $now->format('Y-m-d');
         $total = $informesesps->vender_mat + $informesesps->camvender_mat;
         }
 
+
+
+
+        $diferenciameta = DB::table('proventas')
+         ->select(DB::raw('(pr_titulo_mat) as titulo_mat'),
+         DB::raw('sum(pr_vender_mat*pr_valor_mat) as vender_mat'), 
+         DB::raw('sum(pr_vender_esp*pr_valor_esp) as vender_esp'),
+         DB::raw('sum(pr_vender_cie*pr_valor_cie) as vender_cie'),
+         DB::raw('sum(pr_vender_com*pr_valor_com) as vender_com'),
+         DB::raw('sum(pr_vender_int*pr_valor_int) as vender_int'),
+         DB::raw('sum(pr_vender_ing*pr_valor_ing) as vender_ing'),
+         DB::raw('sum(pr_vender_art*pr_valor_art) as vender_art'),
+         DB::raw('sum(pr_vender_mat) as suma_mat'),
+         DB::raw('sum(pr_vender_esp) as suma_esp'),
+         DB::raw('sum(pr_vender_cie) as suma_cie'),
+         DB::raw('sum(pr_vender_com) as suma_com'),
+         DB::raw('sum(pr_vender_int) as suma_int'),
+         DB::raw('sum(pr_vender_ing) as suma_ing'),
+         DB::raw('sum(pr_vender_art) as suma_art'),
+         DB::raw('sum(pr_muestra_mat) as muestra_mat'),
+         DB::raw('sum(pr_muestra_esp) as muestra_esp'),
+         DB::raw('sum(pr_muestra_cie) as muestra_cie'),
+         DB::raw('sum(pr_muestra_com) as muestra_com'),
+         DB::raw('sum(pr_muestra_int) as muestra_int'),
+         DB::raw('sum(pr_muestra_ing) as muestra_ing'),
+         DB::raw('sum(pr_muestra_art) as muestra_art'),
+         DB::raw('sum(pr_vender_mat+pr_vender_esp+pr_vender_cie+pr_vender_com+pr_vender_int+pr_vender_ing+pr_vender_art) as total_met'),
+         DB::raw('sum(pr_muestra_mat+pr_muestra_esp+pr_muestra_cie+pr_muestra_com+pr_muestra_int+pr_muestra_ing+pr_muestra_art) as total_muestramet'),
+         DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'),
+         DB::raw('colegio_id as colegio_id'),
+        DB::raw('ano as ano'))
+        ->where('ano','=',2019)
+        ->groupBy('colegio_id')
+
+        ->get();
+
+         $diferenciaadopcion = DB::table('campos')
+         ->select(DB::raw('(pr_titulo_mat) as titulo_mat'),
+         DB::raw('sum(pr_vender_mat*pr_valor_mat) as vender_mat'), 
+         DB::raw('sum(pr_vender_esp*pr_valor_esp) as vender_esp'),
+         DB::raw('sum(pr_vender_cie*pr_valor_cie) as vender_cie'),
+         DB::raw('sum(pr_vender_com*pr_valor_com) as vender_com'),
+         DB::raw('sum(pr_vender_int*pr_valor_int) as vender_int'),
+         DB::raw('sum(pr_vender_ing*pr_valor_ing) as vender_ing'),
+         DB::raw('sum(pr_vender_art*pr_valor_art) as vender_art'),
+         DB::raw('sum(pr_vender_mat) as suma_mat'),
+         DB::raw('sum(pr_vender_esp) as suma_esp'),
+         DB::raw('sum(pr_vender_cie) as suma_cie'),
+         DB::raw('sum(pr_vender_com) as suma_com'),
+         DB::raw('sum(pr_vender_int) as suma_int'),
+         DB::raw('sum(pr_vender_ing) as suma_ing'),
+         DB::raw('sum(pr_vender_art) as suma_art'),
+         DB::raw('sum(pr_muestra_mat) as muestra_mat'),
+         DB::raw('sum(pr_muestra_esp) as muestra_esp'),
+         DB::raw('sum(pr_muestra_cie) as muestra_cie'),
+         DB::raw('sum(pr_muestra_com) as muestra_com'),
+         DB::raw('sum(pr_muestra_int) as muestra_int'),
+         DB::raw('sum(pr_muestra_ing) as muestra_ing'),
+         DB::raw('sum(pr_muestra_art) as muestra_art'),
+         DB::raw('sum(pr_vender_mat+pr_vender_esp+pr_vender_cie+pr_vender_com+pr_vender_int+pr_vender_ing+pr_vender_art) as total_met'),
+         DB::raw('sum(pr_muestra_mat+pr_muestra_esp+pr_muestra_cie+pr_muestra_com+pr_muestra_int+pr_muestra_ing+pr_muestra_art) as total_muestramet'),
+         DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'),
+         DB::raw('colegio_id as colegio_id'),
+        DB::raw('ano as ano'))
+        ->where('ano','=',2019)
+        ->groupBy('colegio_id')
+
+        ->get();
 
 
         $informes = DB::table('proventas')
@@ -1109,7 +1180,7 @@ $query = DB::table('fecha_adopcion')
         ->get();
 
  
-         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas','esseg','essegcon','date','masa','informesadopcion','informestotales','informesadopciontotales','presupuestomet','presupuestoadop','colegiosman','date','date_future'));
+         return view('usuariomiig::informes', compact('informesweb','informesmat','informesesp','titulos','informeswebadop','representantes','colegios','informes','informesadopcion','fechameta','fechaadopcion','proventas','esseg','essegcon','date','masa','informesadopcion','informestotales','informesadopciontotales','presupuestomet','presupuestoadop','colegiosman','date','date_future','diferenciameta','diferenciaadopcion'));
 });
 
 Route::post('/crearesseg', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createsseg');
