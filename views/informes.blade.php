@@ -159,7 +159,7 @@
 @if($colegios->id == $diferenciameta->colegio_id)
 @if($colegios->id == $diferenciaadopcions->colegio_id)
 <td>{{$diferenciaadopcions->total_met-$diferenciameta->total_met}}</td>
-<td>{{$diferenciaadopcions->total_metval-$diferenciameta->total_metval}} </td>
+<td>${{number_format($diferenciaadopcions->total_metval-$diferenciameta->total_metval,0,",",".")}} </td>
 @endif
 @endif
 @endforeach
@@ -310,8 +310,8 @@
 <td><b>0</b></td>
 <td><b>0</b></td>
 @else
-<td><b>{{$informesadopciontotales->total_adop-$informestotales->total_met}}vcbgd</b></td>
-<td><b>${{number_format($informesadopciontotales->total_adopval-$informestotales->total_metval,0,",",".")}}fd</b></td>
+<td><b>{{$informesadopciontotales->total_adop-$informestotales->total_met}}</b></td>
+<td><b>${{number_format($informesadopciontotales->total_adopval-$informestotales->total_metval,0,",",".")}}</b></td>
 @endif
 <td><b>${{number_format(DB::table('esseg')->where('representante_id','=',Auth::user()->id)->sum('esseg'),0,",",".")}}</b></td>
 <td><b>${{number_format(DB::table('esseg_con')->where('representante_id','=',Auth::user()->id)->sum('valor'),0,",",".")}}</b></td>
