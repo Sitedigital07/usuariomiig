@@ -311,7 +311,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><b>Registrar presupuesto ESSEG sgfda</b></h4>
+        <h4 class="modal-title"><b>Registrar presupuesto ESSEG</b></h4>
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmita()', 'url' => array('/crearesseg'))) }}
