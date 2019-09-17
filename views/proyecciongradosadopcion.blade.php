@@ -11,8 +11,12 @@ Gestión de usuarios Libros & Libros
 
  <script type="text/javascript" src="/validaciones/vendor/jquery/jquery.min.js"></script>
 
-
 @stop
+
+@foreach($colegios as $colegiosa)
+@if($colegiosa->representante_id == Auth::user()->id)
+
+
 @section('contenido')
 @foreach($anon as $anon)
 @if (DB::table('campos')->where('cierre', '=', 1)->where('ano', '=', $anon->ano)->where('colegio_id', '=', Request::segment(2))->exists())
@@ -540,3 +544,11 @@ Usted ya realizo el cierre para este colegio
 @stop
 
 
+@else
+
+@section('contenido')
+<h1 class="text-center"><b>Usted no tiene permisos para gestionar este colegio</b></h1>
+@stop
+
+@endif
+@endforeach
