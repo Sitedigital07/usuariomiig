@@ -153,7 +153,9 @@ $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     foreach($ano as $anoes){
  $datos = DB::table('colegios')
  ->join('esseg','colegios.id','=','esseg.colegio_id')
- ->where('ano','=',$anoes->ano)
+ ->join('esseg_con','colegios.id','=','esseg_con.colegio_id')
+ ->where('esseg.ano','=',$anoes->ano)
+ ->where('esseg_con.ano','=',$anoes->ano)
  ->get();
  $consumido = DB::table('esseg_con')->where('ano','=',$anoes->ano)->get();
 }
