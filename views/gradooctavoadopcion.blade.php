@@ -375,9 +375,9 @@ option {
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" id="1g" class="element" hidden>
      <select class="form-control input-sm" name="pr_titulo_ing" id="category1g" required="required">
       <option value="0" selected>Seleccione título</option>
-       @foreach($titulo as $titulo)
-        @if($titulo->grado == 8)
-        @if($titulo->asignatura == 7)
+       @foreach($titulo as $titulos)
+        @if($titulos->grado == 8)
+        @if($titulos->asignatura == 7)
         @foreach($colegios as $colegiosa)
          @if($colegiosa->adopcion == $titulos->portafolio)
          <option value="{{$titulos->id}}">{{$titulos->nombre}}</option>

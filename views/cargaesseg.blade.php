@@ -88,14 +88,11 @@ Gestión de usuarios Libros & Libros
                                             <td class="text-center">{{$datos->id}}</td>
                                             <td class="text-center">{{$datos->miig}}</td>
                                             <td class="text-center">${{number_format($datos->valor,0,",",".")}}</td>
-                                            @foreach($colegio as $colegiosa)
-                                            @if($colegiosa->codigo == $datos->miig)
-                                            <td class="text-center">{{$colegiosa->nombres}}</td>
-                                         @else
-
-                                   
-                                                @endif
-                                             @endforeach
+                            
+                               
+                                            <td class="text-center">{{$datos->nombres}}</td>
+                            
+                            
                                         <td class="text-center">{{$datos->identificador}}</td>
                              
 

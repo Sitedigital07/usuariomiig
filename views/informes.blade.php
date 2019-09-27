@@ -154,12 +154,12 @@
 
 
 @if(DB::table('campos')->where('colegio_id',$colegios->id)->first())
-@foreach($diferenciameta as $diferenciameta)
+@foreach($diferenciameta as $diferenciametas)
 @foreach($diferenciaadopcion as $diferenciaadopcions)
-@if($colegios->id == $diferenciameta->colegio_id)
+@if($colegios->id == $diferenciametas->colegio_id)
 @if($colegios->id == $diferenciaadopcions->colegio_id)
-<td>{{$diferenciaadopcions->total_met-$diferenciameta->total_met}}</td>
-<td>${{number_format($diferenciaadopcions->total_metval-$diferenciameta->total_metval,0,",",".")}} </td>
+<td>{{$diferenciaadopcions->total_met-$diferenciametas->total_met}}</td>
+<td>${{number_format($diferenciaadopcions->total_metval-$diferenciametas->total_metval,0,",",".")}} </td>
 @endif
 @endif
 @endforeach

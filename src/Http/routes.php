@@ -136,10 +136,24 @@ Route::get('/configuracion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosContro
 Route::post('/configuracionupdate', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@configuracionupdate');
 
 Route::get('/carga-esseg', function () {
- $datos = DB::table('esseg_con')->get();
- $colegio  = DB::table('colegios')->get();
- return view('usuariomiig::cargaesseg',compact('datos','colegio'));    
+ $datos = DB::table('colegios')
+ ->join('esseg_con', 'colegios.id', '=', 'esseg_con.colegio_id')
+ ->select(
+                  'colegios.nombres',
+                  'esseg_con.miig',
+                  'esseg_con.valor',
+                  'esseg_con.identificador',
+                  'esseg_con.id'
+                
+          )
+ ->get();
+
+ return view('usuariomiig::cargaesseg',compact('datos'));    
 });
+
+
+
+
 
 Route::post('/editar-descuentos/{id}', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@editardescuentowebsite');
 
@@ -152,8 +166,8 @@ Route::get('/carga-essegreg', function () {
 $ano = DB::table('configuracion')->where('id', '=', 1)->get();
     foreach($ano as $anoes){
  $datos = DB::table('colegios')
- ->join('esseg','colegios.id','=','esseg.colegio_id')
  ->join('esseg_con','colegios.id','=','esseg_con.colegio_id')
+  ->join('esseg','colegios.id','=','esseg.colegio_id')
  ->where('esseg.ano','=',$anoes->ano)
  ->where('esseg_con.ano','=',$anoes->ano)
  ->get();
