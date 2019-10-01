@@ -136,7 +136,11 @@ Usted ya realizo el cierre para este colegio
       ], null, array('class' => 'form-control')) }}
      </div>
    </div> 
-
+   @if(DB::table('proventas')->where('colegio_id',Request::segment(2))->count() == 0)
+    {{Form::hidden('indice', '0', array('class' => 'form-control','placeholder'=>''))}}  
+    @else
+     {{Form::hidden('indice', '1', array('class' => 'form-control','placeholder'=>''))}}  
+    @endif
               @foreach($anoweb as $anowebs)
             {{Form::hidden('ano', $cierre->ano, array('class' => 'form-control','placeholder'=>''))}}  
               @endforeach
