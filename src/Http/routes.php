@@ -832,6 +832,51 @@ Route::get('/usuario/ajax-subcat',function(){
 });
 
 
+
+Route::get('/informe/representantesplata', function () {
+
+$colegios = DB::table('colegios')
+->where('ciudad_id','=',11)
+->get();
+$general = DB::table('campos')
+->select(DB::raw('campos.pr_titulo_mat as titulo_mat'),
+ DB::raw('campos.pr_vender_mat as vender_mat'),
+ DB::raw('campos.pr_muestra_mat as muestra_mat'),
+ DB::raw('campos.pr_titulo_esp as titulo_esp'),
+ DB::raw('campos.pr_vender_esp as vender_esp'),
+ DB::raw('campos.pr_muestra_esp as muestra_esp'),
+ DB::raw('campos.pr_titulo_cie as titulo_cie'),
+ DB::raw('campos.pr_vender_cie as vender_cie'),
+ DB::raw('campos.pr_muestra_cie as muestra_cie'),
+ DB::raw('campos.pr_titulo_com as titulo_com'),
+ DB::raw('campos.pr_vender_com as vender_com'),
+ DB::raw('campos.pr_muestra_com as muestra_com'),
+ DB::raw('campos.pr_titulo_ing as titulo_ing'),
+ DB::raw('campos.pr_vender_ing as vender_ing'),
+ DB::raw('campos.pr_muestra_ing as muestra_ing'),
+ DB::raw('campos.pr_titulo_art as titulo_art'),
+ DB::raw('campos.pr_vender_art as vender_art'),
+ DB::raw('campos.pr_muestra_art as muestra_art'),
+ DB::raw('campos.pr_titulo_art as titulo_int'),
+ DB::raw('campos.pr_vender_art as vender_int'),
+ DB::raw('campos.pr_muestra_art as muestra_int'),
+ DB::raw('colegio_id as colegio_id'),
+ DB::raw('ano as ano'),
+ DB::raw('grado_id as grado_id'))
+->where('campos.ciudad_id','=',11)
+->where('ano','=',2019)
+->get();
+foreach ($general as $generalweb) {
+    $titulos = DB::table('titulo')->get();
+}
+
+
+
+return view('colegiomiig::generico')->with('general', $general)->with('colegios', $colegios)->with('titulos', $titulos);
+});
+
+
+
 Route::group(['middleware' => ['representante']], function (){
 
     Route::get('/editar-descuentorep/{id}', function ($id) {
@@ -839,6 +884,10 @@ Route::group(['middleware' => ['representante']], function (){
      $valores = DB::table('descuentos')->where('id', '=', 1)->get();
     return view('colegiomiig::editar-descuento')->with('descuentos', $descuentos)->with('valores', $valores);
 });
+
+
+
+
 
     Route::get('/informe/representantes', function () {
   
@@ -903,6 +952,7 @@ $fechafin = $now->format('Y-m-d');
         ->where('campos.ano','=',2019)
         ->where('proventas.ano','=',2019)
         ->groupBy('colegio_id')
+
         ->get();
 
         foreach ($informesesp as $informesesps) {
@@ -941,6 +991,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('colegio_id as colegio_id'),
         DB::raw('ano as ano'))
         ->where('ano','=',2019)
+        ->where('representante_id','=',Auth::user()->id)
         ->groupBy('colegio_id')
 
         ->get();
@@ -974,6 +1025,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('colegio_id as colegio_id'),
         DB::raw('ano as ano'))
         ->where('ano','=',2019)
+        ->where('representante_id','=',Auth::user()->id)
         ->groupBy('colegio_id')
 
         ->get();
@@ -1008,6 +1060,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('colegio_id as colegio_id'),
         DB::raw('ano as ano'))
         ->where('ano','=',2019)
+        ->where('representante_id','=',Auth::user()->id)
         ->groupBy('colegio_id')
 
         ->get();
@@ -1081,6 +1134,7 @@ $fechafin = $now->format('Y-m-d');
          DB::raw('colegio_id as colegio_id'),
          DB::raw('ano as ano'))
         ->where('ano','=',2019)
+        ->where('representante_id','=',Auth::user()->id) 
         ->groupBy('colegio_id')
 
         ->get();

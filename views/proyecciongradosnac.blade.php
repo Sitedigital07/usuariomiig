@@ -121,7 +121,11 @@ Usted ya realizo el cierre para este colegio
         @foreach($cierre as $cierre)
 
          {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/actualizarcierrecolegio',$cierre->id)))}}
-                                      
+@foreach($colegios as $colegiosweb)
+{{Form::hidden('representante', $colegiosweb->representante_id, array('class' => 'form-control','placeholder'=>''))}}  
+{{Form::hidden('ciudad', $colegiosweb->ciudad_id, array('class' => 'form-control','placeholder'=>''))}}  
+{{Form::hidden('region', $colegiosweb->region_id, array('class' => 'form-control','placeholder'=>''))}}  
+@endforeach                                                    
             
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
@@ -163,7 +167,7 @@ Usted ya realizo el cierre para este colegio
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Fecha de cierre</h4>
+        <h4 class="modal-title">Fecha de cierre c</h4>
       </div>
       <div class="modal-body">
          {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearcierrecolegio')) )}}
@@ -175,6 +179,20 @@ Usted ya realizo el cierre para este colegio
             <div class="form-group">
     <label class="col-md-3 control-label" for="example-text-input">Fecha</label>
      <div class="col-md-9">
+
+        @foreach($colegios as $colegiosweb)
+{{Form::hidden('representante', $colegiosweb->representante_id, array('class' => 'form-control','placeholder'=>''))}}  
+{{Form::hidden('ciudad', $colegiosweb->ciudad_id, array('class' => 'form-control','placeholder'=>''))}}  
+{{Form::hidden('region', $colegiosweb->region_id, array('class' => 'form-control','placeholder'=>''))}}  
+@endforeach                                                    
+            
+
+         @if(DB::table('proventas')->where('colegio_id',Request::segment(2))->count() == 0)
+    {{Form::hidden('indice', '0', array('class' => 'form-control','placeholder'=>''))}}  
+    @else
+     {{Form::hidden('indice', '1', array('class' => 'form-control','placeholder'=>''))}}  
+    @endif
+
       {{ Form::select('cierre', ['' => '-- Seleccione Cierre --',
       '1' => 'Cerrar Colegio',
       '2' => 'Abrir Colegio'
