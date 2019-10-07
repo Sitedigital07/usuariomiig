@@ -315,15 +315,25 @@ Usted ya realizo el cierre para este colegio
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'onsubmit' => 'return checkSubmita()', 'url' => array('/crearesseg'))) }}
-
-
+ @foreach($anoesma as $anoesma)
+         @endforeach
+@if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
                                        
+          <div class="form-group">
+           <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
+            <div class="col-md-9">
+              {{Form::number('esseg', '', array('class' => 'form-control','onsubmit' => 'return checkSubmit()','required' => 'required','disabled' => 'disabled','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*8/100))}} 
+            </div>
+          </div>
+          @else
+
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Presupuesto Esseg</label>
             <div class="col-md-9">
               {{Form::number('esseg', '', array('class' => 'form-control','onsubmit' => 'return checkSubmit()','required' => 'required','placeholder'=>'Ingrese valor esseg','min'=>'0','max'=>$total*8/100))}} 
             </div>
           </div>
+          @endif
     
    @foreach($colegios as $colegios)
             {{Form::hidden('ciudad', $colegios->ciudad_id, array('class' => 'form-control','placeholder'=>''))}} 

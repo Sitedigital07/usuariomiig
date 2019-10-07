@@ -367,7 +367,7 @@ Usted ya realizo el cierre para este colegio
       </div>
       <div class="modal-body">
         {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/crearesseg'))) }}
-                                       
+                       
           <div class="form-group">
            <label class="col-md-3 control-label" for="example-text-input">Cantidad Esseg</label>
             <div class="col-md-9">
