@@ -342,11 +342,17 @@ Usted ya realizo el cierre para este colegio
             {{Form::hidden('colegio', Request::segment(2), array('class' => 'form-control','placeholder'=>''))}}  
 
       </div>
-
+      @if (DB::table('cierre')->where('colegio_id', '=', Request::segment(2))->where('ano', '=', $anoesma->ano)->where('cierre','=',1)->exists()) 
       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+      </div>
+      @else
+       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary" id="btsubmita">Aceptar</button>
       </div>
+      @endif
 
       {{ Form::close() }}
     </div>
