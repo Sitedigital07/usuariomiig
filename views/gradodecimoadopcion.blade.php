@@ -1,4 +1,4 @@
-@extends ('adminsite.asistente')
+@extends ('adminsite.representante')
 <!-- Define el titulo de la Página -->    
 @section('title')
 Gestión de usuarios Libros & Libros
@@ -110,7 +110,7 @@ option {
 <div class="container-fluid">
   
 
-  @foreach($titulomet as $tituloema)
+  @foreach($colegios as $tituloema)
 @if($tituloema->representante_id ==  Auth::user()->id)
 
 

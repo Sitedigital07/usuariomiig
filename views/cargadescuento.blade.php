@@ -18,6 +18,9 @@ Gestión de usuarios Libros & Libros
                                 <li class="active">
                                     <a href="/carga-descuento"><i class="gi gi-charts"></i> Descuentos</a>
                                 </li>
+                                     <li class="active">
+                                    <a href="/descuentos-asignados"><i class="gi gi-charts"></i> Descuentos Asignados</a>
+                                </li>
                             
                              
                             </ul>

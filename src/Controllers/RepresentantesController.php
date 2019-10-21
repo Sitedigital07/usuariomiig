@@ -219,6 +219,13 @@ class RepresentantesController extends Controller
         'colegio_id' => Input::get('colegio')
     ]);
 
+        DB::table('fecha_registro')->insert([
+    ['colegio_id' => Input::get('colegio'),
+     'fecha' => Input::get('fecha'),
+     'ano' => Input::get('ano')
+   ]
+]);
+
     return Redirect('proyeccionventasadopcion/'.$user)->with('status', 'ok_create');
     }
 

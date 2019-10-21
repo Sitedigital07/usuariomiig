@@ -349,7 +349,7 @@ Usted ya realizo el cierre para este colegio
 @endforeach
 @else
   <div class="col-sm-12 col-lg-4">
-  <a href="/grado-sextoadopcion/{{Request::segment(2)}}" class="widget widget-hover-effect1 themed-background">
+  <a href="/grado-sextoadopcionnac/{{Request::segment(2)}}" class="widget widget-hover-effect1 themed-background">
    <div class="widget-simple">
     <img src="/adminsite/img/placeholders/avatars/avatar.jpg" alt="avatar" class="widget-image img-circle pull-left">
      <h4 class="widget-content widget-content-light">
