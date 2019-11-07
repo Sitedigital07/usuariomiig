@@ -11,7 +11,11 @@ Gestión de usuarios Libros & Libros
 @stop
 
 @section('contenido')
-
+ <script language="JavaScript">
+           function confirmar ( mensaje ) {
+           return confirm( mensaje );}
+           </script>
+           
 
 <div class="content-header">
                             <ul class="nav-horizontal text-center">
@@ -22,8 +26,15 @@ Gestión de usuarios Libros & Libros
                                     <a href="/excel-esseg"><i class="fa fa-download"></i> Importar Exportar</a>
                                 </li>
                                  <li>
-                                    <a href="/eliminar-esseg"><i class="fa fa-download"></i> Eliminar Esseg</a>
+                                    <a href="/eliminar-esseg" onclick="return confirmar('¿Está seguro que desea eliminar el registro esseg?')"><i class="fa fa-download"></i> Eliminar Esseg</a>
                                 </li>
+
+
+
+          
+
+
+
                                 <li>
                                     <a href="/carga-essegreg"><i class="fa fa-balance-scale"></i> Esseg Registrado</a>
                                 </li>
@@ -54,6 +65,13 @@ Gestión de usuarios Libros & Libros
        <strong>Colegio</strong> actualizado con éxito.
      </div>
     @endif
+  @if($status=='ok_createimp')
+     <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Los datos</strong> de esseg fueron importados satisfactoriamente.
+     </div>
+    @endif
+  
   </div>
 
 
