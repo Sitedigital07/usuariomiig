@@ -55,7 +55,7 @@ Gestión de usuarios Libros & Libros
     @if($status=='ok_delete')
      <div class="alert alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Colegio</strong> actualizado con éxito.
+      <strong>Registro</strong> de ESSEG eliminados correctamente.
      </div>
     @endif
 
