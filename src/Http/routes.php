@@ -857,7 +857,7 @@ Route::post('/crearproventa', 'Digitalmiig\Colegiomiig\Controllers\ColegiosContr
 
 
 
-Route::post('/crearproventaadopcion', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createproventawebadopcion');
+Route::post('/crearproventaadopcioncor', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createproventawebadopcion');
 
 });
 

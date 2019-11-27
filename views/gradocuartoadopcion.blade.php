@@ -114,7 +114,7 @@ option {
 @if($tituloema->representante_id ==  Auth::user()->id)
 
 
- {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventaadopcion/'))) }}
+ {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventaadopcioncor/'))) }}
 
  @else
  {{ Form::open(array('method' => 'POST', 'id' => 'defaultForm', 'onsubmit' => 'return checkSubmit()', 'url' => array('/crearproventaadopcionfail/'))) }}
