@@ -853,7 +853,7 @@ Route::get('proyeccionventasedit/{id}', function ($id) {
     return view('usuariomiig::proyeccion-ventasedit')->with('grados', $grados)->with('data', $data)->with('editorial', $editorial)->with('editoriala', $editorial)->with('editorialb', $editorial)->with('editorialc', $editorial)->with('editoriald', $editorial)->with('editoriale', $editorial)->with('editorialf', $editorial)->with('region', $region)->with('categories', $categories)->with('colegios', $colegios)->with('visuales', $visuales)->with('titulo', $titulo)->with('titulof', $titulo)->with('titulosa', $titulosa)->with('titulosaf', $titulosa)->with('areas', $areas)->with('asignaturas', $asignaturas)->with('date', $date)->with('ano', $ano)->with('tituloweb', $tituloweb)->with('nombretitulo', $nombretitulo)->with('nombretitulof', $nombretitulo)->with('titulosam', $titulosam)->with('titulosad', $titulosa)->with('datef', $data);
 });
 
-Route::post('/crearproventa', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createproventaweb');
+Route::post('/crearproventaco', 'Digitalmiig\Colegiomiig\Controllers\ColegiosController@createproventaweb');
 
 
 
