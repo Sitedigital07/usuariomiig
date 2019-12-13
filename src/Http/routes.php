@@ -27,7 +27,7 @@ Route::post('loginada', function(){
 });
 
 
-Route::post('login', function(){
+Route::post('logindesa', function(){
 
 	$credentials = Input::only('email', 'password'); 
     if ( ! Auth::attempt($credentials))
@@ -228,7 +228,7 @@ Route::get('/editar-essegreg/{id}', function ($id) {
   
 
 
-Route::post('/editaressegcolreg/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcolreg');
+Route::post('/editaressegcolregcol/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcolregcol');
 Route::post('/editaressegcol/{id}', 'Digitalmiig\Usuariomiig\Controllers\RepresentantesController@editaressegcol');
 
 Route::get('excel-esseg', function () {
@@ -454,9 +454,15 @@ Route::get('proyeccionventas/{id}', function ($id) {
 
         $ajusteesseg = DB::table('esseg')->where('colegio_id','=',$id)->get();
 
+        $cierre = DB::table('cierre')->where('colegio_id','=',$id)->get();
         
+        foreach ($cierre as $cierre) {
+            $cierremet = $cierre->cierre;
+            if($cierremet == 1){
 
+            }
        
+       else{
         foreach ($ajusteesseg as $ajusteesseg) {
             $essegdit = $ajusteesseg->esseg;
 
@@ -466,6 +472,10 @@ Route::get('proyeccionventas/{id}', function ($id) {
         else{
           
         }
+
+        }
+        }
+
         }
 
     return view('usuariomiig::proyecciongrados', compact('proventas','proventasf','proventasprimero','proventassegundo','proventastercero','proventascuarto','proventasquinto','proventassexto','proventasseptimo','proventasoctavo','proventasnoveno','proventasdecimo','proventasonce','proventasonce','ano','identificador','anon','anoe','identificadores','total','esseg','anoweb','fecha','anoesma','colegios'));

@@ -28,7 +28,7 @@ Gestión de usuarios Libros & Libros
                                     </div>
                                     <!-- END Form Elements Title -->
                                     @foreach($esseg as $esseg)
-                                    {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/editaressegcolreg',$esseg->id))) }}
+                                    {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm', 'url' => array('/editaressegcolregcol',$esseg->id))) }}
                            
                                    
                                       

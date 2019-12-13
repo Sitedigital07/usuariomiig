@@ -163,7 +163,7 @@ class RepresentantesController extends Controller
     }
 
 
-         public function editaressegcolreg($id)
+         public function editaressegcolregcol($id)
     {
         $input = Input::all();
         $user = Esseg::find($id);
