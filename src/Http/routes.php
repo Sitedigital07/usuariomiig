@@ -60,6 +60,26 @@ Route::group(['middleware' => ['auditor']], function (){
  Route::get('/informe/descuentos', function () {
 
   $ano = Input::get('ano');
+    $adopcionescon = DB::table('campos')
+->join('esseg_con','esseg_con.colegio_id','=','campos.colegio_id')
+->leftJoin('descuento','descuento.colegio_id','=','campos.colegio_id')
+->leftJoin('fecha_meta','fecha_meta.colegio_id','=','campos.colegio_id')
+->leftJoin('fecha_adopcion','fecha_adopcion.colegio_id','=','campos.colegio_id')
+
+ ->select(
+ DB::raw('sum(pr_vender_mat*pr_valor_mat+pr_vender_esp*pr_valor_esp+pr_vender_cie*pr_valor_cie+pr_vender_com*pr_valor_com+pr_vender_int*pr_valor_int+pr_vender_ing*pr_valor_ing+pr_vender_art*pr_valor_art) as total_metval'),
+ DB::raw('campos.colegio_id as colegio_id'),
+ DB::raw('fecha_meta.fecha as fecha_meta'),
+  DB::raw('fecha_adopcion.fecha as fecha_adopcion'),
+  DB::raw('valor as valor'),
+  DB::raw('descuento as descuento'),
+ DB::raw('campos.ano as ano'))
+ ->where('campos.ano','=',$ano)
+
+ ->groupBy('campos.colegio_id')
+ ->get();
+
+
     $colegios = DB::table('colegios')
     ->join('descuento', 'colegios.id', '=', 'descuento.colegio_id')
     ->select(
@@ -74,7 +94,7 @@ Route::group(['middleware' => ['auditor']], function (){
 
 
          if(DB::table('descuento')->where('ano','=',$ano)->first()){
-        return view('usuariomiig::informes-descuento')->with('colegios', $colegios);
+        return view('usuariomiig::informes-descuento')->with('colegios', $colegios)->with('adopcionescon', $adopcionescon);
 }
     else{
  return view('colegiomiig::respuesta-filtro');

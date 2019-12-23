@@ -54,7 +54,15 @@
 <td>{{$colegios->codigo}}</td>
 <td>{{$colegios->nombres}}</td>
 <td>{{$colegios->ano}}</td>
-<td><b>{{$colegios->descuento}}%</b></td>
+@foreach($adopcionescon as $adopcionesconw)
+@if($colegios->id == $adopcionesconw->colegio_id)
+@if($adopcionesconw->valor == 0 OR $adopcionesconw->total_metval == 0)
+<td>0</td>
+@else
+<td><b>{{number_format($adopcionesconw->valor/$adopcionesconw->total_metval*100+$adopcionesconw->descuento,2,",",".")}} %</b></td>
+@endif
+@endif
+@endforeach
 </tr>
 @endforeach
 </tbody>
